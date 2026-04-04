@@ -1,0 +1,98 @@
+name: Check and Update Live Sources
+
+on:
+  schedule:
+    - cron: '0 2 * * *'   # 每天凌晨 2 点运行一次（UTC时间）
+  workflow_dispatch:          # 支持在 Actions 页面手动触发
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Check sources and update active_lives.m3u
+        run: |
+          python3 << 'EOF'
+          import urllib.request
+          import urllib.error
+          import sys
+
+          def check_and_fetch(url, timeout=15):
+              """
+              检测 URL 是否有效，并验证内容是合法 m3u 格式
+              返回 (是否有效, 内容)
+              """
+              try:
+                  req = urllib.request.Request(
+                      url,
+                      headers={"User-Agent": "Mozilla/5.0 (compatible; TVBox checker)"}
+                  )
+                  with urllib.request.urlopen(req, timeout=timeout) as resp:
+                      if resp.status != 200:
+                          return False, None
+                      # 先读前512字节验证格式
+                      head = resp.read(512).decode("utf-8", errors="ignore")
+                      if "#EXTM3U" not in head:
+                          print(f"  ⚠️  内容不是合法 m3u 格式")
+                          return False, None
+                      # 格式验证通过，读取完整内容
+                      rest = resp.read().decode("utf-8", errors="ignore")
+                      return True, head + rest
+              except urllib.error.HTTPError as e:
+                  print(f"  HTTP {e.code}")
+                  return False, None
+              except Exception as e:
+                  print(f"  连接失败: {e}")
+                  return False, None
+
+          # 读取候选源列表
+          with open("sources_pool.txt", encoding="utf-8") as f:
+              sources = [
+                  line.strip()
+                  for line in f
+                  if line.strip() and not line.startswith("#")
+              ]
+
+          print(f"共找到 {len(sources)} 个候选源，开始检测...\n")
+
+          active_url = None
+          active_content = None
+
+          for i, url in enumerate(sources, 1):
+              print(f"[{i}/{len(sources)}] 检测: {url}")
+              ok, content = check_and_fetch(url)
+              if ok:
+                  print(f"  ✅ 有效，频道数: {content.count('#EXTINF')}")
+                  active_url = url
+                  active_content = content
+                  break
+              else:
+                  print(f"  ❌ 无效，跳过")
+
+          print()
+
+          if active_content:
+              with open("active_lives.m3u", "w", encoding="utf-8") as f:
+                  f.write(active_content)
+              print(f"✅ active_lives.m3u 已更新，来源: {active_url}")
+          else:
+              print("⚠️  所有候选源均无效，保留原有 active_lives.m3u 不变")
+              sys.exit(0)
+          EOF
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add active_lives.m3u
+          # 只有文件真正变化时才提交，避免无意义的 commit
+          if git diff --staged --quiet; then
+            echo "内容无变化，跳过提交"
+          else
+            git commit -m "chore: update active source [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+            git push
+            echo "✅ 已推送更新"
+          fi

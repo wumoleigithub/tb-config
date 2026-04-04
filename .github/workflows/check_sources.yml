@@ -21,6 +21,9 @@ jobs:
           import urllib.parse
           import json
           import sys
+          import re
+
+          # ── 工具函数 ──────────────────────────────────────────
 
           def encode_url(url):
               try:
@@ -32,18 +35,15 @@ jobs:
                       host = parsed.hostname.encode('idna').decode('ascii')
                   except Exception:
                       host = parsed.hostname
-                  netloc = host
-                  if parsed.port:
-                      netloc += f":{parsed.port}"
-                  path = urllib.parse.quote(parsed.path, safe='/')
+                  netloc = host + (f":{parsed.port}" if parsed.port else "")
+                  path  = urllib.parse.quote(parsed.path, safe='/')
                   query = urllib.parse.quote(parsed.query, safe='=&')
                   return urllib.parse.urlunsplit((parsed.scheme, netloc, path, query, ''))
 
           def fetch_text(url, timeout=15):
               try:
-                  encoded = encode_url(url)
                   req = urllib.request.Request(
-                      encoded,
+                      encode_url(url),
                       headers={"User-Agent": "Mozilla/5.0 (compatible; TVBox checker)"}
                   )
                   with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -51,42 +51,94 @@ jobs:
                           return None
                       return resp.read().decode("utf-8", errors="ignore")
               except Exception as e:
-                  print(f"  连接失败: {e}")
+                  print(f"    fetch 失败: {e}")
                   return None
 
-          def try_as_m3u(content):
-              """直接就是 m3u 格式"""
-              if content and "#EXTM3U" in content[:512]:
-                  return content
-              return None
+          # ── 输入层：识别来源类型 ──────────────────────────────
 
-          def try_as_config_json(content, source_url):
-              """从 config.json 里提取直播源 URL 并验证"""
-              try:
-                  data = json.loads(content)
-              except Exception:
-                  return None
+          def detect_source_type(url, content):
+              """
+              返回: 'm3u' | 'json' | 'jar' | 'unknown'
+              """
+              # jar 接口特征：URL 包含 .jar 或 content 以 PK 开头（zip magic bytes）
+              if url.endswith('.jar') or (content and content[:2] == 'PK'):
+                  return 'jar'
+              if content and content.lstrip().startswith('{'):
+                  try:
+                      json.loads(content)
+                      return 'json'
+                  except Exception:
+                      pass
+              if content and '#EXTM3U' in content[:1024]:
+                  return 'm3u'
+              return 'unknown'
 
-              lives = data.get("lives", [])
-              if not lives:
-                  print(f"  ⚠️  config.json 里没有 lives 字段")
-                  return None
+          # ── 解析层：过滤频道 ──────────────────────────────────
 
-              for item in lives:
-                  live_url = item.get("url", "")
-                  if not live_url:
-                      continue
-                  print(f"  → 发现直播源 URL: {live_url}")
-                  live_content = fetch_text(live_url)
-                  if live_content and "#EXTM3U" in live_content[:512]:
-                      print(f"  ✅ 直播源有效，频道数: {live_content.count('#EXTINF')}")
-                      return live_content
+          # 允许的流协议后缀 / 关键词
+          ALLOWED = re.compile(r'\.(m3u8|flv|ts)(\?|$)', re.IGNORECASE)
+          # 丢弃的流特征
+          BLOCKED = re.compile(r'^(proxy://|ext://)', re.IGNORECASE)
+          BLOCKED_KW = re.compile(r'spider|#EXT-X-KEY', re.IGNORECASE)
+
+          def is_clean_stream(stream_url):
+              """判断单条流地址是否可用"""
+              if BLOCKED.match(stream_url):
+                  return False
+              if BLOCKED_KW.search(stream_url):
+                  return False
+              if ALLOWED.search(stream_url):
+                  return True
+              # 没有明确后缀但是 http(s) 直链也暂时放行，由播放器决定
+              if stream_url.startswith('http'):
+                  return True
+              return False
+
+          def filter_m3u(content):
+              """
+              解析 m3u 内容，过滤掉不可用的频道，返回干净的 m3u 字符串。
+              返回 None 表示过滤后没有任何有效频道。
+              """
+              lines = content.splitlines()
+              output = ['#EXTM3U']
+              i = 0
+              # 跳过第一行 #EXTM3U
+              if lines and lines[0].startswith('#EXTM3U'):
+                  i = 1
+
+              kept = 0
+              dropped = 0
+              while i < len(lines):
+                  line = lines[i].strip()
+                  if line.startswith('#EXTINF'):
+                      # 下一行应该是流地址
+                      j = i + 1
+                      while j < len(lines) and not lines[j].strip():
+                          j += 1
+                      if j < len(lines):
+                          stream = lines[j].strip()
+                          if is_clean_stream(stream):
+                              output.append(line)
+                              output.append(stream)
+                              kept += 1
+                          else:
+                              dropped += 1
+                          i = j + 1
+                      else:
+                          i += 1
                   else:
-                      print(f"  ❌ 直播源无效或不是 m3u 格式")
+                      # 保留其他注释行（分组标签等）
+                      if line.startswith('#'):
+                          output.append(line)
+                      i += 1
 
-              return None
+              print(f"    保留频道: {kept}，丢弃频道: {dropped}")
+              if kept == 0:
+                  return None
+              return '\n'.join(output)
 
-          # 读取候选源
+          # ── 主流程 ────────────────────────────────────────────
+
           with open("sources_pool.txt", encoding="utf-8") as f:
               sources = [
                   line.strip()
@@ -97,31 +149,61 @@ jobs:
           print(f"共找到 {len(sources)} 个候选源，开始检测...\n")
 
           active_content = None
-          active_url = None
+          active_url     = None
 
           for i, url in enumerate(sources, 1):
-              print(f"[{i}/{len(sources)}] 检测: {url}")
-              content = fetch_text(url)
-              if not content:
-                  print(f"  ❌ 无法获取内容，跳过")
+              print(f"[{i}/{len(sources)}] {url}")
+              raw = fetch_text(url)
+              if not raw:
+                  print(f"  ❌ 无法获取内容\n")
                   continue
 
-              # 先尝试直接当 m3u 解析
-              result = try_as_m3u(content)
-              if result:
-                  print(f"  ✅ 直接是 m3u 格式，频道数: {result.count('#EXTINF')}")
-                  active_content = result
-                  active_url = url
-                  break
+              stype = detect_source_type(url, raw)
+              print(f"  类型: {stype}")
 
-              # 再尝试当 config.json 解析
-              result = try_as_config_json(content, url)
-              if result:
-                  active_content = result
-                  active_url = url
-                  break
+              if stype == 'jar':
+                  print(f"  ⛔ jar 接口，丢弃\n")
+                  continue
 
-              print(f"  ❌ 无效，跳过")
+              elif stype == 'unknown':
+                  print(f"  ❌ 无法识别格式，跳过\n")
+                  continue
+
+              elif stype == 'json':
+                  data = json.loads(raw)
+                  lives = data.get("lives", [])
+                  if not lives:
+                      print(f"  ⚠️  JSON 里无 lives 字段，跳过\n")
+                      continue
+                  found = False
+                  for item in lives:
+                      live_url = item.get("url", "")
+                      if not live_url:
+                          continue
+                      print(f"  → 提取直播 URL: {live_url}")
+                      m3u_raw = fetch_text(live_url)
+                      if not m3u_raw or '#EXTM3U' not in m3u_raw[:1024]:
+                          print(f"    ❌ 不是合法 m3u")
+                          continue
+                      result = filter_m3u(m3u_raw)
+                      if result:
+                          active_content = result
+                          active_url     = live_url
+                          found = True
+                          break
+                  if found:
+                      break
+                  else:
+                      print(f"  ❌ JSON 里所有直播源均无效\n")
+
+              elif stype == 'm3u':
+                  result = filter_m3u(raw)
+                  if result:
+                      active_content = result
+                      active_url     = url
+                      break
+                  else:
+                      print(f"  ❌ 过滤后无有效频道\n")
 
           print()
 

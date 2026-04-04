@@ -2,8 +2,8 @@ name: Check and Update Live Sources
 
 on:
   schedule:
-    - cron: '0 2 * * *'   # 每天凌晨 2 点运行一次（UTC时间）
-  workflow_dispatch:          # 支持在 Actions 页面手动触发
+    - cron: '0 2 * * *'    # 每天北京时间早上10点运行
+  workflow_dispatch:         # 支持在 Actions 页面手动触发
 
 jobs:
   check:
@@ -18,27 +18,42 @@ jobs:
           python3 << 'EOF'
           import urllib.request
           import urllib.error
+          import urllib.parse
           import sys
 
-          def check_and_fetch(url, timeout=15):
-              """
-              检测 URL 是否有效，并验证内容是合法 m3u 格式
-              返回 (是否有效, 内容)
-              """
+          def encode_url(url):
+              """处理中文域名和中文路径"""
               try:
+                  url.encode('ascii')
+                  return url
+              except UnicodeEncodeError:
+                  parsed = urllib.parse.urlsplit(url)
+                  try:
+                      host = parsed.hostname.encode('idna').decode('ascii')
+                  except Exception:
+                      host = parsed.hostname
+                  netloc = host
+                  if parsed.port:
+                      netloc += f":{parsed.port}"
+                  path = urllib.parse.quote(parsed.path, safe='/')
+                  query = urllib.parse.quote(parsed.query, safe='=&')
+                  new = urllib.parse.urlunsplit((parsed.scheme, netloc, path, query, ''))
+                  return new
+
+          def check_and_fetch(url, timeout=15):
+              try:
+                  encoded = encode_url(url)
                   req = urllib.request.Request(
-                      url,
+                      encoded,
                       headers={"User-Agent": "Mozilla/5.0 (compatible; TVBox checker)"}
                   )
                   with urllib.request.urlopen(req, timeout=timeout) as resp:
                       if resp.status != 200:
                           return False, None
-                      # 先读前512字节验证格式
                       head = resp.read(512).decode("utf-8", errors="ignore")
                       if "#EXTM3U" not in head:
-                          print(f"  ⚠️  内容不是合法 m3u 格式")
+                          print(f"  ⚠️  内容不是合法 m3u 格式（可能是 config.json，跳过）")
                           return False, None
-                      # 格式验证通过，读取完整内容
                       rest = resp.read().decode("utf-8", errors="ignore")
                       return True, head + rest
               except urllib.error.HTTPError as e:
@@ -48,7 +63,6 @@ jobs:
                   print(f"  连接失败: {e}")
                   return False, None
 
-          # 读取候选源列表
           with open("sources_pool.txt", encoding="utf-8") as f:
               sources = [
                   line.strip()
@@ -88,7 +102,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add active_lives.m3u
-          # 只有文件真正变化时才提交，避免无意义的 commit
           if git diff --staged --quiet; then
             echo "内容无变化，跳过提交"
           else

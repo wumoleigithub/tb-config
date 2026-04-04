@@ -2,8 +2,8 @@ name: Check and Update Live Sources
 
 on:
   schedule:
-    - cron: '0 2 * * *'    # 每天北京时间早上10点运行
-  workflow_dispatch:         # 支持在 Actions 页面手动触发
+    - cron: '0 2 * * *'
+  workflow_dispatch:
 
 jobs:
   check:
@@ -19,10 +19,10 @@ jobs:
           import urllib.request
           import urllib.error
           import urllib.parse
+          import json
           import sys
 
           def encode_url(url):
-              """处理中文域名和中文路径"""
               try:
                   url.encode('ascii')
                   return url
@@ -37,10 +37,9 @@ jobs:
                       netloc += f":{parsed.port}"
                   path = urllib.parse.quote(parsed.path, safe='/')
                   query = urllib.parse.quote(parsed.query, safe='=&')
-                  new = urllib.parse.urlunsplit((parsed.scheme, netloc, path, query, ''))
-                  return new
+                  return urllib.parse.urlunsplit((parsed.scheme, netloc, path, query, ''))
 
-          def check_and_fetch(url, timeout=15):
+          def fetch_text(url, timeout=15):
               try:
                   encoded = encode_url(url)
                   req = urllib.request.Request(
@@ -49,20 +48,45 @@ jobs:
                   )
                   with urllib.request.urlopen(req, timeout=timeout) as resp:
                       if resp.status != 200:
-                          return False, None
-                      head = resp.read(512).decode("utf-8", errors="ignore")
-                      if "#EXTM3U" not in head:
-                          print(f"  ⚠️  内容不是合法 m3u 格式（可能是 config.json，跳过）")
-                          return False, None
-                      rest = resp.read().decode("utf-8", errors="ignore")
-                      return True, head + rest
-              except urllib.error.HTTPError as e:
-                  print(f"  HTTP {e.code}")
-                  return False, None
+                          return None
+                      return resp.read().decode("utf-8", errors="ignore")
               except Exception as e:
                   print(f"  连接失败: {e}")
-                  return False, None
+                  return None
 
+          def try_as_m3u(content):
+              """直接就是 m3u 格式"""
+              if content and "#EXTM3U" in content[:512]:
+                  return content
+              return None
+
+          def try_as_config_json(content, source_url):
+              """从 config.json 里提取直播源 URL 并验证"""
+              try:
+                  data = json.loads(content)
+              except Exception:
+                  return None
+
+              lives = data.get("lives", [])
+              if not lives:
+                  print(f"  ⚠️  config.json 里没有 lives 字段")
+                  return None
+
+              for item in lives:
+                  live_url = item.get("url", "")
+                  if not live_url:
+                      continue
+                  print(f"  → 发现直播源 URL: {live_url}")
+                  live_content = fetch_text(live_url)
+                  if live_content and "#EXTM3U" in live_content[:512]:
+                      print(f"  ✅ 直播源有效，频道数: {live_content.count('#EXTINF')}")
+                      return live_content
+                  else:
+                      print(f"  ❌ 直播源无效或不是 m3u 格式")
+
+              return None
+
+          # 读取候选源
           with open("sources_pool.txt", encoding="utf-8") as f:
               sources = [
                   line.strip()
@@ -72,19 +96,32 @@ jobs:
 
           print(f"共找到 {len(sources)} 个候选源，开始检测...\n")
 
-          active_url = None
           active_content = None
+          active_url = None
 
           for i, url in enumerate(sources, 1):
               print(f"[{i}/{len(sources)}] 检测: {url}")
-              ok, content = check_and_fetch(url)
-              if ok:
-                  print(f"  ✅ 有效，频道数: {content.count('#EXTINF')}")
+              content = fetch_text(url)
+              if not content:
+                  print(f"  ❌ 无法获取内容，跳过")
+                  continue
+
+              # 先尝试直接当 m3u 解析
+              result = try_as_m3u(content)
+              if result:
+                  print(f"  ✅ 直接是 m3u 格式，频道数: {result.count('#EXTINF')}")
+                  active_content = result
                   active_url = url
-                  active_content = content
                   break
-              else:
-                  print(f"  ❌ 无效，跳过")
+
+              # 再尝试当 config.json 解析
+              result = try_as_config_json(content, url)
+              if result:
+                  active_content = result
+                  active_url = url
+                  break
+
+              print(f"  ❌ 无效，跳过")
 
           print()
 

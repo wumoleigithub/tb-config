@@ -1,0 +1,13 @@
+{
+  "spider": "",
+  "lives": [
+    {
+      "name": "影视",
+      "type": 0,
+      "url": "https://raw.githubusercontent.com/wumoleigithub/tb-config/main/active_lives.m3u",
+      "epg": "https://epg.112114.xyz/pp.xml"
+    }
+  ],
+  "sites": [],
+  "parses": []
+}

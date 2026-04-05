@@ -196,7 +196,13 @@ jobs:
 
                   # 配置候选
                   sites = data.get("sites", [])
-                  valid_sites = [s for s in sites if s.get("key") and s.get("api")]
+                  BLOCKED_SITES = {'哔哩哔哩', 'bilibili'}
+                  valid_sites = [
+                      s for s in sites
+                      if s.get("key") and s.get("api")
+                      and s.get("name", "").lower() not in BLOCKED_SITES
+                      and s.get("key", "").lower() not in BLOCKED_SITES
+                  ]
                   spider_raw = data.get("spider", "")
                   spider_url = spider_raw.split(";")[0].strip()
 

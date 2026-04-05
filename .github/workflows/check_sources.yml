@@ -2,7 +2,7 @@ name: Check and Update Live Sources
 
 on:
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 2 * * 1'
   workflow_dispatch:
 
 jobs:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v5
 
-      - name: Check sources and update active_lives.m3u
+      - name: Check sources and update files
         run: |
           python3 << 'EOF'
           import urllib.request
@@ -22,6 +22,7 @@ jobs:
           import json
           import sys
           import re
+          import time
 
           # ── 工具函数 ──────────────────────────────────────────
 
@@ -46,21 +47,35 @@ jobs:
                       encode_url(url),
                       headers={"User-Agent": "Mozilla/5.0 (compatible; TVBox checker)"}
                   )
+                  t0 = time.time()
                   with urllib.request.urlopen(req, timeout=timeout) as resp:
                       if resp.status != 200:
-                          return None
-                      return resp.read().decode("utf-8", errors="ignore")
+                          return None, 0
+                      content = resp.read().decode("utf-8", errors="ignore")
+                      return content, time.time() - t0
               except Exception as e:
                   print(f"    fetch 失败: {e}")
-                  return None
+                  return None, 0
+
+          def check_spider(spider_url, timeout=10):
+              if not spider_url or not spider_url.startswith('http'):
+                  return False, 0
+              try:
+                  req = urllib.request.Request(
+                      encode_url(spider_url),
+                      headers={"User-Agent": "Mozilla/5.0 (compatible; TVBox checker)"},
+                      method="HEAD"
+                  )
+                  t0 = time.time()
+                  with urllib.request.urlopen(req, timeout=timeout) as resp:
+                      return resp.status == 200, time.time() - t0
+              except Exception as e:
+                  print(f"    spider 验证失败: {e}")
+                  return False, 0
 
           # ── 输入层：识别来源类型 ──────────────────────────────
 
           def detect_source_type(url, content):
-              """
-              返回: 'm3u' | 'json' | 'jar' | 'unknown'
-              """
-              # jar 接口特征：URL 包含 .jar 或 content 以 PK 开头（zip magic bytes）
               if url.endswith('.jar') or (content and content[:2] == 'PK'):
                   return 'jar'
               if content and content.lstrip().startswith('{'):
@@ -75,43 +90,32 @@ jobs:
 
           # ── 解析层：过滤频道 ──────────────────────────────────
 
-          # 允许的流协议后缀 / 关键词
-          ALLOWED = re.compile(r'\.(m3u8|flv|ts)(\?|$)', re.IGNORECASE)
-          # 丢弃的流特征
-          BLOCKED = re.compile(r'^(proxy://|ext://)', re.IGNORECASE)
+          ALLOWED    = re.compile(r'\.(m3u8|flv|ts)(\?|$)', re.IGNORECASE)
+          BLOCKED    = re.compile(r'^(proxy://|ext://)', re.IGNORECASE)
           BLOCKED_KW = re.compile(r'spider|#EXT-X-KEY', re.IGNORECASE)
 
           def is_clean_stream(stream_url):
-              """判断单条流地址是否可用"""
               if BLOCKED.match(stream_url):
                   return False
               if BLOCKED_KW.search(stream_url):
                   return False
               if ALLOWED.search(stream_url):
                   return True
-              # 没有明确后缀但是 http(s) 直链也暂时放行，由播放器决定
               if stream_url.startswith('http'):
                   return True
               return False
 
           def filter_m3u(content):
-              """
-              解析 m3u 内容，过滤掉不可用的频道，返回干净的 m3u 字符串。
-              返回 None 表示过滤后没有任何有效频道。
-              """
               lines = content.splitlines()
               output = ['#EXTM3U']
               i = 0
-              # 跳过第一行 #EXTM3U
               if lines and lines[0].startswith('#EXTM3U'):
                   i = 1
-
               kept = 0
               dropped = 0
               while i < len(lines):
                   line = lines[i].strip()
                   if line.startswith('#EXTINF'):
-                      # 下一行应该是流地址
                       j = i + 1
                       while j < len(lines) and not lines[j].strip():
                           j += 1
@@ -127,15 +131,33 @@ jobs:
                       else:
                           i += 1
                   else:
-                      # 保留其他注释行（分组标签等）
                       if line.startswith('#'):
                           output.append(line)
                       i += 1
-
               print(f"    保留频道: {kept}，丢弃频道: {dropped}")
               if kept == 0:
                   return None
               return '\n'.join(output)
+
+          # ── 评分函数 ──────────────────────────────────────────
+
+          def score_cfg(sites_count, spider_ok, response_time):
+              score = sites_count * 10
+              if spider_ok:
+                  score += 50
+              if response_time < 2:
+                  score += 20
+              elif response_time < 5:
+                  score += 10
+              return score
+
+          def score_m3u(channel_count, response_time):
+              score = channel_count * 0.5
+              if response_time < 2:
+                  score += 20
+              elif response_time < 5:
+                  score += 10
+              return score
 
           # ── 主流程 ────────────────────────────────────────────
 
@@ -148,18 +170,18 @@ jobs:
 
           print(f"共找到 {len(sources)} 个候选源，开始检测...\n")
 
-          active_content = None
-          active_url     = None
+          cfg_candidates = []
+          m3u_candidates = []
 
           for i, url in enumerate(sources, 1):
               print(f"[{i}/{len(sources)}] {url}")
-              raw = fetch_text(url)
+              raw, elapsed = fetch_text(url)
               if not raw:
                   print(f"  ❌ 无法获取内容\n")
                   continue
 
               stype = detect_source_type(url, raw)
-              print(f"  类型: {stype}")
+              print(f"  类型: {stype}  响应: {elapsed:.1f}s")
 
               if stype == 'jar':
                   print(f"  ⛔ jar 接口，丢弃\n")
@@ -171,48 +193,130 @@ jobs:
 
               elif stype == 'json':
                   data = json.loads(raw)
+
+                  # 配置候选
+                  sites = data.get("sites", [])
+                  valid_sites = [s for s in sites if s.get("key") and s.get("api")]
+                  spider_raw = data.get("spider", "")
+                  spider_url = spider_raw.split(";")[0].strip()
+
+                  if len(valid_sites) >= 3:
+                      if spider_url:
+                          print(f"  → 验证 spider: {spider_url[:80]}")
+                          spider_ok, spider_time = check_spider(spider_url)
+                          if spider_ok:
+                              s = score_cfg(len(valid_sites), True, elapsed)
+                              print(f"    ✅ spider 可访问 ({spider_time:.1f}s)，评分: {s}")
+                              cfg_candidates.append({
+                                  "url": url, "spider": spider_raw,
+                                  "sites": valid_sites, "parses": data.get("parses", []),
+                                  "score": s, "response_time": elapsed
+                              })
+                          else:
+                              print(f"    ❌ spider 不可访问，跳过此配置源")
+                      else:
+                          no_spider_sites = [s for s in valid_sites if s.get("type", 3) in (0, 1)]
+                          if len(no_spider_sites) >= 3:
+                              s = score_cfg(len(no_spider_sites), False, elapsed)
+                              print(f"  ✅ 无 spider，type 0/1 站点 {len(no_spider_sites)} 个，评分: {s}")
+                              cfg_candidates.append({
+                                  "url": url, "spider": "",
+                                  "sites": no_spider_sites, "parses": data.get("parses", []),
+                                  "score": s, "response_time": elapsed
+                              })
+                          else:
+                              print(f"  ❌ 无 spider 且 type 0/1 站点不足（{len(no_spider_sites)} 个），跳过")
+
+                  # 直播候选
                   lives = data.get("lives", [])
-                  if not lives:
-                      print(f"  ⚠️  JSON 里无 lives 字段，跳过\n")
-                      continue
-                  found = False
                   for item in lives:
                       live_url = item.get("url", "")
                       if not live_url:
                           continue
                       print(f"  → 提取直播 URL: {live_url}")
-                      m3u_raw = fetch_text(live_url)
+                      m3u_raw, m3u_elapsed = fetch_text(live_url)
                       if not m3u_raw or '#EXTM3U' not in m3u_raw[:1024]:
                           print(f"    ❌ 不是合法 m3u")
                           continue
                       result = filter_m3u(m3u_raw)
                       if result:
-                          active_content = result
-                          active_url     = live_url
-                          found = True
+                          ch = result.count('#EXTINF')
+                          s = score_m3u(ch, m3u_elapsed)
+                          print(f"    ✅ {ch} 个频道  响应: {m3u_elapsed:.1f}s  评分: {s:.0f}")
+                          m3u_candidates.append({
+                              "url": live_url, "content": result,
+                              "channel_count": ch, "score": s, "response_time": m3u_elapsed
+                          })
                           break
-                  if found:
-                      break
-                  else:
-                      print(f"  ❌ JSON 里所有直播源均无效\n")
 
               elif stype == 'm3u':
                   result = filter_m3u(raw)
                   if result:
-                      active_content = result
-                      active_url     = url
-                      break
-                  else:
-                      print(f"  ❌ 过滤后无有效频道\n")
+                      ch = result.count('#EXTINF')
+                      s = score_m3u(ch, elapsed)
+                      print(f"  ✅ {ch} 个频道  评分: {s:.0f}")
+                      m3u_candidates.append({
+                          "url": url, "content": result,
+                          "channel_count": ch, "score": s, "response_time": elapsed
+                      })
+
+              print()
+
+          # ── 评分汇总 & 写入 ───────────────────────────────────
+
+          cfg_candidates.sort(key=lambda x: x["score"], reverse=True)
+          m3u_candidates.sort(key=lambda x: x["score"], reverse=True)
+
+          print("=" * 50)
+          print("📊 评分结果\n")
+
+          if cfg_candidates:
+              print(f"配置源 Top {min(3, len(cfg_candidates))}:")
+              for c in cfg_candidates[:3]:
+                  spider_tag = "有spider" if c["spider"] else "无spider"
+                  print(f"  [{c['score']:4.0f}分] 站点:{len(c['sites']):3d}  {c['response_time']:.1f}s  {spider_tag}  {c['url'][:60]}")
+          else:
+              print("配置源：无有效候选")
 
           print()
 
-          if active_content:
-              with open("active_lives.m3u", "w", encoding="utf-8") as f:
-                  f.write(active_content)
-              print(f"✅ active_lives.m3u 已更新，来源: {active_url}")
+          if m3u_candidates:
+              print(f"直播源 Top {min(3, len(m3u_candidates))}:")
+              for m in m3u_candidates[:3]:
+                  print(f"  [{m['score']:6.1f}分] 频道:{m['channel_count']:4d}  {m['response_time']:.1f}s  {m['url'][:60]}")
           else:
-              print("⚠️  所有候选源均无效，保留原有 active_lives.m3u 不变")
+              print("直播源：无有效候选")
+
+          print()
+
+          any_change = False
+
+          if m3u_candidates:
+              best = m3u_candidates[0]
+              with open("active_lives.m3u", "w", encoding="utf-8") as f:
+                  f.write(best["content"])
+              print(f"✅ 直播源已更新: {best['url']}")
+              print(f"   频道数: {best['channel_count']}  评分: {best['score']:.0f}")
+              any_change = True
+          else:
+              print("⚠️  未找到有效直播源，active_lives.m3u 保持不变")
+
+          if cfg_candidates:
+              best = cfg_candidates[0]
+              with open("config.json", encoding="utf-8") as f:
+                  config = json.load(f)
+              config["spider"] = best["spider"]
+              config["sites"]  = best["sites"]
+              config["parses"] = best["parses"]
+              with open("config.json", "w", encoding="utf-8") as f:
+                  json.dump(config, f, ensure_ascii=False, indent=2)
+              print(f"✅ 配置源已更新: {best['url']}")
+              print(f"   站点数: {len(best['sites'])}  解析数: {len(best['parses'])}  评分: {best['score']:.0f}")
+              any_change = True
+          else:
+              print("⚠️  未找到有效配置源，config.json 保持不变")
+
+          if not any_change:
               sys.exit(0)
           EOF
 
@@ -220,7 +324,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add active_lives.m3u
+          git add active_lives.m3u config.json
           if git diff --staged --quiet; then
             echo "内容无变化，跳过提交"
           else

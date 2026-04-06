@@ -257,16 +257,6 @@
       "filterable": 1
     },
     {
-      "key": "NoSearch_csp_BBB",
-      "name": "哔哩哔哩",
-      "type": 3,
-      "api": "csp_Bili",
-      "searchable": 1,
-      "quickSearch": 0,
-      "filterable": 1,
-      "ext": "7lj763gg402i7942463j9j9jg1558j9jl8g19213il86316k465719lik1585907179l13hj8h5j9j"
-    },
-    {
       "key": "push_agent",
       "name": "推送",
       "type": 3,

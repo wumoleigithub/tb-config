@@ -1,5 +1,5 @@
 {
-  "spider": "https://gitee.com/ztha002/th/raw/master/ztha.jar",
+  "spider": "https://d.kstore.dev/download/7213/%E5%90%83%E7%8C%AB%E7%9A%84%E9%B1%BC/CMDY.jpg;88cb103cc0693dbc8e30539714362e2d",
   "lives": [
     {
       "name": "影视",
@@ -10,152 +10,93 @@
   ],
   "sites": [
     {
-      "key": "豆瓣",
-      "name": "注意❗❗❗此服务器已更换",
+      "key": "玩偶",
+      "name": "👽玩偶哥哥┃吃猫的鱼 q群：816260776",
       "type": 3,
-      "api": "csp_Douban",
-      "searchable": 0,
+      "api": "csp_WoGG",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0,
+      "ext": {
+        "Cloud-drive": "tvfan/Cloud-drive.txt",
+        "from": "4k|auto",
+        "siteUrl": "https://www.wogg.net/",
+        "danMu": "弹"
+      }
+    },
+    {
+      "key": "短剧",
+      "name": "🌈上头┃短剧",
+      "type": 3,
+      "api": "csp_Djtt",
+      "searchable": 1,
+      "quickSearch": 1,
       "changeable": 1
     },
     {
-      "key": "ext_live_protocol",
-      "name": "请关注公众号:挺好分享",
+      "key": "Lib",
+      "name": "🌟立播┃秒播",
+      "type": 3,
+      "api": "csp_Libvio",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "ext": {
+        "Cloud-drive": "tvfan/Cloud-drive.txt",
+        "from": "4k|auto"
+      }
+    },
+    {
+      "key": "文采",
+      "name": "💮文采┃秒播",
+      "type": 3,
+      "api": "csp_Jpys",
+      "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+    {
+      "key": "糯米",
+      "name": "🍓糯米┃秒播",
+      "type": 3,
+      "api": "csp_Nmyswv",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+    {
+      "key": "夸搜",
+      "name": "🐌夸搜┃搜索",
+      "type": 3,
+      "api": "csp_PanSearch",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0,
+      "ext": {
+        "pan": "quark",
+        "quarkCookie": "tvfan/cookie.txt",
+        "from": "4k|auto|fhd"
+      }
+    },
+    {
+      "key": "fan",
+      "name": "吃猫的鱼qq群：690410942",
       "type": 3,
       "api": "csp_XPath",
-      "searchable": 0,
+      "searchable": 1,
       "quickSearch": 0,
       "changeable": 0
     },
     {
-      "key": "豆瓣豆瓣",
-      "name": "后台回复：接口",
-      "type": 3,
-      "api": "csp_Douban",
-      "searchable": 0,
-      "changeable": 1
-    },
-    {
       "key": "cc",
-      "name": "获取新接口",
+      "name": "请勿相信视频中广告",
       "type": 3,
       "api": "csp_XPath",
-      "searchable": 0,
-      "quickSearch": 0
+      "searchable": 1,
+      "quickSearch": 0,
+      "changeable": 0
     }
   ],
-  "parses": [
-    {
-      "name": "解析失败自己切换",
-      "url": "https://www.8090g.cn/jiexi/?url=",
-      "type": 0,
-      "ext": {
-        "flag": [
-          "qiyi",
-          "imgo",
-          "爱奇艺",
-          "奇艺",
-          "qq",
-          "qq 预告及花絮",
-          "腾讯",
-          "youku",
-          "优酷",
-          "pptv",
-          "PPTV",
-          "letv",
-          "乐视",
-          "leshi",
-          "mgtv",
-          "芒果",
-          "sohu",
-          "xigua",
-          "fun",
-          "风行"
-        ]
-      },
-      "header": {
-        "User-Agent": "Mozilla/5.0"
-      }
-    },
-    {
-      "name": "解析失败换这个",
-      "type": 0,
-      "url": "https://jx.xmflv.com/?url=",
-      "ext": {
-        "header": {
-          "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57"
-        }
-      }
-    },
-    {
-      "name": "解析0",
-      "type": 0,
-      "url": "https://huayong.net/999/?v="
-    },
-    {
-      "name": "解析1",
-      "type": 0,
-      "url": "https://jx.m3u8.tv/jiexi/?url="
-    },
-    {
-      "name": "解析2",
-      "type": 0,
-      "url": "https://t2.qlplayer.cyou/player/analysis.php?v="
-    },
-    {
-      "name": "解析3",
-      "type": 0,
-      "url": "https://jx.xmflv.com/?url=",
-      "ext": {
-        "flag": [
-          "qq",
-          "腾讯",
-          "qiyi",
-          "爱奇艺",
-          "奇艺",
-          "youku",
-          "优酷",
-          "sohu",
-          "搜狐",
-          "letv",
-          "乐视",
-          "mgtv",
-          "芒果",
-          "芒果TV",
-          "tnmb",
-          "seven",
-          "bilibili",
-          "1905"
-        ],
-        "header": {
-          "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57"
-        }
-      }
-    },
-    {
-      "name": "解析4",
-      "type": 0,
-      "url": "https://www.ckplayer.vip/jiexi/?url="
-    },
-    {
-      "name": "解析5",
-      "type": 0,
-      "url": "https://nm.xxxc137.top/static/player/artplayer.html?url="
-    },
-    {
-      "name": "解析6",
-      "type": 0,
-      "url": "https://t2.qlplayer.cyou/player/analysis.php?v="
-    },
-    {
-      "name": "解析7",
-      "type": 0,
-      "url": "https://jx.aidouer.net/?url=",
-      "ext": {
-        "header": {
-          "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36",
-          "referer": "https://jiejie.uk/"
-        }
-      }
-    }
-  ]
+  "parses": []
 }

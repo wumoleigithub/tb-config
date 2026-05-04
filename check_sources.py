@@ -5,6 +5,11 @@ import json
 import sys
 import re
 import time
+import ssl
+
+_ssl_ctx = ssl.create_default_context()
+_ssl_ctx.check_hostname = False
+_ssl_ctx.verify_mode = ssl.CERT_NONE
 
 # ── 工具函数 ──────────────────────────────────────────
 
@@ -30,7 +35,7 @@ def fetch_text(url, timeout=15):
             headers={"User-Agent": "Mozilla/5.0 (compatible; TVBox checker)"}
         )
         t0 = time.time()
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
+        with urllib.request.urlopen(req, timeout=timeout, context=_ssl_ctx) as resp:
             if resp.status != 200:
                 return None, 0
             content = resp.read().decode("utf-8", errors="ignore")
@@ -49,7 +54,7 @@ def check_spider(spider_url, timeout=10):
             method="HEAD"
         )
         t0 = time.time()
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
+        with urllib.request.urlopen(req, timeout=timeout, context=_ssl_ctx) as resp:
             return resp.status == 200, time.time() - t0
     except Exception as e:
         print(f"    spider 验证失败: {e}")

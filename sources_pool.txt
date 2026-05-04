@@ -53,5 +53,11 @@ http://tvbox.xn--4kq62z5rby2qupq9ub.top/
 http://tv.999888987.xyz
 #南风接口	
 https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json
-#南风接口（代理）	
+#南风接口（代理）
 https://gh.aptv.app/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json
+#qist接口（fty 饭太硬 51站）
+https://raw.githubusercontent.com/qist/tvbox/master/fty.json
+#qist接口（jsm 174站）
+https://raw.githubusercontent.com/qist/tvbox/master/jsm.json
+#qist接口（小飒 137站）
+https://raw.githubusercontent.com/qist/tvbox/master/xiaosa/api.json

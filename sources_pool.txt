@@ -8,8 +8,10 @@ https://xn--xkkx-rp5imh.v.nxog.top/api.php?id=3
 https://tv.xn--yhqu5zs87a.top
 #公众号【非凡小小】	
 https://g.3344550.xyz/https://raw.githubusercontent.com/jigedos/1024/master/jsm.json
-#二月红接口	
+#二月红接口
 https://700sjro44343.vicp.fun/eggp/0211/tv.json
+#公众号【挺好分享】
+http://ztha.top/TVBox/thdjk.json
 #公众号【蓝天日记】	
 https://gitee.com/lukei7/lib/raw/Luck/%E8%87%AA%E5%BB%BA.json
 #传说blog	
@@ -59,3 +61,8 @@ https://raw.githubusercontent.com/qist/tvbox/master/fty.json
 https://raw.githubusercontent.com/qist/tvbox/master/jsm.json
 #qist接口（小飒 137站）
 https://raw.githubusercontent.com/qist/tvbox/master/xiaosa/api.json
+
+#mrgaoshuiquan/tvbox-config
+https://raw.githubusercontent.com/mrgaoshuiquan/tvbox-config/main/tvbox.json
+#mrgaoshuiquan/tvbox-config
+https://raw.githubusercontent.com/mrgaoshuiquan/tvbox-config/main/jhkx-full.json

@@ -60,6 +60,18 @@ def check_spider(spider_url, timeout=10):
         print(f"    spider 验证失败: {e}")
         return False, 0
 
+def resolve_spider(spider_raw, source_url):
+    """相对路径 spider 转绝对 URL"""
+    url = spider_raw.split(";")[0].strip()
+    if not url or url.startswith('http'):
+        return spider_raw
+    if url.startswith('./'):
+        base = source_url.rsplit("/", 1)[0] + "/"
+        abs_url = base + url[2:]
+        suffix = spider_raw[len(url):]
+        return abs_url + suffix
+    return spider_raw
+
 # ── 输入层：识别来源类型 ──────────────────────────────
 
 def detect_source_type(url, content):
@@ -146,10 +158,33 @@ def score_m3u(channel_count, response_time):
         score += 10
     return score
 
+# ── 检查现有 config 是否仍然有效 ──────────────────────
+
+def check_current_config(config):
+    spider_raw = config.get("spider", "")
+    spider_url = spider_raw.split(";")[0].strip()
+    if not spider_url:
+        print("当前 config 无 spider")
+        return False
+    print(f"检查当前 spider: {spider_url[:80]}")
+    ok, elapsed = check_spider(spider_url)
+    if ok:
+        print(f"  ✅ 当前 spider 仍可访问 ({elapsed:.1f}s)")
+    else:
+        print(f"  ❌ 当前 spider 不可访问")
+    return ok
+
+def count_current_live_channels():
+    try:
+        with open("active_lives.m3u", encoding="utf-8") as f:
+            return f.read().count('#EXTINF')
+    except Exception:
+        return 0
+
 # ── 主流程 ────────────────────────────────────────────
 
 # 用法：
-#   python3 check_sources.py            全量扫描，按评分选最优，更新文件
+#   python3 check_sources.py            全量扫描，智能更新
 #   python3 check_sources.py 3          单源调试（第 3 个源，不写文件）
 target_index = int(sys.argv[1]) if len(sys.argv) > 1 else None
 
@@ -166,9 +201,26 @@ if target_index:
 else:
     print(f"共找到 {len(sources)} 个候选源，开始检测...\n")
 
+# 读取现有 config
+with open("config.json", encoding="utf-8") as f:
+    config = json.load(f)
+
+dry_run = bool(target_index)
+
+# 检查现有 config 是否仍然有效
+if not dry_run:
+    print("── 检查现有配置 ──────────────────────────────────")
+    current_cfg_ok = check_current_config(config)
+    current_live_channels = count_current_live_channels()
+    print(f"当前直播源频道数: {current_live_channels}\n")
+else:
+    current_cfg_ok = False
+    current_live_channels = 0
+
 cfg_candidates = []   # {"url", "spider", "sites", "parses", "score", "response_time"}
 m3u_candidates = []   # {"url", "content", "channel_count", "score", "response_time"}
 
+print("── 扫描候选源 ─────────────────────────────────────")
 for i, url in enumerate(sources, 1):
     print(f"[{i}/{len(sources)}] {url}")
     raw, elapsed = fetch_text(url)
@@ -192,10 +244,11 @@ for i, url in enumerate(sources, 1):
     elif stype == 'json':
         data = json.loads(raw)
 
-        # ── 配置候选（spider/sites/parses）────────────
+        # ── 配置候选 ────────────────────────────────
         sites = data.get("sites", [])
         valid_sites = [s for s in sites if s.get("key") and s.get("api")]
         spider_raw = data.get("spider", "")
+        spider_raw = resolve_spider(spider_raw, url)
         spider_url = spider_raw.split(";")[0].strip()
 
         if len(valid_sites) >= 3:
@@ -227,7 +280,7 @@ for i, url in enumerate(sources, 1):
         elif target_index:
             print(f"  ℹ️  sites 数量: {len(sites)}（需 ≥3 才采用）")
 
-        # ── 直播候选（M3U）───────────────────────────
+        # ── 直播候选 ────────────────────────────────
         lives = data.get("lives", [])
         for item in lives:
             live_url = item.get("url", "")
@@ -247,7 +300,7 @@ for i, url in enumerate(sources, 1):
                     "url": live_url, "content": result,
                     "channel_count": ch, "score": s, "response_time": m3u_elapsed
                 })
-                break  # 每个 JSON 源取第一条有效直播即可
+                break
 
     elif stype == 'm3u':
         result = filter_m3u(raw)
@@ -262,7 +315,7 @@ for i, url in enumerate(sources, 1):
 
     print()
 
-# ── 评分汇总 & 写入 ───────────────────────────────────
+# ── 评分汇总 ──────────────────────────────────────────
 
 cfg_candidates.sort(key=lambda x: x["score"], reverse=True)
 m3u_candidates.sort(key=lambda x: x["score"], reverse=True)
@@ -289,29 +342,47 @@ else:
 
 print()
 
-dry_run = bool(target_index)
+# ── 写入决策 ──────────────────────────────────────────
 
+if dry_run:
+    if cfg_candidates:
+        best = cfg_candidates[0]
+        print(f"✅ 配置源（调试）: {best['url']}")
+        print(f"   前 5 个站点:")
+        for s in best["sites"][:5]:
+            print(f"     [{s.get('key','')}] {s.get('name','')}")
+    if m3u_candidates:
+        best = m3u_candidates[0]
+        print(f"✅ 直播源（调试）: {best['url']}  {best['channel_count']} 频道")
+    print("（调试模式，不写文件）")
+    sys.exit(0)
+
+# 直播源：只有当前失效，或新源频道数超出 20% 才替换
 if m3u_candidates:
     best = m3u_candidates[0]
-    print(f"✅ 直播源选用: {best['url']}")
-    if not dry_run:
+    if current_live_channels == 0:
+        print(f"✅ 直播源：当前失效，替换为 {best['url']} ({best['channel_count']} 频道)")
         with open("active_lives.m3u", "w", encoding="utf-8") as f:
             f.write(best["content"])
-        print(f"   → 已写入 active_lives.m3u（{best['channel_count']} 个频道）")
+    elif best["channel_count"] > current_live_channels * 1.2:
+        print(f"✅ 直播源：新源频道数 {best['channel_count']} 比当前 {current_live_channels} 多 20%+，替换")
+        with open("active_lives.m3u", "w", encoding="utf-8") as f:
+            f.write(best["content"])
     else:
-        print(f"   （调试模式，不写文件）")
+        print(f"✅ 直播源：当前 {current_live_channels} 频道仍有效，保留不变")
 else:
     print("⚠️  未找到有效直播源，active_lives.m3u 保持不变")
 
 print()
 
-if cfg_candidates:
-    best = cfg_candidates[0]
-    print(f"✅ 配置源选用: {best['url']}")
-    print(f"   站点数: {len(best['sites'])}  解析数: {len(best['parses'])}")
-    if not dry_run:
-        with open("config.json", encoding="utf-8") as f:
-            config = json.load(f)
+# 配置源：当前 spider 有效则保留，失效才替换
+if current_cfg_ok:
+    print(f"✅ 配置源：当前 spider 仍可用，保留现有 {len(config.get('sites', []))} 个站点不变")
+else:
+    if cfg_candidates:
+        best = cfg_candidates[0]
+        print(f"✅ 配置源：当前 spider 失效，替换为 {best['url']}")
+        print(f"   站点数: {len(best['sites'])}  解析数: {len(best['parses'])}")
         config["spider"] = best["spider"]
         config["sites"]  = best["sites"]
         config["parses"] = best["parses"]
@@ -319,9 +390,4 @@ if cfg_candidates:
             json.dump(config, f, ensure_ascii=False, indent=2)
         print(f"   → 已写入 config.json")
     else:
-        print(f"   （调试模式，不写文件）")
-        print(f"   前 5 个站点:")
-        for s in best["sites"][:5]:
-            print(f"     [{s.get('key','')}] {s.get('name','')}")
-else:
-    print("⚠️  未找到有效配置源，config.json 保持不变")
+        print("⚠️  当前 spider 失效且无有效候选源，config.json 保持不变")

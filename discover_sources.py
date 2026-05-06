@@ -66,6 +66,16 @@ def head_ok(url, timeout=8):
     _, status, _ = fetch(url, timeout=timeout, method="HEAD")
     return status == 200
 
+def is_http_dead(url, timeout=10):
+    """返回 True 仅当服务器明确返回 4xx/5xx（不包括连接拒绝/超时）"""
+    body, status, _ = fetch(url, timeout=timeout, method="GET")
+    if status in range(400, 600):
+        return True
+    if status == 0 and body is None:
+        # 连接失败：可能地区限制，不确定
+        return False
+    return False
+
 # ── 读取已有 sources_pool.txt ──────────────────────────
 
 def load_existing_urls():
@@ -77,6 +87,33 @@ def load_existing_urls():
             for line in f
             if line.strip() and not line.strip().startswith("#")
         }
+
+def prune_dead_sources():
+    """把明确失效的 URL 注释为 #dead，返回标记数量"""
+    if not os.path.exists(POOL_FILE):
+        return 0
+    with open(POOL_FILE, encoding="utf-8") as f:
+        lines = f.readlines()
+
+    new_lines = []
+    marked = 0
+    for line in lines:
+        stripped = line.rstrip("\n")
+        url = stripped.strip()
+        if url and not url.startswith("#"):
+            if is_http_dead(url):
+                new_lines.append(f"#dead {url}\n")
+                marked += 1
+                print(f"  #dead: {url[:70]}")
+            else:
+                new_lines.append(line)
+        else:
+            new_lines.append(line)
+
+    if marked and not DRY_RUN:
+        with open(POOL_FILE, "w", encoding="utf-8") as f:
+            f.writelines(new_lines)
+    return marked
 
 # ── GitHub API：搜索仓库 ───────────────────────────────
 
@@ -223,8 +260,17 @@ def validate_url(url):
 # ── 主流程 ─────────────────────────────────────────────
 
 def main():
+    # 0. 检测现有 pool 地址，标记失效的
+    print("── 检测现有 pool 地址 ──")
+    marked = prune_dead_sources()
+    if marked:
+        print(f"  已标记 {marked} 个失效地址为 #dead")
+    else:
+        print("  所有现有地址均无明确失效")
+    print()
+
     existing = load_existing_urls()
-    print(f"已有 {len(existing)} 个源\n")
+    print(f"已有 {len(existing)} 个有效源\n")
 
     candidate_map = {}  # url -> (comment, source_repo)
 

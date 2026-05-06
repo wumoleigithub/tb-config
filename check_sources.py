@@ -11,7 +11,7 @@ _ssl_ctx = ssl.create_default_context()
 _ssl_ctx.check_hostname = False
 _ssl_ctx.verify_mode = ssl.CERT_NONE
 
-# ── 工具函数 ──────────────────────────────────────────
+# ── 网络工具 ──────────────────────────────────────────
 
 def encode_url(url):
     try:
@@ -44,12 +44,11 @@ def fetch_text(url, timeout=15):
         print(f"    fetch 失败: {e}")
         return None, 0
 
-SPIDER_RESULT_OK      = "ok"       # HTTP 200 — 明确可访问
-SPIDER_RESULT_UNKNOWN = "unknown"  # 连接拒绝/超时 — 可能地区限制，不能断定失效
-SPIDER_RESULT_DEAD    = "dead"     # HTTP 4xx/5xx — 明确失效
+SPIDER_RESULT_OK      = "ok"
+SPIDER_RESULT_UNKNOWN = "unknown"   # 连接拒绝/超时 — 可能地区限制
+SPIDER_RESULT_DEAD    = "dead"      # HTTP 4xx/5xx  — 明确失效
 
 def check_spider(spider_url, timeout=10):
-    """返回 (result: str, elapsed: float)"""
     if not spider_url or not spider_url.startswith('http'):
         return SPIDER_RESULT_UNKNOWN, 0
     try:
@@ -64,15 +63,21 @@ def check_spider(spider_url, timeout=10):
                 return SPIDER_RESULT_OK, time.time() - t0
             return SPIDER_RESULT_DEAD, time.time() - t0
     except urllib.error.HTTPError as e:
-        # 明确的 HTTP 错误（404、410、5xx）→ 真的挂了
         print(f"    spider HTTP {e.code}，判定失效")
         return SPIDER_RESULT_DEAD, 0
     except Exception:
-        # 连接拒绝、超时、SSL 等网络层错误 → 无法判断，给 unknown
         return SPIDER_RESULT_UNKNOWN, 0
 
+def spider_domain(spider_raw):
+    url = spider_raw.split(";")[0].strip()
+    if not url.startswith("http"):
+        return ""
+    try:
+        return urllib.parse.urlparse(url).netloc
+    except Exception:
+        return ""
+
 def resolve_spider(spider_raw, source_url):
-    """相对路径 spider 转绝对 URL"""
     url = spider_raw.split(";")[0].strip()
     if not url or url.startswith('http'):
         return spider_raw
@@ -83,7 +88,7 @@ def resolve_spider(spider_raw, source_url):
         return abs_url + suffix
     return spider_raw
 
-# ── 输入层：识别来源类型 ──────────────────────────────
+# ── 识别来源类型 ──────────────────────────────────────
 
 def detect_source_type(url, content):
     if url.endswith('.jar') or (content and content[:2] == 'PK'):
@@ -98,7 +103,7 @@ def detect_source_type(url, content):
         return 'm3u'
     return 'unknown'
 
-# ── 解析层：过滤频道 ──────────────────────────────────
+# ── 直播源过滤 ────────────────────────────────────────
 
 ALLOWED    = re.compile(r'\.(m3u8|flv|ts)(\?|$)', re.IGNORECASE)
 BLOCKED    = re.compile(r'^(proxy://|ext://)', re.IGNORECASE)
@@ -121,8 +126,7 @@ def filter_m3u(content):
     i = 0
     if lines and lines[0].startswith('#EXTM3U'):
         i = 1
-    kept = 0
-    dropped = 0
+    kept = dropped = 0
     while i < len(lines):
         line = lines[i].strip()
         if line.startswith('#EXTINF'):
@@ -169,7 +173,7 @@ def score_m3u(channel_count, response_time):
         score += 10
     return score
 
-# ── 检查现有 config 是否仍然有效 ──────────────────────
+# ── 检查当前 config 状态 ──────────────────────────────
 
 def check_current_config(config):
     spider_raw = config.get("spider", "")
@@ -183,7 +187,7 @@ def check_current_config(config):
         print(f"  ✅ 当前 spider 可访问 ({elapsed:.1f}s)")
         return True
     elif result == SPIDER_RESULT_UNKNOWN:
-        print(f"  ⚠️  当前 spider 网络受限（可能地区限制），保守起见视为有效")
+        print(f"  ⚠️  当前 spider 网络受限（可能地区限制），视为有效")
         return True
     else:
         print(f"  ❌ 当前 spider 明确失效（HTTP 错误）")
@@ -196,6 +200,10 @@ def count_current_live_channels():
     except Exception:
         return 0
 
+def write_config(config):
+    with open("config.json", "w", encoding="utf-8") as f:
+        json.dump(config, f, ensure_ascii=False, indent=2)
+
 # ── 主流程 ────────────────────────────────────────────
 
 # 用法：
@@ -207,7 +215,7 @@ with open("sources_pool.txt", encoding="utf-8") as f:
     sources = [
         line.strip()
         for line in f
-        if line.strip() and not line.startswith("#")
+        if line.strip() and not line.strip().startswith("#")
     ]
 
 if target_index:
@@ -216,13 +224,11 @@ if target_index:
 else:
     print(f"共找到 {len(sources)} 个候选源，开始检测...\n")
 
-# 读取现有 config
 with open("config.json", encoding="utf-8") as f:
     config = json.load(f)
 
 dry_run = bool(target_index)
 
-# 检查现有 config 是否仍然有效
 if not dry_run:
     print("── 检查现有配置 ──────────────────────────────────")
     current_cfg_ok = check_current_config(config)
@@ -232,8 +238,8 @@ else:
     current_cfg_ok = False
     current_live_channels = 0
 
-cfg_candidates = []   # {"url", "spider", "sites", "parses", "score", "response_time"}
-m3u_candidates = []   # {"url", "content", "channel_count", "score", "response_time"}
+cfg_candidates = []
+m3u_candidates = []
 
 print("── 扫描候选源 ─────────────────────────────────────")
 for i, url in enumerate(sources, 1):
@@ -249,21 +255,17 @@ for i, url in enumerate(sources, 1):
     if stype == 'jar':
         print(f"  ⛔ jar 接口，丢弃\n")
         continue
-
     elif stype == 'unknown':
         print(f"  ❌ 无法识别格式，跳过\n")
         if target_index:
             print(f"  --- 原始内容前 500 字符 ---\n{raw[:500]}\n")
         continue
-
     elif stype == 'json':
         data = json.loads(raw)
 
-        # ── 配置候选 ────────────────────────────────
         sites = data.get("sites", [])
         valid_sites = [s for s in sites if s.get("key") and s.get("api")]
-        spider_raw = data.get("spider", "")
-        spider_raw = resolve_spider(spider_raw, url)
+        spider_raw = resolve_spider(data.get("spider", ""), url)
         spider_url = spider_raw.split(";")[0].strip()
 
         if len(valid_sites) >= 3:
@@ -271,16 +273,17 @@ for i, url in enumerate(sources, 1):
                 print(f"  → 验证 spider: {spider_url[:80]}")
                 spider_result, spider_time = check_spider(spider_url)
                 if spider_result == SPIDER_RESULT_DEAD:
-                    print(f"    ❌ spider 明确失效（HTTP 错误），跳过此配置源")
+                    print(f"    ❌ spider 明确失效，跳过此配置源")
                 else:
                     spider_ok = (spider_result == SPIDER_RESULT_OK)
-                    tag = f"✅ 可访问 ({spider_time:.1f}s)" if spider_ok else "⚠️ 网络受限（地区限制？），保留候选"
+                    tag = f"✅ 可访问 ({spider_time:.1f}s)" if spider_ok else "⚠️ 网络受限，保留候选"
                     s = score_cfg(len(valid_sites), spider_ok, elapsed)
                     print(f"    {tag}，评分: {s}")
                     cfg_candidates.append({
                         "url": url, "spider": spider_raw,
                         "sites": valid_sites, "parses": data.get("parses", []),
-                        "score": s, "response_time": elapsed
+                        "score": s, "response_time": elapsed,
+                        "spider_domain": spider_domain(spider_raw),
                     })
             else:
                 no_spider_sites = [s for s in valid_sites if s.get("type", 3) in (0, 1)]
@@ -290,14 +293,14 @@ for i, url in enumerate(sources, 1):
                     cfg_candidates.append({
                         "url": url, "spider": "",
                         "sites": no_spider_sites, "parses": data.get("parses", []),
-                        "score": s, "response_time": elapsed
+                        "score": s, "response_time": elapsed,
+                        "spider_domain": "",
                     })
                 else:
-                    print(f"  ❌ 无 spider 且 type 0/1 站点不足（{len(no_spider_sites)} 个），跳过")
+                    print(f"  ❌ 无 spider 且 type 0/1 站点不足，跳过")
         elif target_index:
             print(f"  ℹ️  sites 数量: {len(sites)}（需 ≥3 才采用）")
 
-        # ── 直播候选 ────────────────────────────────
         lives = data.get("lives", [])
         for item in lives:
             live_url = item.get("url", "")
@@ -374,7 +377,7 @@ if dry_run:
     print("（调试模式，不写文件）")
     sys.exit(0)
 
-# 直播源：只有当前失效，或新源频道数超出 20% 才替换
+# 直播源：失效才换，或新源频道数超出 20%
 if m3u_candidates:
     best = m3u_candidates[0]
     if current_live_channels == 0:
@@ -392,19 +395,59 @@ else:
 
 print()
 
-# 配置源：当前 spider 有效则保留，失效才替换
+# 配置源：spider 有效 → 合并新站点；spider 失效 → 替换
 if current_cfg_ok:
-    print(f"✅ 配置源：当前 spider 仍可用，保留现有 {len(config.get('sites', []))} 个站点不变")
+    cur_domain = spider_domain(config.get("spider", ""))
+    existing_keys = {s["key"] for s in config.get("sites", [])}
+    added_total = 0
+    used_source = config.get("_source_url")
+
+    # 1. 重新拉取记录的来源 URL，合并它新增的站点
+    if used_source:
+        raw, _ = fetch_text(used_source)
+        if raw:
+            try:
+                src_sites = json.loads(raw).get("sites", [])
+                new = [s for s in src_sites if s.get("key") and s["key"] not in existing_keys]
+                if new:
+                    config["sites"].extend(new)
+                    existing_keys |= {s["key"] for s in new}
+                    added_total += len(new)
+                    print(f"  来源 {used_source[:60]} 新增 {len(new)} 个站点")
+            except Exception:
+                pass
+
+    # 2. 从候选里找与当前 spider 同域的源，合并其新站点
+    for c in cfg_candidates:
+        if c["spider_domain"] and c["spider_domain"] == cur_domain:
+            new = [s for s in c["sites"] if s.get("key") and s["key"] not in existing_keys]
+            if new:
+                config["sites"].extend(new)
+                existing_keys |= {s["key"] for s in new}
+                added_total += len(new)
+                if not used_source:
+                    used_source = c["url"]
+                print(f"  同域源 {c['url'][:60]} 新增 {len(new)} 个站点")
+
+    if used_source:
+        config["_source_url"] = used_source
+
+    if added_total > 0:
+        print(f"✅ 配置源：spider 有效，共新增 {added_total} 个站点（现共 {len(config['sites'])} 个）")
+        write_config(config)
+    else:
+        print(f"✅ 配置源：spider 有效，{len(config.get('sites', []))} 个站点均完整，无需修改")
+
 else:
     if cfg_candidates:
         best = cfg_candidates[0]
         print(f"✅ 配置源：当前 spider 失效，替换为 {best['url']}")
         print(f"   站点数: {len(best['sites'])}  解析数: {len(best['parses'])}")
-        config["spider"] = best["spider"]
-        config["sites"]  = best["sites"]
-        config["parses"] = best["parses"]
-        with open("config.json", "w", encoding="utf-8") as f:
-            json.dump(config, f, ensure_ascii=False, indent=2)
+        config["spider"]      = best["spider"]
+        config["sites"]       = best["sites"]
+        config["parses"]      = best["parses"]
+        config["_source_url"] = best["url"]
+        write_config(config)
         print(f"   → 已写入 config.json")
     else:
         print("⚠️  当前 spider 失效且无有效候选源，config.json 保持不变")

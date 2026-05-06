@@ -44,9 +44,14 @@ def fetch_text(url, timeout=15):
         print(f"    fetch 失败: {e}")
         return None, 0
 
+SPIDER_RESULT_OK      = "ok"       # HTTP 200 — 明确可访问
+SPIDER_RESULT_UNKNOWN = "unknown"  # 连接拒绝/超时 — 可能地区限制，不能断定失效
+SPIDER_RESULT_DEAD    = "dead"     # HTTP 4xx/5xx — 明确失效
+
 def check_spider(spider_url, timeout=10):
+    """返回 (result: str, elapsed: float)"""
     if not spider_url or not spider_url.startswith('http'):
-        return False, 0
+        return SPIDER_RESULT_UNKNOWN, 0
     try:
         req = urllib.request.Request(
             encode_url(spider_url),
@@ -55,10 +60,16 @@ def check_spider(spider_url, timeout=10):
         )
         t0 = time.time()
         with urllib.request.urlopen(req, timeout=timeout, context=_ssl_ctx) as resp:
-            return resp.status == 200, time.time() - t0
-    except Exception as e:
-        print(f"    spider 验证失败: {e}")
-        return False, 0
+            if resp.status == 200:
+                return SPIDER_RESULT_OK, time.time() - t0
+            return SPIDER_RESULT_DEAD, time.time() - t0
+    except urllib.error.HTTPError as e:
+        # 明确的 HTTP 错误（404、410、5xx）→ 真的挂了
+        print(f"    spider HTTP {e.code}，判定失效")
+        return SPIDER_RESULT_DEAD, 0
+    except Exception:
+        # 连接拒绝、超时、SSL 等网络层错误 → 无法判断，给 unknown
+        return SPIDER_RESULT_UNKNOWN, 0
 
 def resolve_spider(spider_raw, source_url):
     """相对路径 spider 转绝对 URL"""
@@ -167,12 +178,16 @@ def check_current_config(config):
         print("当前 config 无 spider")
         return False
     print(f"检查当前 spider: {spider_url[:80]}")
-    ok, elapsed = check_spider(spider_url)
-    if ok:
-        print(f"  ✅ 当前 spider 仍可访问 ({elapsed:.1f}s)")
+    result, elapsed = check_spider(spider_url)
+    if result == SPIDER_RESULT_OK:
+        print(f"  ✅ 当前 spider 可访问 ({elapsed:.1f}s)")
+        return True
+    elif result == SPIDER_RESULT_UNKNOWN:
+        print(f"  ⚠️  当前 spider 网络受限（可能地区限制），保守起见视为有效")
+        return True
     else:
-        print(f"  ❌ 当前 spider 不可访问")
-    return ok
+        print(f"  ❌ 当前 spider 明确失效（HTTP 错误）")
+        return False
 
 def count_current_live_channels():
     try:
@@ -254,17 +269,19 @@ for i, url in enumerate(sources, 1):
         if len(valid_sites) >= 3:
             if spider_url:
                 print(f"  → 验证 spider: {spider_url[:80]}")
-                spider_ok, spider_time = check_spider(spider_url)
-                if spider_ok:
-                    s = score_cfg(len(valid_sites), True, elapsed)
-                    print(f"    ✅ spider 可访问 ({spider_time:.1f}s)，评分: {s}")
+                spider_result, spider_time = check_spider(spider_url)
+                if spider_result == SPIDER_RESULT_DEAD:
+                    print(f"    ❌ spider 明确失效（HTTP 错误），跳过此配置源")
+                else:
+                    spider_ok = (spider_result == SPIDER_RESULT_OK)
+                    tag = f"✅ 可访问 ({spider_time:.1f}s)" if spider_ok else "⚠️ 网络受限（地区限制？），保留候选"
+                    s = score_cfg(len(valid_sites), spider_ok, elapsed)
+                    print(f"    {tag}，评分: {s}")
                     cfg_candidates.append({
                         "url": url, "spider": spider_raw,
                         "sites": valid_sites, "parses": data.get("parses", []),
                         "score": s, "response_time": elapsed
                     })
-                else:
-                    print(f"    ❌ spider 不可访问，跳过此配置源")
             else:
                 no_spider_sites = [s for s in valid_sites if s.get("type", 3) in (0, 1)]
                 if len(no_spider_sites) >= 3:

@@ -1,0 +1,15 @@
+# 直播补源候选列表：按顺序尝试，同频道找到可播放地址后停止。
+# iptv-org：中国频道（含 IPv4 CCTV 候选）
+https://iptv-org.github.io/iptv/countries/cn.m3u
+# Guovin：IPv4 自动检测结果
+https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/ipv4/result.m3u
+# fanmingming：IPv6 后备（需要检测及播放网络支持 IPv6）
+https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u
+# 港澳台及海外中文频道候选，只有目标频道且通过播放检查的地址才采用。
+https://iptv-org.github.io/iptv/countries/hk.m3u
+https://iptv-org.github.io/iptv/countries/tw.m3u
+https://iptv-org.github.io/iptv/countries/mo.m3u
+https://iptv-org.github.io/iptv/languages/zho.m3u
+# 体育/电影分类只是候选池；不批量导入未列为目标的频道。
+https://iptv-org.github.io/iptv/categories/sports.m3u
+https://iptv-org.github.io/iptv/categories/movies.m3u

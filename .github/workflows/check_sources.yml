@@ -1,26 +1,40 @@
-name: Check and Update Live Sources
+name: Check and Update TV Sources
 
 on:
   schedule:
-    - cron: '0 2 * * 1'
+    - cron: '0 2 * * *'
   workflow_dispatch:
 
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v5
 
+      - name: Install playback checker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Test playback filtering
+        run: python3 -m unittest discover -s tests -v
+
       - name: Check sources and update files
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: python3 check_sources.py
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add active_lives.m3u config.json
+          git add active_lives.m3u config.json sources_pool.txt vod_report.json vod_health.json
+          if [ -f config.previous.json ]; then git add config.previous.json; fi
           if git diff --staged --quiet; then
             echo "内容无变化，跳过提交"
           else

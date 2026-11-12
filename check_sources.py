@@ -2,8 +2,12 @@ import urllib.request
 import urllib.error
 import urllib.parse
 import json
-import sys
-import re
+import argparse
+from vod_update import run_vod_update
+from vod_sources import Client, inspect_source
+from live_validation import StreamValidator
+from live_repair import channel_key, read_lines, repair_playlist
+from live_discovery import discover_live_channels
 import time
 import ssl
 
@@ -44,410 +48,111 @@ def fetch_text(url, timeout=15):
         print(f"    fetch 失败: {e}")
         return None, 0
 
-SPIDER_RESULT_OK      = "ok"
-SPIDER_RESULT_UNKNOWN = "unknown"   # 连接拒绝/超时 — 可能地区限制
-SPIDER_RESULT_DEAD    = "dead"      # HTTP 4xx/5xx  — 明确失效
-
-def check_spider(spider_url, timeout=10):
-    if not spider_url or not spider_url.startswith('http'):
-        return SPIDER_RESULT_UNKNOWN, 0
-    try:
-        req = urllib.request.Request(
-            encode_url(spider_url),
-            headers={"User-Agent": "Mozilla/5.0 (compatible; TVBox checker)"},
-            method="HEAD"
-        )
-        t0 = time.time()
-        with urllib.request.urlopen(req, timeout=timeout, context=_ssl_ctx) as resp:
-            if resp.status == 200:
-                return SPIDER_RESULT_OK, time.time() - t0
-            return SPIDER_RESULT_DEAD, time.time() - t0
-    except urllib.error.HTTPError as e:
-        print(f"    spider HTTP {e.code}，判定失效")
-        return SPIDER_RESULT_DEAD, 0
-    except Exception:
-        return SPIDER_RESULT_UNKNOWN, 0
-
-def spider_domain(spider_raw):
-    url = spider_raw.split(";")[0].strip()
-    if not url.startswith("http"):
-        return ""
-    try:
-        return urllib.parse.urlparse(url).netloc
-    except Exception:
-        return ""
-
-def resolve_spider(spider_raw, source_url):
-    url = spider_raw.split(";")[0].strip()
-    if not url or url.startswith('http'):
-        return spider_raw
-    if url.startswith('./'):
-        base = source_url.rsplit("/", 1)[0] + "/"
-        abs_url = base + url[2:]
-        suffix = spider_raw[len(url):]
-        return abs_url + suffix
-    return spider_raw
-
-# ── 识别来源类型 ──────────────────────────────────────
-
-def detect_source_type(url, content):
-    if url.endswith('.jar') or (content and content[:2] == 'PK'):
-        return 'jar'
-    if content and content.lstrip().startswith('{'):
-        try:
-            json.loads(content)
-            return 'json'
-        except Exception:
-            pass
-    if content and '#EXTM3U' in content[:1024]:
-        return 'm3u'
-    return 'unknown'
-
-# ── 直播源过滤 ────────────────────────────────────────
-
-ALLOWED    = re.compile(r'\.(m3u8|flv|ts)(\?|$)', re.IGNORECASE)
-BLOCKED    = re.compile(r'^(proxy://|ext://)', re.IGNORECASE)
-BLOCKED_KW = re.compile(r'spider|#EXT-X-KEY', re.IGNORECASE)
-
-def is_clean_stream(stream_url):
-    if BLOCKED.match(stream_url):
-        return False
-    if BLOCKED_KW.search(stream_url):
-        return False
-    if ALLOWED.search(stream_url):
-        return True
-    if stream_url.startswith('http'):
-        return True
-    return False
-
-def filter_m3u(content):
-    lines = content.splitlines()
-    output = ['#EXTM3U']
-    i = 0
-    if lines and lines[0].startswith('#EXTM3U'):
-        i = 1
-    kept = dropped = 0
-    while i < len(lines):
-        line = lines[i].strip()
-        if line.startswith('#EXTINF'):
-            j = i + 1
-            while j < len(lines) and not lines[j].strip():
-                j += 1
-            if j < len(lines):
-                stream = lines[j].strip()
-                if is_clean_stream(stream):
-                    output.append(line)
-                    output.append(stream)
-                    kept += 1
-                else:
-                    dropped += 1
-                i = j + 1
-            else:
-                i += 1
-        else:
-            if line.startswith('#'):
-                output.append(line)
-            i += 1
-    print(f"    保留频道: {kept}，丢弃频道: {dropped}")
-    if kept == 0:
-        return None
-    return '\n'.join(output)
-
-# ── 评分函数 ──────────────────────────────────────────
-
-def score_cfg(sites_count, spider_ok, response_time):
-    score = sites_count * 10
-    if spider_ok:
-        score += 50
-    if response_time < 2:
-        score += 20
-    elif response_time < 5:
-        score += 10
-    return score
-
-def score_m3u(channel_count, response_time):
-    score = channel_count * 0.5
-    if response_time < 2:
-        score += 20
-    elif response_time < 5:
-        score += 10
-    return score
-
-# ── 检查当前 config 状态 ──────────────────────────────
-
-def check_current_config(config):
-    spider_raw = config.get("spider", "")
-    spider_url = spider_raw.split(";")[0].strip()
-    if not spider_url:
-        print("当前 config 无 spider")
-        return False
-    print(f"检查当前 spider: {spider_url[:80]}")
-    result, elapsed = check_spider(spider_url)
-    if result == SPIDER_RESULT_OK:
-        print(f"  ✅ 当前 spider 可访问 ({elapsed:.1f}s)")
-        return True
-    elif result == SPIDER_RESULT_UNKNOWN:
-        print(f"  ⚠️  当前 spider 网络受限（可能地区限制），视为有效")
-        return True
-    else:
-        print(f"  ❌ 当前 spider 明确失效（HTTP 错误）")
-        return False
-
-def count_current_live_channels():
+def read_current_playlist():
     try:
         with open("active_lives.m3u", encoding="utf-8") as f:
-            return f.read().count('#EXTINF')
-    except Exception:
-        return 0
+            return f.read()
+    except FileNotFoundError:
+        return "#EXTM3U\n"
+
+
+def write_playlist(content):
+    with open("active_lives.m3u", "w", encoding="utf-8") as f:
+        f.write(content or "#EXTM3U\n")
+
 
 def write_config(config):
     with open("config.json", "w", encoding="utf-8") as f:
         json.dump(config, f, ensure_ascii=False, indent=2)
 
+
+def load_live_candidates(path):
+    candidates = []
+    for url in read_lines(path):
+        print(f"  获取补源列表：{url}", flush=True)
+        content, _ = fetch_text(url)
+        if content and '#EXTM3U' in content[:1024]:
+            candidates.append(content)
+        else:
+            print("    补源列表不可用，继续其他来源", flush=True)
+    return candidates
+
+
+def prepare_live_repair(args, current, validator, extra=()):
+    preferred = read_lines(args.preferred_channels)
+    candidates = load_live_candidates(args.live_sources)
+    if not args.no_discovery:
+        discovered, online_candidates = discover_live_channels(fetch_text, args.discovery_limit)
+        known = {channel_key(name.rsplit('|', 1)[-1]) for name in preferred}
+        preferred.extend(spec for spec in discovered
+                         if channel_key(spec.rsplit('|', 1)[-1]) not in known)
+        candidates = online_candidates + candidates
+    return repair_playlist(current, candidates + list(extra), preferred, validator, args.max_alternatives)
+
 # ── 主流程 ────────────────────────────────────────────
 
-# 用法：
-#   python3 check_sources.py            全量扫描，智能更新
-#   python3 check_sources.py 3          单源调试（第 3 个源，不写文件）
-target_index = int(sys.argv[1]) if len(sys.argv) > 1 else None
+def main():
+    parser = argparse.ArgumentParser(description="检测 TVBox 配置及直播频道的实际播放能力")
+    parser.add_argument("source_index", nargs="?", type=int, help="单源调试，不写文件（从 1 开始）")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--vod-only", action="store_true", help="只检查和自动扩展点播资源池")
+    mode.add_argument("--live-only", action="store_true", help="只清理现有直播列表，不扫描候选源或修改配置")
+    mode.add_argument("--repair-live", action="store_true", help="检测直播并按频道寻找替代地址，不修改 TVBox 配置")
+    parser.add_argument("--dry-run", action="store_true", help="验证但不写文件")
+    parser.add_argument("--workers", type=int, default=8, help="并发播放检查数（默认 8）")
+    parser.add_argument("--timeout", type=float, default=30, help="单个播放地址的最长检测秒数（默认 30）")
+    parser.add_argument("--sample-seconds", type=float, default=5, help="必须成功解码的视频秒数（默认 5）")
+    parser.add_argument("--live-sources", default="live_sources.txt", help="直播候选列表文件")
+    parser.add_argument("--preferred-channels", default="preferred_channels.txt", help="持续补源的目标频道清单")
+    parser.add_argument("--max-alternatives", type=int, default=8, help="每个频道最多尝试的替代地址数（默认 8）")
+    parser.add_argument("--no-discovery", action="store_true", help="关闭直播及点播在线发现，仍检查已有资源池")
+    parser.add_argument("--discovery-limit", type=int, default=40, help="每次自动发现的最大目标频道数（默认 40，0 为关闭）")
+    parser.add_argument("--vod-discovery-limit", type=int, default=40, help="每次发现点播候选配置上限")
+    args = parser.parse_args()
+    if args.source_index is not None and args.source_index < 1:
+        parser.error("source_index 必须从 1 开始")
+    if (args.live_only or args.repair_live or args.vod_only) and args.source_index is not None:
+        parser.error("直播模式不能同时指定 source_index")
+    if args.max_alternatives < 1:
+        parser.error("max-alternatives 必须大于 0")
+    if args.discovery_limit < 0 or args.vod_discovery_limit < 0:
+        parser.error("discovery-limit 不能小于 0")
+    if args.workers < 1 or args.sample_seconds <= 0 or args.timeout <= args.sample_seconds:
+        parser.error("workers 必须大于 0，timeout 必须大于 sample-seconds，sample-seconds 必须大于 0")
+    if args.source_index is not None:
+        sources = read_lines('sources_pool.txt')
+        if args.source_index > len(sources):
+            parser.error(f'source_index 超出范围（共 {len(sources)} 个源）')
+        result = inspect_source(sources[args.source_index - 1], Client())
+        print(json.dumps({k: v for k, v in result.items() if k not in ('config', 'ready_sites')}, ensure_ascii=False, indent=2))
+        return
+    if args.vod_only:
+        run_vod_update(dry_run=args.dry_run, discover=not args.no_discovery,
+                       discovery_limit=args.vod_discovery_limit, workers=args.workers)
+        return
+    validator = StreamValidator(args.workers, args.timeout, args.sample_seconds)
+    if args.live_only:
+        result = validator.filter_m3u(read_current_playlist())
+        if not args.dry_run:
+            write_playlist(result)
+        return
+    if args.repair_live:
+        result = prepare_live_repair(args, read_current_playlist(), validator)
+        if not args.dry_run:
+            write_playlist(result)
+        return
 
-with open("sources_pool.txt", encoding="utf-8") as f:
-    sources = [
-        line.strip()
-        for line in f
-        if line.strip() and not line.strip().startswith("#")
-    ]
+    report = run_vod_update(dry_run=args.dry_run, discover=not args.no_discovery,
+                            discovery_limit=args.vod_discovery_limit, workers=args.workers)
+    extra = []
+    for url in report['live_urls']:
+        content, _ = fetch_text(url)
+        if content and '#EXTM3U' in content[:1024]:
+            extra.append(content)
+    result = prepare_live_repair(args, read_current_playlist(), validator, extra)
+    if not args.dry_run:
+        write_playlist(result)
 
-if target_index:
-    sources = [sources[target_index - 1]]
-    print(f"🔍 单源调试模式，测试第 {target_index} 个源\n")
-else:
-    print(f"共找到 {len(sources)} 个候选源，开始检测...\n")
 
-with open("config.json", encoding="utf-8") as f:
-    config = json.load(f)
-
-dry_run = bool(target_index)
-
-if not dry_run:
-    print("── 检查现有配置 ──────────────────────────────────")
-    current_cfg_ok = check_current_config(config)
-    current_live_channels = count_current_live_channels()
-    print(f"当前直播源频道数: {current_live_channels}\n")
-else:
-    current_cfg_ok = False
-    current_live_channels = 0
-
-cfg_candidates = []
-m3u_candidates = []
-
-print("── 扫描候选源 ─────────────────────────────────────")
-for i, url in enumerate(sources, 1):
-    print(f"[{i}/{len(sources)}] {url}")
-    raw, elapsed = fetch_text(url)
-    if not raw:
-        print(f"  ❌ 无法获取内容\n")
-        continue
-
-    stype = detect_source_type(url, raw)
-    print(f"  类型: {stype}  响应: {elapsed:.1f}s")
-
-    if stype == 'jar':
-        print(f"  ⛔ jar 接口，丢弃\n")
-        continue
-    elif stype == 'unknown':
-        print(f"  ❌ 无法识别格式，跳过\n")
-        if target_index:
-            print(f"  --- 原始内容前 500 字符 ---\n{raw[:500]}\n")
-        continue
-    elif stype == 'json':
-        data = json.loads(raw)
-
-        sites = data.get("sites", [])
-        valid_sites = [s for s in sites if s.get("key") and s.get("api")]
-        spider_raw = resolve_spider(data.get("spider", ""), url)
-        spider_url = spider_raw.split(";")[0].strip()
-
-        if len(valid_sites) >= 3:
-            if spider_url:
-                print(f"  → 验证 spider: {spider_url[:80]}")
-                spider_result, spider_time = check_spider(spider_url)
-                if spider_result == SPIDER_RESULT_DEAD:
-                    print(f"    ❌ spider 明确失效，跳过此配置源")
-                else:
-                    spider_ok = (spider_result == SPIDER_RESULT_OK)
-                    tag = f"✅ 可访问 ({spider_time:.1f}s)" if spider_ok else "⚠️ 网络受限，保留候选"
-                    s = score_cfg(len(valid_sites), spider_ok, elapsed)
-                    print(f"    {tag}，评分: {s}")
-                    cfg_candidates.append({
-                        "url": url, "spider": spider_raw,
-                        "sites": valid_sites, "parses": data.get("parses", []),
-                        "score": s, "response_time": elapsed,
-                        "spider_domain": spider_domain(spider_raw),
-                    })
-            else:
-                no_spider_sites = [s for s in valid_sites if s.get("type", 3) in (0, 1)]
-                if len(no_spider_sites) >= 3:
-                    s = score_cfg(len(no_spider_sites), False, elapsed)
-                    print(f"  ✅ 无 spider，type 0/1 站点 {len(no_spider_sites)} 个，评分: {s}")
-                    cfg_candidates.append({
-                        "url": url, "spider": "",
-                        "sites": no_spider_sites, "parses": data.get("parses", []),
-                        "score": s, "response_time": elapsed,
-                        "spider_domain": "",
-                    })
-                else:
-                    print(f"  ❌ 无 spider 且 type 0/1 站点不足，跳过")
-        elif target_index:
-            print(f"  ℹ️  sites 数量: {len(sites)}（需 ≥3 才采用）")
-
-        lives = data.get("lives", [])
-        for item in lives:
-            live_url = item.get("url", "")
-            if not live_url:
-                continue
-            print(f"  → 提取直播 URL: {live_url}")
-            m3u_raw, m3u_elapsed = fetch_text(live_url)
-            if not m3u_raw or '#EXTM3U' not in m3u_raw[:1024]:
-                print(f"    ❌ 不是合法 m3u")
-                continue
-            result = filter_m3u(m3u_raw)
-            if result:
-                ch = result.count('#EXTINF')
-                s = score_m3u(ch, m3u_elapsed)
-                print(f"    ✅ {ch} 个频道  响应: {m3u_elapsed:.1f}s  评分: {s:.0f}")
-                m3u_candidates.append({
-                    "url": live_url, "content": result,
-                    "channel_count": ch, "score": s, "response_time": m3u_elapsed
-                })
-                break
-
-    elif stype == 'm3u':
-        result = filter_m3u(raw)
-        if result:
-            ch = result.count('#EXTINF')
-            s = score_m3u(ch, elapsed)
-            print(f"  ✅ {ch} 个频道  评分: {s:.0f}")
-            m3u_candidates.append({
-                "url": url, "content": result,
-                "channel_count": ch, "score": s, "response_time": elapsed
-            })
-
-    print()
-
-# ── 评分汇总 ──────────────────────────────────────────
-
-cfg_candidates.sort(key=lambda x: x["score"], reverse=True)
-m3u_candidates.sort(key=lambda x: x["score"], reverse=True)
-
-print("=" * 50)
-print("📊 评分结果\n")
-
-if cfg_candidates:
-    print(f"配置源 Top {min(3, len(cfg_candidates))}:")
-    for c in cfg_candidates[:3]:
-        spider_tag = "有spider" if c["spider"] else "无spider"
-        print(f"  [{c['score']:4.0f}分] 站点:{len(c['sites']):3d}  {c['response_time']:.1f}s  {spider_tag}  {c['url'][:60]}")
-else:
-    print("配置源：无有效候选")
-
-print()
-
-if m3u_candidates:
-    print(f"直播源 Top {min(3, len(m3u_candidates))}:")
-    for m in m3u_candidates[:3]:
-        print(f"  [{m['score']:6.1f}分] 频道:{m['channel_count']:4d}  {m['response_time']:.1f}s  {m['url'][:60]}")
-else:
-    print("直播源：无有效候选")
-
-print()
-
-# ── 写入决策 ──────────────────────────────────────────
-
-if dry_run:
-    if cfg_candidates:
-        best = cfg_candidates[0]
-        print(f"✅ 配置源（调试）: {best['url']}")
-        print(f"   前 5 个站点:")
-        for s in best["sites"][:5]:
-            print(f"     [{s.get('key','')}] {s.get('name','')}")
-    if m3u_candidates:
-        best = m3u_candidates[0]
-        print(f"✅ 直播源（调试）: {best['url']}  {best['channel_count']} 频道")
-    print("（调试模式，不写文件）")
-    sys.exit(0)
-
-# 直播源：失效才换，或新源频道数超出 20%
-if m3u_candidates:
-    best = m3u_candidates[0]
-    if current_live_channels == 0:
-        print(f"✅ 直播源：当前失效，替换为 {best['url']} ({best['channel_count']} 频道)")
-        with open("active_lives.m3u", "w", encoding="utf-8") as f:
-            f.write(best["content"])
-    elif best["channel_count"] > current_live_channels * 1.2:
-        print(f"✅ 直播源：新源频道数 {best['channel_count']} 比当前 {current_live_channels} 多 20%+，替换")
-        with open("active_lives.m3u", "w", encoding="utf-8") as f:
-            f.write(best["content"])
-    else:
-        print(f"✅ 直播源：当前 {current_live_channels} 频道仍有效，保留不变")
-else:
-    print("⚠️  未找到有效直播源，active_lives.m3u 保持不变")
-
-print()
-
-# 配置源：spider 有效 → 合并新站点；spider 失效 → 替换
-if current_cfg_ok:
-    cur_domain = spider_domain(config.get("spider", ""))
-    existing_keys = {s["key"] for s in config.get("sites", [])}
-    added_total = 0
-    used_source = config.get("_source_url")
-
-    # 1. 重新拉取记录的来源 URL，合并它新增的站点
-    if used_source:
-        raw, _ = fetch_text(used_source)
-        if raw:
-            try:
-                src_sites = json.loads(raw).get("sites", [])
-                new = [s for s in src_sites if s.get("key") and s["key"] not in existing_keys]
-                if new:
-                    config["sites"].extend(new)
-                    existing_keys |= {s["key"] for s in new}
-                    added_total += len(new)
-                    print(f"  来源 {used_source[:60]} 新增 {len(new)} 个站点")
-            except Exception:
-                pass
-
-    # 2. 从候选里找与当前 spider 同域的源，合并其新站点
-    for c in cfg_candidates:
-        if c["spider_domain"] and c["spider_domain"] == cur_domain:
-            new = [s for s in c["sites"] if s.get("key") and s["key"] not in existing_keys]
-            if new:
-                config["sites"].extend(new)
-                existing_keys |= {s["key"] for s in new}
-                added_total += len(new)
-                if not used_source:
-                    used_source = c["url"]
-                print(f"  同域源 {c['url'][:60]} 新增 {len(new)} 个站点")
-
-    if used_source:
-        config["_source_url"] = used_source
-
-    if added_total > 0:
-        print(f"✅ 配置源：spider 有效，共新增 {added_total} 个站点（现共 {len(config['sites'])} 个）")
-        write_config(config)
-    else:
-        print(f"✅ 配置源：spider 有效，{len(config.get('sites', []))} 个站点均完整，无需修改")
-
-else:
-    if cfg_candidates:
-        best = cfg_candidates[0]
-        print(f"✅ 配置源：当前 spider 失效，替换为 {best['url']}")
-        print(f"   站点数: {len(best['sites'])}  解析数: {len(best['parses'])}")
-        config["spider"]      = best["spider"]
-        config["sites"]       = best["sites"]
-        config["parses"]      = best["parses"]
-        config["_source_url"] = best["url"]
-        write_config(config)
-        print(f"   → 已写入 config.json")
-    else:
-        print("⚠️  当前 spider 失效且无有效候选源，config.json 保持不变")
+if __name__ == '__main__':
+    main()

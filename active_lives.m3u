@@ -85,6 +85,8 @@ http://107.150.60.122/live/gzwshd.m3u8
 http://192.151.150.154/live/ynwshd.m3u8
 #EXTINF:-1 tvg-name="广西卫视" group-title="卫视频道",广西卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gxwshd
+#EXTINF:-1 tvg-id="海南卫视" tvg-name="海南卫视" tvg-logo="https://gitee.com/suxuang/logo/raw/master/mylogo/海南卫视.png" group-title="卫视频道",海南卫视
+http://120.76.248.139/live/bfgd/4200000473.m3u8
 #EXTINF:-1 tvg-name="青海卫视" group-title="卫视频道",青海卫视
 http://107.150.60.122/live/qhws.m3u8
 #EXTINF:-1 tvg-name="甘肃卫视" group-title="卫视频道",甘肃卫视
@@ -123,8 +125,14 @@ https://amg00353-lionsgatestudio-moviesphere-xumo-zh5u0.amagi.tv/playlist.m3u8
 https://jmp2.uk/plu-64a3d96f060e830008af6745.m3u8
 #EXTINF:-1 tvg-id="MovieSphere UK" tvg-name="MovieSphere UK" tvg-logo="https://i.imgur.com/h1ejU90.png" group-title="免费电影（外语）",MovieSphere UK
 https://moviesphereuk-samsunguk.amagi.tv/playlist.m3u8
+#EXTINF:-1 tvg-id="FILMBOX+ Action" tvg-name="FILMBOX+ Action" tvg-logo="https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Baction.png" group-title="免费电影（外语）",FILMBOX+ Action
+http://92.114.85.87:8008/play/a007/index.m3u8
+#EXTINF:-1 tvg-id="台视" tvg-name="台视" tvg-logo="https://logo.catvod.com/台视.png" group-title="台湾中文",台视
+http://74.91.26.218:82/live/ttv.m3u8
 #EXTINF:-1 tvg-id="FILMBOX+ Festival" tvg-name="FILMBOX+ Festival" tvg-logo="https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bfestival.png" group-title="免费电影（外语）",FILMBOX+ Festival
 http://92.114.85.87:8018/play/a009/index.m3u8
+#EXTINF:-1 tvg-id="民視" tvg-name="民視" group-title="台湾中文",民視
+http://211.72.174.95:8115/0.ts
 #EXTINF:-1 tvg-id="iFilm English" tvg-name="iFilm English" tvg-logo="https://i.imgur.com/RdC0DQk.png" group-title="免费电影（外语）",iFilm English
 https://live.presstv.co.uk/hls/ifilmen.m3u8
 #EXTINF:-1 tvg-id="FightBox" tvg-name="FightBox" tvg-logo="https://i.imgur.com/mRsnztA.png" group-title="免费体育（外语）",FightBox

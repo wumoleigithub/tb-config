@@ -1,7 +1,7 @@
 #巧技接口	
 http://cdn.qiaoji8.com/tvbox.json
 #吃猫的鱼接口	
-https://d.kstore.dev/download/7213/吃猫的鱼
+#dead https://d.kstore.dev/download/7213/吃猫的鱼
 #欧歌单线路接口	
 https://xn--xkkx-rp5imh.v.nxog.top/api.php?id=3
 #菜妮丝XBPQ接口	
@@ -44,7 +44,7 @@ http://tv.nxog.top/m
 #欧歌免费	
 https://tv.nxog.top/m/111.php?ou=公众号欧歌app&mz=index&jar=index&123&b=tv
 #小米接口	
-http://www.mpanso.com/小米/DEMO.json
+#dead http://www.mpanso.com/小米/DEMO.json
 #王二小接口	
 http://tvbox.xn--4kq62z5rby2qupq9ub.top/
 #公众号【王二小放牛娃】	
@@ -72,3 +72,13 @@ https://raw.githubusercontent.com/hkuc/tvbox-config/main/tv/0/js.json
 https://6800.kstore.vip/fish.json
 https://raw.githubusercontent.com/scovis/TVBox/main/R18.json
 https://raw.githubusercontent.com/cluntop/tvbox/main/box.json
+
+# 自动发现：配置及至少一个站点依赖检查通过；播放需在客户端验证
+https://raw.githubusercontent.com/hebijunge/tvbox-config/main/tvbox_recommended.json
+https://raw.githubusercontent.com/lee-905/Lee-XFYIR-588/main/tvbox.json
+https://raw.githubusercontent.com/JianghaoPi/my-tvbox-sources/main/output/4k.json
+https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/4k.json
+https://raw.githubusercontent.com/larry-biu/tvbox-config/main/tvbox.json
+https://ghproxy.net/https://raw.githubusercontent.com/hebijunge/tvbox-config/main/tvbox_recommended.json
+https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/ouge.json
+https://raw.githubusercontent.com/larry-biu/tvbox-config/main/config.json

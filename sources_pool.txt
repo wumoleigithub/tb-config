@@ -82,3 +82,11 @@ https://raw.githubusercontent.com/larry-biu/tvbox-config/main/tvbox.json
 https://ghproxy.net/https://raw.githubusercontent.com/hebijunge/tvbox-config/main/tvbox_recommended.json
 https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/ouge.json
 https://raw.githubusercontent.com/larry-biu/tvbox-config/main/config.json
+
+# 自动发现：配置及至少一个站点依赖检查通过；播放需在客户端验证
+https://raw.githubusercontent.com/22yune/tvbox-kids/main/kids.json
+https://raw.githubusercontent.com/ZHOUYU86/tvbox-sources/main/b.json
+https://9280.kstore.vip/newwex.json
+https://raw.githubusercontent.com/Inliang/tvbox/main/feimao.json
+https://www.yingm.cc/dm/dm.json
+https://raw.githubusercontent.com/Inliang/tvbox/main/zijian.json

@@ -90,3 +90,9 @@ https://9280.kstore.vip/newwex.json
 https://raw.githubusercontent.com/Inliang/tvbox/main/feimao.json
 https://www.yingm.cc/dm/dm.json
 https://raw.githubusercontent.com/Inliang/tvbox/main/zijian.json
+
+# 自动发现：配置及至少一个站点依赖检查通过；播放需在客户端验证
+https://raw.githubusercontent.com/NASSD124/tvbox5/main/tvbox92.json
+https://raw.githubusercontent.com/xxl6097/TVBoxTV/main/docs/store/sites.json
+https://raw.githubusercontent.com/zhujiejie/tvbox/main/%E5%BD%B1%E8%A7%86%E4%BB%93%E6%8E%A5%E5%8F%A3_%E8%B1%86%E7%93%A3%E9%A6%96%E9%A1%B5.json
+https://raw.githubusercontent.com/xxl6097/TVBoxTV/main/docs/store/subscribe.json

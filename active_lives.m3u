@@ -97,10 +97,8 @@ http://63.141.230.178:82/gslb/zbdq5.m3u8?id=nmgws
 http://107.150.60.122/live/xzws.m3u8
 #EXTINF:-1 tvg-name="新疆卫视" group-title="卫视频道",新疆卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=xjws
-#EXTINF:-1 tvg-id="澳视卫星" tvg-name="澳视卫星" group-title="港澳中文",澳视卫星
-https://tv123.cc.cd/live.php?ch=347&sid=121b25b2ccb9552dca0af8233fab8940&exp=1794862420&sig=02452a03335eca37989fc6a8724bc3a4867f512e78648513df42d3beaf5dc2c9
-#EXTINF:-1 tvg-id="澳门莲花" tvg-name="澳门莲花" group-title="港澳中文",澳门莲花
-https://tv123.cc.cd/live.php?ch=350&sid=121b25b2ccb9552dca0af8233fab8940&exp=1794862420&sig=5e72c11afa3faf1100979bc8bf2a8cde41434ab022b7e5b3f2eda88b2ef655ee
+#EXTINF:-1 tvg-id="港台电视31" tvg-name="港台电视31" tvg-logo="https://i.imgur.com/kf818kM.png" group-title="港澳中文",港台电视31
+https://rthktv31-live.akamaized.net/hls/live/2036818/RTHKTV31/master.m3u8
 #EXTINF:-1 tvg-id="凤凰资讯" tvg-name="凤凰资讯" tvg-logo="https://live.fanmingming.cn/tv/凤凰卫视资讯台.png" group-title="港澳中文",凤凰资讯
 http://43.152.224.209/qctv.fengshows.cn/live/0701pin72.flv
 #EXTINF:-1 tvg-id="台视新闻" tvg-name="台视新闻" tvg-logo="https://i.imgur.com/AfkK0gv.png" group-title="台湾中文",台视新闻
@@ -111,8 +109,6 @@ https://h5cul1yar48um3t.wcetv.com/hls/hakkatv.m3u8
 https://streamipcfapp.akamaized.net/live/_definst_/live_720/key_b1500.m3u8
 #EXTINF:-1 tvg-id="人间卫视" tvg-name="人间卫视" tvg-logo="https://i.imgur.com/hkwcBM9.png" group-title="台湾中文",人间卫视
 https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/playlist.m3u8
-#EXTINF:-1 tvg-id="澳门体育" tvg-name="澳门体育" group-title="体育频道",澳门体育
-https://tv123.cc.cd/live.php?ch=348&sid=121b25b2ccb9552dca0af8233fab8940&exp=1794862420&sig=a28f013a76e4470bb8a225b7d9805e936332e142b1ebc2a1270fd9ae9125f62c
 #EXTINF:-1 tvg-id="beIN SPORTS XTRA" tvg-name="beIN SPORTS XTRA" tvg-logo="https://i.ibb.co/HT49GPmB/XTRA-2.png" group-title="免费体育（外语）",beIN SPORTS XTRA
 https://bein-xtra-bein.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="Red Bull TV" tvg-name="Red Bull TV" tvg-logo="https://images.pluto.tv/channels/5e7cb84a172a0f0007da69e4/colorLogoPNG.png" group-title="免费体育（外语）",Red Bull TV
@@ -127,6 +123,8 @@ https://amg00353-lionsgatestudio-moviesphere-xumo-zh5u0.amagi.tv/playlist.m3u8
 https://jmp2.uk/plu-64a3d96f060e830008af6745.m3u8
 #EXTINF:-1 tvg-id="MovieSphere UK" tvg-name="MovieSphere UK" tvg-logo="https://i.imgur.com/h1ejU90.png" group-title="免费电影（外语）",MovieSphere UK
 https://moviesphereuk-samsunguk.amagi.tv/playlist.m3u8
+#EXTINF:-1 tvg-id="FILMBOX+ Action" tvg-name="FILMBOX+ Action" tvg-logo="https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Baction.png" group-title="免费电影（外语）",FILMBOX+ Action
+http://92.114.85.87:8008/play/a007/index.m3u8
 #EXTINF:-1 tvg-id="FILMBOX+ Festival" tvg-name="FILMBOX+ Festival" tvg-logo="https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bfestival.png" group-title="免费电影（外语）",FILMBOX+ Festival
 https://dash3.antik.sk/live/test_filmbox_arthouse_atk_1200/playlist.m3u8
 #EXTINF:-1 tvg-id="民視" tvg-name="民視" group-title="台湾中文",民視

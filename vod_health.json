@@ -4,7 +4,7 @@
     "state": "unknown"
   },
   "https://d.kstore.dev/download/7213/吃猫的鱼": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://xn--xkkx-rp5imh.v.nxog.top/api.php?id=3": {
@@ -88,16 +88,16 @@
     "state": "invalid"
   },
   "http://www.mpanso.com/小米/DEMO.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "http://tvbox.xn--4kq62z5rby2qupq9ub.top/": {
     "missing_count": 0,
-    "state": "invalid"
+    "state": "unknown"
   },
   "http://tv.999888987.xyz": {
     "missing_count": 0,
-    "state": "invalid"
+    "state": "unknown"
   },
   "https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json": {
     "missing_count": 0,
@@ -132,27 +132,27 @@
     "state": "invalid"
   },
   "https://raw.githubusercontent.com/tv51818/TVbox/master/config.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/tv51818/My-TV/main/ok.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/config.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/wuxierj/TVBox/main/config.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/scovis/TVBox/main/config.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/Zhou-Li-Bin/Tvbox-QingNing/main/config.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/joelee7928/tvbox/main/all.json": {
@@ -192,15 +192,15 @@
     "state": "invalid"
   },
   "https://raw.githubusercontent.com/tv51818/TVbox/master/ok.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/tv51818/My-TV/main/config.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/tvbox.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://gh-proxy.com/https://raw.githubusercontent.com/wxrjck/-YSC-/refs/heads/main/wx.json": {
@@ -208,7 +208,7 @@
     "state": "invalid"
   },
   "https://raw.githubusercontent.com/scovis/TVBox/main/tvbox.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://github.moeyy.xyz/https://raw.githubusercontent.com/maoystv/6/main/000.json": {
@@ -241,10 +241,10 @@
   },
   "https://raw.githubusercontent.com/hkuc/tvbox-config/main/tv/0/js.json": {
     "missing_count": 0,
-    "state": "unknown"
+    "state": "ready"
   },
   "http://xxx.com/tvbox.json": {
-    "missing_count": 7,
+    "missing_count": 8,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/%E8%87%AA%E7%94%A8%E5%A4%9A%E4%BB%93.json": {
@@ -329,7 +329,7 @@
   },
   "https://9280.kstore.vip/newwex.json": {
     "missing_count": 0,
-    "state": "ready"
+    "state": "unknown"
   },
   "https://raw.githubusercontent.com/Inliang/tvbox/main/feimao.json": {
     "missing_count": 0,
@@ -474,5 +474,25 @@
   "https://gh-proxy.com/https://raw.githubusercontent.com/YiMing918/ym-tvbox/main/peter_tvbox_pro.json": {
     "missing_count": 0,
     "state": "ready"
+  },
+  "https://raw.githubusercontent.com/hengge345666/tvbox-subs/main/ads.json": {
+    "missing_count": 0,
+    "state": "invalid"
+  },
+  "https://raw.githubusercontent.com/jiji262/tvbox-sources/main/vercel.json": {
+    "missing_count": 0,
+    "state": "invalid"
+  },
+  "https://raw.githubusercontent.com/hengge345666/tvbox-subs/main/subs.json": {
+    "missing_count": 0,
+    "state": "invalid"
+  },
+  "https://raw.githubusercontent.com/jiji262/tvbox-sources/main/sources.json": {
+    "missing_count": 0,
+    "state": "invalid"
+  },
+  "https://raw.githubusercontent.com/ciweihaha/tv-resources/main/vod/vod-sources.json": {
+    "missing_count": 0,
+    "state": "unknown"
   }
 }

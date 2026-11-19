@@ -129,8 +129,6 @@ http://92.114.85.87:8008/play/a007/index.m3u8
 https://dash3.antik.sk/live/test_filmbox_arthouse_atk_1200/playlist.m3u8
 #EXTINF:-1 tvg-id="民視" tvg-name="民視" group-title="台湾中文",民視
 http://211.72.174.95:8115/0.ts
-#EXTINF:-1 tvg-id="iFilm English" tvg-name="iFilm English" tvg-logo="https://i.imgur.com/RdC0DQk.png" group-title="免费电影（外语）",iFilm English
-https://live.presstv.co.uk/hls/ifilmen.m3u8
 #EXTINF:-1 tvg-id="FightBox" tvg-name="FightBox" tvg-logo="https://i.imgur.com/mRsnztA.png" group-title="免费体育（外语）",FightBox
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.3
 https://webtvstream.bhtelecom.ba/fightbox.m3u8

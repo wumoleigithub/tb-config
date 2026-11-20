@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T09:39:35.241837+00:00",
+  "checked_at": "2026-11-20T09:23:14.222327+00:00",
   "validation_scope": "Configuration, JAR checksum/classes and public catalog APIs only. No Android plugin execution or movie playback verification.",
   "current": {
     "state": "ready",
@@ -819,13 +819,12 @@
       "site_count": 0
     },
     {
-      "state": "invalid",
-      "reason": "invalid TVBox config",
-      "ready_count": 0,
-      "site_count": 0,
       "url": "https://tv.xn--yhqu5zs87a.top",
-      "http_status": 200,
-      "elapsed": 0.4229185270000002
+      "state": "unknown",
+      "http_status": 0,
+      "reason": "The read operation timed out",
+      "ready_count": 0,
+      "site_count": 0
     },
     {
       "state": "ready",
@@ -1171,7 +1170,7 @@
       ],
       "url": "https://g.3344550.xyz/https://raw.githubusercontent.com/jigedos/1024/master/jsm.json",
       "http_status": 200,
-      "elapsed": 0.24521074300000123
+      "elapsed": 0.09190774399999668
     },
     {
       "state": "ready",
@@ -1406,7 +1405,7 @@
       ],
       "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
       "http_status": 200,
-      "elapsed": 1.5412237669999982
+      "elapsed": 1.817197979999996
     },
     {
       "url": "https://gitee.com/lukei7/lib/raw/Luck/%E8%87%AA%E5%BB%BA.json",
@@ -1447,7 +1446,7 @@
       "site_count": 0,
       "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer",
       "http_status": 200,
-      "elapsed": 0.9690323320000047
+      "elapsed": 0.8123989870000017
     },
     {
       "url": "https://xn--sdds-rp5imh.v.nxog.top/apitv.php?id=3",
@@ -1640,7 +1639,7 @@
       ],
       "url": "http://home.jundie.top:81/top98.json",
       "http_status": 200,
-      "elapsed": 1.019035488
+      "elapsed": 1.047557968999996
     },
     {
       "url": "https://9xi4o.tk/0725.json",
@@ -1665,7 +1664,7 @@
       "site_count": 0,
       "url": "https://gitlab.com/lzc1021lzc/hjfggzs.hjys/-/raw/main/hjys.free.json",
       "http_status": 200,
-      "elapsed": 0.19303745500000247
+      "elapsed": 0.0941556900000009
     },
     {
       "state": "invalid",
@@ -1674,7 +1673,7 @@
       "site_count": 0,
       "url": "http://影视仓.com/",
       "http_status": 200,
-      "elapsed": 1.4598729909999975
+      "elapsed": 1.4779948189999956
     },
     {
       "url": "http://fty.xxooo.cf/tv",
@@ -1691,7 +1690,7 @@
       "site_count": 0,
       "url": "http://fty.888484.xyz/tv",
       "http_status": 200,
-      "elapsed": 0.43216351099999883
+      "elapsed": 0.3425709839999982
     },
     {
       "state": "invalid",
@@ -1700,7 +1699,7 @@
       "site_count": 0,
       "url": "http://xhztv.top/4k.json",
       "http_status": 200,
-      "elapsed": 0.22357242300000024
+      "elapsed": 0.20588244900000063
     },
     {
       "url": "http://tv.nxog.top/m",
@@ -1717,7 +1716,7 @@
       "site_count": 0,
       "url": "https://tv.nxog.top/m/111.php?ou=公众号欧歌app&mz=index&jar=index&123&b=tv",
       "http_status": 200,
-      "elapsed": 0.6057243330000048
+      "elapsed": 0.6923861089999974
     },
     {
       "url": "http://www.mpanso.com/小米/DEMO.json",
@@ -1734,7 +1733,7 @@
       "site_count": 0,
       "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top/",
       "http_status": 200,
-      "elapsed": 0.6943089020000031
+      "elapsed": 0.714594690999995
     },
     {
       "state": "invalid",
@@ -1743,7 +1742,7 @@
       "site_count": 0,
       "url": "http://tv.999888987.xyz",
       "http_status": 200,
-      "elapsed": 0.5723463749999951
+      "elapsed": 0.5128368770000051
     },
     {
       "state": "invalid",
@@ -1752,7 +1751,7 @@
       "site_count": 0,
       "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
       "http_status": 200,
-      "elapsed": 0.13603561000000042
+      "elapsed": 0.044421157999998684
     },
     {
       "url": "https://gh.aptv.app/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
@@ -2121,7 +2120,7 @@
       ],
       "url": "https://raw.githubusercontent.com/qist/tvbox/master/fty.json",
       "http_status": 200,
-      "elapsed": 0.12311016499999994
+      "elapsed": 0.04146491600000246
     },
     {
       "state": "ready",
@@ -2285,6 +2284,13 @@
           "reason": "JAR and class verified; requires TVBox playback check",
           "key": "韩圈",
           "name": "韩圈 • APP",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "师兄",
+          "name": "师兄 • APP",
           "type": 3
         },
         {
@@ -2654,14 +2660,14 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "赏月",
+          "key": "赏月动漫",
           "name": "赏月 • 动漫",
           "type": 3
         },
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "稀饭",
+          "key": "稀饭动漫",
           "name": "稀饭 • 动漫",
           "type": 3
         },
@@ -2684,6 +2690,13 @@
           "reason": "JAR and class verified; requires TVBox playback check",
           "key": "花子动漫",
           "name": "花子 • 动漫",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "漫国动漫",
+          "name": "漫国 • 动漫",
           "type": 3
         },
         {
@@ -3268,19 +3281,19 @@
           "type": 3
         }
       ],
-      "ready_count": 122,
-      "site_count": 163,
+      "ready_count": 124,
+      "site_count": 165,
       "jars": [
         {
           "state": "ok",
           "url": "https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar",
           "reason": "",
-          "md5": "decb609b673019e18512dc3a96b6a252"
+          "md5": "4c6b37a5405e96552288e0e3fef6c195"
         }
       ],
       "url": "https://raw.githubusercontent.com/qist/tvbox/master/jsm.json",
       "http_status": 200,
-      "elapsed": 0.1357136380000057
+      "elapsed": 0.04481601300000193
     },
     {
       "state": "ready",
@@ -3381,6 +3394,13 @@
           "reason": "JAR and class verified; requires TVBox playback check",
           "key": "韩圈",
           "name": "韩圈 • APP",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "师兄",
+          "name": "师兄 • APP",
           "type": 3
         },
         {
@@ -3757,14 +3777,14 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "赏月",
+          "key": "赏月动漫",
           "name": "赏月 • 动漫",
           "type": 3
         },
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "稀饭",
+          "key": "稀饭动漫",
           "name": "稀饭 • 动漫",
           "type": 3
         },
@@ -3787,6 +3807,13 @@
           "reason": "JAR and class verified; requires TVBox playback check",
           "key": "花子动漫",
           "name": "花子 • 动漫",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "漫国动漫",
+          "name": "漫国 • 动漫",
           "type": 3
         },
         {
@@ -4105,19 +4132,19 @@
           "type": 3
         }
       ],
-      "ready_count": 115,
-      "site_count": 117,
+      "ready_count": 117,
+      "site_count": 119,
       "jars": [
         {
           "state": "ok",
           "url": "https://raw.githubusercontent.com/qist/tvbox/master/xiaosa/spider.jar",
           "reason": "",
-          "md5": "decb609b673019e18512dc3a96b6a252"
+          "md5": "4c6b37a5405e96552288e0e3fef6c195"
         }
       ],
       "url": "https://raw.githubusercontent.com/qist/tvbox/master/xiaosa/api.json",
       "http_status": 200,
-      "elapsed": 0.15049011400000012
+      "elapsed": 0.04939467799999875
     },
     {
       "state": "ready",
@@ -4505,7 +4532,7 @@
       ],
       "url": "https://raw.githubusercontent.com/mrgaoshuiquan/tvbox-config/main/tvbox.json",
       "http_status": 200,
-      "elapsed": 0.08215897000000183
+      "elapsed": 0.06280319799999745
     },
     {
       "state": "ready",
@@ -4893,7 +4920,7 @@
       ],
       "url": "https://raw.githubusercontent.com/mrgaoshuiquan/tvbox-config/main/jhkx-full.json",
       "http_status": 200,
-      "elapsed": 0.1301191980000027
+      "elapsed": 0.06734797699999717
     },
     {
       "state": "ready",
@@ -5127,7 +5154,7 @@
       ],
       "url": "https://raw.githubusercontent.com/cluntop/tvbox/main/aa.json",
       "http_status": 200,
-      "elapsed": 0.12964716900000184
+      "elapsed": 0.05142131199999511
     },
     {
       "state": "ready",
@@ -5243,7 +5270,7 @@
       ],
       "url": "https://raw.githubusercontent.com/cluntop/tvbox/main/wv.json",
       "http_status": 200,
-      "elapsed": 0.14188705299999782
+      "elapsed": 0.06440803800000339
     },
     {
       "state": "ready",
@@ -7340,7 +7367,7 @@
       ],
       "url": "https://raw.githubusercontent.com/hkuc/tvbox-config/main/tv/0/js.json",
       "http_status": 200,
-      "elapsed": 0.20137102099999993
+      "elapsed": 0.08611898600000245
     },
     {
       "state": "ready",
@@ -8135,7 +8162,7 @@
       ],
       "url": "https://6800.kstore.vip/fish.json",
       "http_status": 200,
-      "elapsed": 0.5011312080000039
+      "elapsed": 0.5970488350000025
     },
     {
       "state": "ready",
@@ -8741,7 +8768,7 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/scovis/TVBox/main/R18.json",
       "http_status": 200,
-      "elapsed": 0.11092121200000093
+      "elapsed": 0.06861606300000034
     },
     {
       "state": "ready",
@@ -9410,7 +9437,7 @@
       ],
       "url": "https://raw.githubusercontent.com/cluntop/tvbox/main/box.json",
       "http_status": 200,
-      "elapsed": 0.11423886800000105
+      "elapsed": 0.05434820600000023
     },
     {
       "state": "ready",
@@ -10144,15 +10171,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "仓鼠",
           "name": "🐹仓鼠┃蓝光┃弹幕",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "mutefun",
           "name": "😄DFun┃动漫┃蓝光",
           "type": 3
@@ -10172,8 +10199,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "菲儿影视",
           "name": "🥪菲菲┃蓝光┃无广",
           "type": 3
@@ -10466,8 +10493,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "nk",
           "name": "🫣耐看┃蓝光┃无广",
           "type": 3
@@ -14568,8 +14595,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "config",
           "name": "🚀辅助┃配置┃中心",
           "type": 3
@@ -14792,8 +14819,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "趣盘-2",
           "name": "🥳百度趣盘┃4K弹幕",
           "type": 3
@@ -14806,8 +14833,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "盘库",
           "name": "🐼盘库资源┃4K弹幕",
           "type": 3
@@ -14925,15 +14952,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "MoggV2",
           "name": "🍁优汐木偶┃4K弹幕",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "夸父-2",
           "name": "🐻夸父资源┃4K弹幕",
           "type": 3
@@ -15821,22 +15848,22 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "UcYunPan",
           "name": "📁文件┃优视┃资源",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "QuarkYunPan",
           "name": "📁文件┃夸克┃资源",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "AliYunPanV2",
           "name": "📁文件┃阿里┃资源",
           "type": 3
@@ -20812,9 +20839,9 @@
           "md5": "48589d6ba75769589ae764aef5c3d885"
         },
         {
-          "state": "unknown",
+          "state": "dead",
           "url": "http://我不是.摸鱼儿.top/by/jar/moyuer.php",
-          "reason": "timed out"
+          "reason": "HTTP 404"
         },
         {
           "state": "ok",
@@ -21011,7 +21038,7 @@
       ],
       "url": "https://raw.githubusercontent.com/hebijunge/tvbox-config/main/tvbox_recommended.json",
       "http_status": 200,
-      "elapsed": 0.24206107100000196
+      "elapsed": 0.16229513399999718
     },
     {
       "state": "ready",
@@ -21099,454 +21126,403 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/lee-905/Lee-XFYIR-588/main/tvbox.json",
       "http_status": 200,
-      "elapsed": 0.12449775199999635
+      "elapsed": 0.10016830100000362
     },
     {
       "state": "ready",
       "sites": [
         {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "drpy_js_豆瓣",
-          "name": "🔥聚玩盒子4K",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "豆瓣",
-          "name": "🔥公众号：聚玩盒",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "<urlopen error [Errno -2] Name or service not known>",
-          "key": "小胡",
-          "name": "🔥┃小胡┃4K",
-          "type": 1
-        },
-        {
-          "state": "invalid",
-          "reason": "not a readable JAR/ZIP",
-          "key": "csp_Mp4Mov",
-          "name": "🧲┃Mp4┃4k",
-          "type": 3
-        },
-        {
-          "state": "invalid",
-          "reason": "not a readable JAR/ZIP",
-          "key": "csp_SeedHub",
-          "name": "🧲┃SeedHub┃4k",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "<urlopen error [Errno -2] Name or service not known>",
-          "key": "csp_SixV",
-          "name": "💕┃磁力┃4K",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "<urlopen error [Errno -2] Name or service not known>",
-          "key": "七新",
-          "name": "👼┃七新┃2K",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "一起看 ",
-          "name": "❤┃一起┃2K",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": " 在线┃直播1",
-          "name": "📺┃竞技┃直播",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": " 在线┃直播2",
-          "name": "📺┃网红┃直播",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "<urlopen error [Errno -2] Name or service not known>",
-          "key": "cctv",
-          "name": "📺┃央视┃大全",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "py_cctv_少儿",
-          "name": "📺┃央视┃少儿",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "<urlopen error [Errno -2] Name or service not known>",
-          "key": "央视经典",
-          "name": "📺┃央视┃经典",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "drpy_js_360影视",
-          "name": "🧡┃360┃官源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 429",
-          "key": "初恋资源",
-          "name": "🧡┃初恋┃官源",
-          "type": 1
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "小柚",
-          "name": "🍊┃小柚┃App",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "南坊",
-          "name": "🎃┃南坊┃App",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_DouDou",
+          "name": "🔍聚玩盒子-本接口免费-🈲贩卖",
           "type": 3
         },
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "fok",
-          "name": "🌙┃夸克┃影视",
+          "key": "csp_Czsapp",
+          "name": "🏭厂长",
           "type": 3
         },
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "耐看",
-          "name": "🕶┃耐看┃影视",
+          "key": "csp_YQKan",
+          "name": "🌎一起看",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "南瓜",
-          "name": "🎃┃南瓜┃App",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_NanGua",
+          "name": "🎃南瓜",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 403",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "酷看",
+          "name": "💡酷看",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "率率",
+          "name": "🌸率率",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "萌米",
-          "name": "👀┃萌米┃App",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "繁星",
-          "name": "💥┃繁星┃App",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "csp_Nmys",
-          "name": "🌾┃农民┃直连",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "荐片",
-          "name": "🧲┃荐片┃磁力",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "77",
-          "name": "👒┃七七┃App",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "<urlopen error [Errno -2] Name or service not known>",
-          "key": "奈飞中文",
-          "name": "🎗┃奈飞┃秒播",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "九六",
-          "name": "🎀┃九六┃直连",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "<urlopen error [Errno -5] No address associated with hostname>",
-          "key": "熊掌",
-          "name": "🐻┃熊掌┃高清",
-          "type": 1
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "ikunzy",
-          "name": "🐓┃爱坤┃资源",
-          "type": 1
-        },
-        {
-          "state": "invalid",
-          "reason": "JAR MD5 mismatch",
-          "key": "天天",
-          "name": "💡┃天天┃影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "Bili",
-          "name": "🅱┃哔哔┃合集",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted",
-          "key": "赛文",
-          "name": "🍩┃赛文┃资源",
+          "name": "👀萌米",
           "type": 3
         },
         {
           "state": "ok",
-          "reason": "catalog API responds; playback not verified",
-          "key": "豪华资源",
-          "name": "🎥┃豪华┃资源",
-          "type": 1
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "星奇",
+          "name": "💥星奇",
+          "type": 3
         },
         {
           "state": "ok",
-          "reason": "catalog API responds; playback not verified",
-          "key": "hnzy",
-          "name": "🎥┃红牛┃资源",
-          "type": 1
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Jianpian",
+          "name": "🧲荐片",
+          "type": 3
         },
         {
           "state": "ok",
-          "reason": "catalog API responds; playback not verified",
-          "key": "gszy",
-          "name": "🎥┃光速┃资源",
-          "type": 1
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_DiDuan",
+          "name": "📺低端",
+          "type": 3
         },
         {
           "state": "ok",
-          "reason": "catalog API responds; playback not verified",
-          "key": "lzzy",
-          "name": "🎥┃量子┃资源",
-          "type": 1
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Auete",
+          "name": "🐼奥特",
+          "type": 3
         },
         {
           "state": "ok",
-          "reason": "catalog API responds; playback not verified",
-          "key": "snzy",
-          "name": "🎥┃索尼┃资源",
-          "type": 1
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "drpy_js_310直播",
-          "name": "⚽310直播",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_MLYS",
+          "name": "🐴毛驴",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "MV_vod",
-          "name": "⚡┃明星┃MV",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Xinsj",
+          "name": "✨新视觉",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "相声小品",
-          "name": "😍┃相声┃小品",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Bttwoo",
+          "name": "✌比特",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "戏 曲",
-          "name": "👵┃老年┃戏曲",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Lib",
+          "name": "🔷LibVio",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted",
-          "key": "短剧one",
-          "name": "🥰┃短剧┃视频",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Kuaikan",
+          "name": "👀快看",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted",
-          "key": "种子短剧",
-          "name": "💮┃短剧┃视频",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Kunyu77",
+          "name": "👒酷云七七",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 403",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "360",
+          "name": "💘360",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_SixV",
+          "name": "🧲新6V",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Anime1",
+          "name": "🌸动漫",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Dm84",
+          "name": "🚌动漫巴士",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "Ying",
+          "name": "🌸樱花动漫",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Ysj",
+          "name": "📮异世界",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Duanju",
+          "name": "🎭短剧",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Yj1211",
+          "name": "📽️在线直播",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Kanqiu",
+          "name": "⚽88看球",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "Aid",
+          "name": "🚑急救教学",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "csp_WoGG",
-          "name": "👽┃玩偶┃4K①",
+          "name": "👽玩偶哥哥",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted",
-          "key": "玩我哥哥",
-          "name": "测┃玩我┃哥哥",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "YiSo",
+          "name": "🆎易搜",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted",
-          "key": "玩偶哥哥",
-          "name": "测┃玩偶┃哥哥",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted",
-          "key": "玩偶运输车",
-          "name": "测┃玩偶┃运输",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "HTTP 403",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "PanSou",
-          "name": "🦊┃盘搜┃搜索",
+          "name": "📀盘搜",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 403",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "UpYun",
-          "name": "😻┃Up搜┃搜索",
+          "name": "☁️UP云搜",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 403",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "PanSearch",
-          "name": "🙀┃盘Se┃搜索",
+          "name": "🙀盘搜索",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 403",
-          "key": "七夜",
-          "name": "😾┃七夜┃搜索",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "Dovx",
+          "name": "😾七夜",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted",
-          "key": "阿里云盘登录",
-          "name": "🐲阿里┃云盘登录",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "Zhaozy",
+          "name": "🦊找资源",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "push_agent",
-          "name": "📽推送",
+          "name": "🍭推送",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Nbys",
+          "name": "👑泥巴(墙外)",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_trj",
+          "name": "🛫唐人街(墙外)",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "农民",
+          "name": "🥝农民",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "骚火",
+          "name": "💢骚火",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "奇优",
+          "name": "️💢奇优",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "云播",
+          "name": "💢云播",
+          "type": 3
+        },
+        {
+          "state": "unknown",
+          "reason": "client-specific JS/Python/plugin interface; not executed",
+          "key": "drpy_js_虎牙直播",
+          "name": "🐯虎牙直播",
+          "type": 3
+        },
+        {
+          "state": "unknown",
+          "reason": "client-specific JS/Python/plugin interface; not executed",
+          "key": "drpy_js_斗鱼直播",
+          "name": "🐠斗鱼直播",
+          "type": 3
+        },
+        {
+          "state": "unknown",
+          "reason": "client-specific JS/Python/plugin interface; not executed",
+          "key": "drpy_js_有声小说吧",
+          "name": "有声小说吧",
+          "type": 3
+        },
+        {
+          "state": "unknown",
+          "reason": "client-specific JS/Python/plugin interface; not executed",
+          "key": "drpy_js_JRKAN直播",
+          "name": "JRKAN直播",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "短视频",
+          "name": "☘️短视频",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "酷奇MV",
+          "name": "🎸酷奇MV",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "csp_Bili",
+          "name": "🅱️哔哩哔哩",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "相声小品",
+          "name": "🅱️相声小品",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "戏曲",
+          "name": "🅱️戏曲",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "少儿",
+          "name": "🅱️少儿",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "小学",
+          "name": "🅱️小学",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "初中",
+          "name": "🅱️初中",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "高中",
+          "name": "🅱️高中",
           "type": 3
         }
       ],
-      "ready_count": 7,
-      "site_count": 53,
+      "ready_count": 50,
+      "site_count": 54,
       "jars": [
         {
-          "state": "unknown",
-          "url": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1707044072121/fan.txt",
-          "reason": "HTTP 403"
-        },
-        {
-          "state": "invalid",
-          "url": "https://agit.ai/guot54/ygbh/raw/branch/master/JAR/83.jar",
-          "reason": "not a readable JAR/ZIP",
-          "md5": "e89f75f918dbdcee28604d4e09dd71d7"
-        },
-        {
-          "state": "unknown",
-          "url": "https://github.moeyy.xyz/raw.githubusercontent.com/CandyMuj/ResourceInterface/main/TVBox/candymuj.jar",
-          "reason": "<urlopen error [Errno -2] Name or service not known>"
-        },
-        {
-          "state": "unknown",
-          "url": "http://rihou.vip:88/hccx/HeChengChaXiu.jar",
-          "reason": "<urlopen error [Errno -2] Name or service not known>"
-        },
-        {
           "state": "ok",
-          "url": "https://jihulab.com/xiaohutx/meisha/-/raw/main/1.jar",
+          "url": "http://xhztv.top/xhz/Yoursmile.jar",
           "reason": "",
-          "md5": "bb155c3f0133bbce4756ad52003f5968"
-        },
-        {
-          "state": "ok",
-          "url": "https://jihulab.com/xiaohutx/meisha/-/raw/main/1.jar",
-          "reason": "",
-          "md5": "bb155c3f0133bbce4756ad52003f5968"
-        },
-        {
-          "state": "unknown",
-          "url": "http://qrh.yimkj.cn/ym/lib/ttkx.jar",
-          "reason": "<urlopen error [Errno -2] Name or service not known>"
-        },
-        {
-          "state": "invalid",
-          "url": "http://tv.nxog.top/m/jar.php?id=ou",
-          "reason": "JAR MD5 mismatch",
-          "md5": "b890224af2b999d3447fa1691569e643"
-        },
-        {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted"
-        },
-        {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted"
-        },
-        {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted"
-        },
-        {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted"
-        },
-        {
-          "state": "unknown",
-          "reason": "JAR inspection budget exhausted"
+          "md5": "69dadb9a99a618ea9e2f4e2b92968e41"
         }
       ],
       "url": "https://raw.githubusercontent.com/JianghaoPi/my-tvbox-sources/main/output/4k.json",
       "http_status": 200,
-      "elapsed": 0.13639929200000012
+      "elapsed": 0.0931946550000049
     },
     {
       "state": "ready",
@@ -21993,7 +21969,7 @@
       ],
       "url": "https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/4k.json",
       "http_status": 200,
-      "elapsed": 0.1437858520000006
+      "elapsed": 0.08511083600000546
     },
     {
       "state": "ready",
@@ -22143,7 +22119,7 @@
       ],
       "url": "https://raw.githubusercontent.com/larry-biu/tvbox-config/main/tvbox.json",
       "http_status": 200,
-      "elapsed": 0.15597650099999782
+      "elapsed": 0.08682018700000071
     },
     {
       "state": "ready",
@@ -22877,15 +22853,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "仓鼠",
           "name": "🐹仓鼠┃蓝光┃弹幕",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "mutefun",
           "name": "😄DFun┃动漫┃蓝光",
           "type": 3
@@ -22898,15 +22874,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "榴莲4k",
           "name": "榴莲｜APP",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "菲儿影视",
           "name": "🥪菲菲┃蓝光┃无广",
           "type": 3
@@ -23017,15 +22993,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "csp_xbpq_lgyy",
           "name": "蓝光影院(XBPQ)",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "csp_xb_lgyys",
           "name": "蓝光影院(XBiu)",
           "type": 3
@@ -23136,8 +23112,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "流光",
           "name": "流光｜APP",
           "type": 3
@@ -23164,8 +23140,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "萌豚",
           "name": "萌豚｜APP",
           "type": 3
@@ -23199,8 +23175,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "nk",
           "name": "🫣耐看┃蓝光┃无广",
           "type": 3
@@ -23220,8 +23196,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "csp_xb_auete",
           "name": "AUETE(XBiu)",
           "type": 3
@@ -23269,8 +23245,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "爱看APP",
           "name": "爱看｜APP",
           "type": 3
@@ -23290,8 +23266,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "csp_xb_zxzj",
           "name": "在线之家(XBiu)",
           "type": 3
@@ -23332,8 +23308,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "csp_XBPQ_南瓜影视",
           "name": "南瓜影视",
           "type": 3
@@ -23493,8 +23469,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "可达",
           "name": "可达｜APP",
           "type": 3
@@ -23752,8 +23728,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "csp_xb_ysgc",
           "name": "影视工厂(XBiu)",
           "type": 3
@@ -24214,8 +24190,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "csp_xb_lib",
           "name": "LIB(XBiu)",
           "type": 3
@@ -24844,8 +24820,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "农民采集",
           "name": "农民｜APP",
           "type": 3
@@ -24984,8 +24960,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "布谷TV",
           "name": "布谷TV｜磁力",
           "type": 3
@@ -25005,15 +24981,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "悟空",
           "name": "悟空｜影视",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "我闲影院",
           "name": "我闲｜影视",
           "type": 3
@@ -25033,8 +25009,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "枫林影视",
           "name": "枫林｜影视",
           "type": 3
@@ -25152,8 +25128,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "蚂蚁影院",
           "name": "蚂蚁｜影视",
           "type": 3
@@ -26104,8 +26080,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "SVIP影视",
           "name": "SVIP｜影视",
           "type": 3
@@ -26216,8 +26192,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "七七影视",
           "name": "七七｜影视",
           "type": 3
@@ -26237,8 +26213,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "乐看",
           "name": "乐看｜APP",
           "type": 3
@@ -26251,8 +26227,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "兔儿音乐",
           "name": "兔儿｜音乐",
           "type": 3
@@ -26328,15 +26304,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "巴蜀影视",
           "name": "巴蜀｜影视",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "幸福｜拾光",
           "name": "幸福｜拾光",
           "type": 3
@@ -26356,15 +26332,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "星空影视",
           "name": "星空｜影视",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "星辰影视",
           "name": "星辰｜影视",
           "type": 3
@@ -26391,15 +26367,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "樱花动漫",
           "name": "樱花｜动漫",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "歪片影视",
           "name": "歪片｜影视",
           "type": 3
@@ -26412,22 +26388,22 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "泥巴影视",
           "name": "泥巴｜影视",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "流光影视",
           "name": "流光｜影视",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "流星影视",
           "name": "流星｜影视",
           "type": 3
@@ -26440,8 +26416,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "海纳影视",
           "name": "海纳｜影视",
           "type": 3
@@ -26461,15 +26437,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "点播影视",
           "name": "点播｜影视",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "猫咪影视",
           "name": "猫咪｜影视",
           "type": 3
@@ -26503,8 +26479,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "白白影视",
           "name": "白白｜影视",
           "type": 3
@@ -26524,8 +26500,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "秀儿影视",
           "name": "秀儿｜影视",
           "type": 3
@@ -26552,15 +26528,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "萌鲸",
           "name": "萌鲸｜APP",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "路飞影视",
           "name": "路飞｜影视",
           "type": 3
@@ -26594,8 +26570,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "随客影视",
           "name": "随客｜影视",
           "type": 3
@@ -26636,8 +26612,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "麦田影视",
           "name": "麦田｜影视",
           "type": 3
@@ -27301,8 +27277,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "config",
           "name": "🚀辅助┃配置┃中心",
           "type": 3
@@ -27525,8 +27501,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "趣盘-2",
           "name": "🥳百度趣盘┃4K弹幕",
           "type": 3
@@ -27539,8 +27515,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "盘库",
           "name": "🐼盘库资源┃4K弹幕",
           "type": 3
@@ -27658,15 +27634,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "MoggV2",
           "name": "🍁优汐木偶┃4K弹幕",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "夸父-2",
           "name": "🐻夸父资源┃4K弹幕",
           "type": 3
@@ -27854,15 +27830,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "csp_XBPQ_98影院",
           "name": "98影院(XBPQ)",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "csp_biubiu_短视频",
           "name": "️短视频(XB)",
           "type": 3
@@ -28554,22 +28530,22 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "UcYunPan",
           "name": "📁文件┃优视┃资源",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "QuarkYunPan",
           "name": "📁文件┃夸克┃资源",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "timed out",
+          "state": "dead",
+          "reason": "HTTP 404",
           "key": "AliYunPanV2",
           "name": "📁文件┃阿里┃资源",
           "type": 3
@@ -28946,8 +28922,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "白嫖采集",
           "name": "白嫖｜采集",
           "type": 3
@@ -29114,15 +29090,15 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "擦边",
           "name": "擦边｜短剧",
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "番茄",
           "name": "番茄｜短剧",
           "type": 3
@@ -29149,8 +29125,8 @@
           "type": 3
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 429",
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "黑虎",
           "name": "黑虎｜短剧",
           "type": 3
@@ -33524,7 +33500,7 @@
           "type": 3
         }
       ],
-      "ready_count": 25,
+      "ready_count": 71,
       "site_count": 1625,
       "jars": [
         {
@@ -33545,14 +33521,15 @@
           "md5": "48589d6ba75769589ae764aef5c3d885"
         },
         {
-          "state": "unknown",
+          "state": "dead",
           "url": "http://我不是.摸鱼儿.top/by/jar/moyuer.php",
-          "reason": "timed out"
+          "reason": "HTTP 404"
         },
         {
-          "state": "unknown",
+          "state": "ok",
           "url": "https://ghproxy.net/https:/raw.githubusercontent.com/hebijunge/tvbox-config/main/deps/shiguang/svip/heads/main/svip.jar",
-          "reason": "HTTP 429"
+          "reason": "",
+          "md5": "91eb942e44d1154447df4f91ed714488"
         },
         {
           "state": "ok",
@@ -33561,9 +33538,10 @@
           "md5": "b9059746a076bd1626440655fd9da6f3"
         },
         {
-          "state": "unknown",
+          "state": "ok",
           "url": "https://ghproxy.net/https:/raw.githubusercontent.com/hebijunge/tvbox-config/main/deps/top98/jar/top98_1.jar",
-          "reason": "HTTP 429"
+          "reason": "",
+          "md5": "31259341cb1a5ed11da14804d14f1054"
         },
         {
           "state": "invalid",
@@ -33742,7 +33720,7 @@
       ],
       "url": "https://ghproxy.net/https://raw.githubusercontent.com/hebijunge/tvbox-config/main/tvbox_recommended.json",
       "http_status": 200,
-      "elapsed": 4.045632918999999
+      "elapsed": 7.035736408999995
     },
     {
       "state": "ready",
@@ -33856,7 +33834,7 @@
       ],
       "url": "https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/ouge.json",
       "http_status": 200,
-      "elapsed": 0.12886634200000913
+      "elapsed": 0.054020391000001666
     },
     {
       "state": "ready",
@@ -34006,7 +33984,7 @@
       ],
       "url": "https://raw.githubusercontent.com/larry-biu/tvbox-config/main/config.json",
       "http_status": 200,
-      "elapsed": 0.09946806499999639
+      "elapsed": 0.05674484099999688
     },
     {
       "state": "ready",
@@ -34082,12 +34060,12 @@
           "state": "ok",
           "url": "https://gh-proxy.com/https://raw.githubusercontent.com/22yune/tvbox-kids/refs/heads/main/spider/kids.jar",
           "reason": "",
-          "md5": "859273539d1af67a629b8095798798bc"
+          "md5": "c86603a8494b41c1b24493b923829337"
         }
       ],
       "url": "https://raw.githubusercontent.com/22yune/tvbox-kids/main/kids.json",
       "http_status": 200,
-      "elapsed": 0.14858409400000028
+      "elapsed": 0.10109302799999398
     },
     {
       "state": "ready",
@@ -34460,7 +34438,7 @@
       ],
       "url": "https://raw.githubusercontent.com/ZHOUYU86/tvbox-sources/main/b.json",
       "http_status": 200,
-      "elapsed": 0.13677347700000553
+      "elapsed": 0.09676058699999146
     },
     {
       "state": "ready",
@@ -35178,7 +35156,7 @@
       ],
       "url": "https://9280.kstore.vip/newwex.json",
       "http_status": 200,
-      "elapsed": 0.769822345999998
+      "elapsed": 0.5644253739999954
     },
     {
       "state": "ready",
@@ -35539,7 +35517,7 @@
       ],
       "url": "https://raw.githubusercontent.com/Inliang/tvbox/main/feimao.json",
       "http_status": 200,
-      "elapsed": 0.3407392870000052
+      "elapsed": 0.07742164600000478
     },
     {
       "state": "ready",
@@ -35737,7 +35715,7 @@
       ],
       "url": "https://www.yingm.cc/dm/dm.json",
       "http_status": 200,
-      "elapsed": 3.487778579999997
+      "elapsed": 0.8527621790000097
     },
     {
       "state": "ready",
@@ -35783,13 +35761,6 @@
           "key": "csp_Netfixtv",
           "name": "💌┃️至臻┃影视",
           "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "maccms_vod",
-          "name": "🐲┃自建┃沙师弟影视",
-          "type": 1
         },
         {
           "state": "ok",
@@ -36114,8 +36085,8 @@
           "type": 1
         },
         {
-          "state": "unknown",
-          "reason": "catalog inspection budget exhausted",
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
           "key": "光速资源",
           "name": "光速资源(切)",
           "type": 1
@@ -36228,20 +36199,6 @@
         {
           "state": "unknown",
           "reason": "catalog inspection budget exhausted",
-          "key": "丨樱花资源",
-          "name": "樱花资源",
-          "type": 1
-        },
-        {
-          "state": "unknown",
-          "reason": "catalog inspection budget exhausted",
-          "key": "丨步步高资源",
-          "name": "步步高资源",
-          "type": 1
-        },
-        {
-          "state": "unknown",
-          "reason": "catalog inspection budget exhausted",
           "key": "丨牛牛点播",
           "name": "牛牛点播",
           "type": 1
@@ -36305,20 +36262,6 @@
         {
           "state": "unknown",
           "reason": "catalog inspection budget exhausted",
-          "key": "丨豆瓣资源2",
-          "name": "豆瓣资源2",
-          "type": 1
-        },
-        {
-          "state": "unknown",
-          "reason": "catalog inspection budget exhausted",
-          "key": "丨豆瓣资源3",
-          "name": "豆瓣资源3",
-          "type": 1
-        },
-        {
-          "state": "unknown",
-          "reason": "catalog inspection budget exhausted",
           "key": "丨豪华资源",
           "name": "豪华资源",
           "type": 1
@@ -36377,13 +36320,6 @@
           "reason": "catalog inspection budget exhausted",
           "key": "丨非凡资源",
           "name": "非凡资源",
-          "type": 1
-        },
-        {
-          "state": "unknown",
-          "reason": "catalog inspection budget exhausted",
-          "key": "丨飘零资源",
-          "name": "飘零资源",
           "type": 1
         },
         {
@@ -36517,13 +36453,6 @@
           "reason": "catalog inspection budget exhausted",
           "key": "火狐",
           "name": "📛火焰狐妖",
-          "type": 1
-        },
-        {
-          "state": "unknown",
-          "reason": "catalog inspection budget exhausted",
-          "key": "飘零影院",
-          "name": "🥀飘零天涯",
           "type": 1
         },
         {
@@ -36674,8 +36603,8 @@
           "type": 3
         }
       ],
-      "ready_count": 55,
-      "site_count": 133,
+      "ready_count": 56,
+      "site_count": 126,
       "jars": [
         {
           "state": "ok",
@@ -36686,7 +36615,7 @@
       ],
       "url": "https://raw.githubusercontent.com/Inliang/tvbox/main/zijian.json",
       "http_status": 200,
-      "elapsed": 0.14240681799999777
+      "elapsed": 0.08073123500000179
     },
     {
       "state": "ready",
@@ -36711,7 +36640,7 @@
       ],
       "url": "https://raw.githubusercontent.com/NASSD124/tvbox5/main/tvbox92.json",
       "http_status": 200,
-      "elapsed": 0.1477172600000074
+      "elapsed": 0.09763787099998922
     },
     {
       "state": "ready",
@@ -36862,7 +36791,7 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/xxl6097/TVBoxTV/main/docs/store/sites.json",
       "http_status": 200,
-      "elapsed": 0.19474070799999765
+      "elapsed": 0.1073089490000001
     },
     {
       "state": "ready",
@@ -37027,7 +36956,7 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/zhujiejie/tvbox/main/%E5%BD%B1%E8%A7%86%E4%BB%93%E6%8E%A5%E5%8F%A3_%E8%B1%86%E7%93%A3%E9%A6%96%E9%A1%B5.json",
       "http_status": 200,
-      "elapsed": 0.15500199499999212
+      "elapsed": 0.10896180700000002
     },
     {
       "state": "ready",
@@ -37178,7 +37107,7 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/xxl6097/TVBoxTV/main/docs/store/subscribe.json",
       "http_status": 200,
-      "elapsed": 0.12951247200000182
+      "elapsed": 0.10488594200000989
     },
     {
       "state": "ready",
@@ -38406,7 +38335,7 @@
       ],
       "url": "https://raw.githubusercontent.com/niubihu1/tvbox/main/1.json",
       "http_status": 200,
-      "elapsed": 0.1400731439999987
+      "elapsed": 0.06970101699999987
     },
     {
       "state": "ready",
@@ -40503,7 +40432,7 @@
       ],
       "url": "https://raw.githubusercontent.com/ne7359/tvurl/main/js.json",
       "http_status": 200,
-      "elapsed": 0.09656835199999136
+      "elapsed": 0.11091948000000684
     },
     {
       "state": "ready",
@@ -42066,7 +41995,7 @@
       ],
       "url": "https://raw.githubusercontent.com/YiMing918/ym-tvbox/main/peter_tvbox_pro.json",
       "http_status": 200,
-      "elapsed": 0.09775574100000028
+      "elapsed": 0.06383893999999657
     },
     {
       "state": "ready",
@@ -43629,7 +43558,32 @@
       ],
       "url": "https://gh-proxy.com/https://raw.githubusercontent.com/YiMing918/ym-tvbox/main/peter_tvbox_pro.json",
       "http_status": 200,
-      "elapsed": 0.22286315999998862
+      "elapsed": 0.10505953300000215
+    },
+    {
+      "state": "ready",
+      "sites": [
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "souju",
+          "name": "搜剧AI",
+          "type": 3
+        }
+      ],
+      "ready_count": 1,
+      "site_count": 1,
+      "jars": [
+        {
+          "state": "ok",
+          "url": "https://raw.githubusercontent.com/muninZhang/Tvbox/main/souju_spider.jar",
+          "reason": "",
+          "md5": "636dfd31d7f82d623f8bf57f89a50ac0"
+        }
+      ],
+      "url": "https://raw.githubusercontent.com/muninZhang/Tvbox/main/config.json",
+      "http_status": 200,
+      "elapsed": 0.09562390100001039
     },
     {
       "state": "invalid",
@@ -43638,7 +43592,7 @@
       "ready_count": 0,
       "url": "https://raw.githubusercontent.com/hkuc/tvbox-config/main/tv/1/urls.json",
       "http_status": 200,
-      "elapsed": 0.12148132299999759
+      "elapsed": 0.09383466900000315
     },
     {
       "url": "https://raw.githubusercontent.com/tv51818/TVbox/master/config.json",
@@ -43689,317 +43643,31 @@
       "site_count": 0
     },
     {
-      "state": "unknown",
-      "sites": [
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "1",
-          "name": "豆瓣",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "2",
-          "name": "哔哩",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_338201675967",
-          "name": "汽水音乐",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_d882a09af99b",
-          "name": "千千音乐",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_e1ee5f95a735",
-          "name": "无极影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_d68ac251a6fc",
-          "name": "影视大全",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_b3ca09b39432",
-          "name": "千千影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_6f3ca5f6a65f",
-          "name": "热播",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_fc0568b2bb6b",
-          "name": "AI搜剧",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_8f85174e51cb",
-          "name": "豆花电影网",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_f57b48c23802",
-          "name": "一起看",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_2f7177104166",
-          "name": "猎手",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_075e73129a50",
-          "name": "看看剧",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_f8d1ac53b6b9",
-          "name": "毒舌影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_7b394ac21dbf",
-          "name": "分享猎手",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_e15e0c13bcad",
-          "name": "厂长资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_6fabb7d1442e",
-          "name": "低端影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_4c988fd8bcce",
-          "name": "饭团影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_22a45b5d5116",
-          "name": "饭团",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_32676b0d47ec",
-          "name": "看客TV",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_7f8aa687b404",
-          "name": "看看鸭",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_12bb37d126ba",
-          "name": "飞快TV",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_f83f6c0139a3",
-          "name": "片帝4K",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_1f4d051b258c",
-          "name": "懂片",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_7eb950e5e300",
-          "name": "vidhub",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_4e850e9d91ee",
-          "name": "搜剧AI",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_4cb04cb64ffd",
-          "name": "看剧AIxcz",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_b5503e1a86e1",
-          "name": "ZIP0影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_b91c700aaf47",
-          "name": "奇优影院",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_1c6b0fd055d7",
-          "name": "可可影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_1160fb4e6b2f",
-          "name": "不卡影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_28c2094abf60",
-          "name": "枫叶影院1",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_7af6ff43efff",
-          "name": "爱听音乐",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_e8d279df2881",
-          "name": "世界听书",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_f897755e5f3c",
-          "name": "music_dl",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_0753afca4a6c",
-          "name": "悦听吧",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_28479a5974ed",
-          "name": "酷我音乐",
-          "type": 3
-        }
-      ],
+      "state": "invalid",
+      "reason": "sites must be a list",
+      "sites": [],
       "ready_count": 0,
-      "site_count": 37,
-      "jars": [],
-      "url": "https://raw.githubusercontent.com/dxyc0922/Tvbox4.x_api/main/%E6%8E%A5%E5%8F%A3.json",
+      "url": "https://raw.githubusercontent.com/fe-spark/EcoHub/main/web/tsconfig.json",
       "http_status": 200,
-      "elapsed": 0.22788473100000317
-    },
-    {
-      "state": "ready",
-      "sites": [
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "souju",
-          "name": "搜剧AI",
-          "type": 3
-        }
-      ],
-      "ready_count": 1,
-      "site_count": 1,
-      "jars": [
-        {
-          "state": "ok",
-          "url": "https://ghfast.top/https://raw.githubusercontent.com/muninZhang/Tvbox/main/souju_spider.jar",
-          "reason": "",
-          "md5": "17c79accfc569236bccaebf4c2356e4b"
-        }
-      ],
-      "url": "https://raw.githubusercontent.com/muninZhang/Tvbox/main/config.json",
-      "http_status": 200,
-      "elapsed": 0.14881949899999825
+      "elapsed": 0.07812046899999814
     },
     {
       "state": "invalid",
       "reason": "sites must be a list",
       "sites": [],
       "ready_count": 0,
-      "url": "https://raw.githubusercontent.com/jo32/tvbox-silicon/main/website/tsconfig.json",
+      "url": "https://raw.githubusercontent.com/jiahua151526-maker/tvbox/main/lines.json",
       "http_status": 200,
-      "elapsed": 0.13695741400000827
+      "elapsed": 0.08664127199999427
     },
     {
       "state": "invalid",
       "reason": "sites must be a list",
       "sites": [],
       "ready_count": 0,
-      "url": "https://raw.githubusercontent.com/davisWeee/vod-hub/main/route.json",
+      "url": "https://raw.githubusercontent.com/be-engineer/yunTV/main/version.json",
       "http_status": 200,
-      "elapsed": 0.11261966099999654
+      "elapsed": 0.09625624000000244
     },
     {
       "state": "invalid",
@@ -44008,7 +43676,7 @@
       "ready_count": 0,
       "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/json/Bili.json",
       "http_status": 200,
-      "elapsed": 0.09789701000001116
+      "elapsed": 0.08290133199999161
     },
     {
       "state": "invalid",
@@ -44017,7 +43685,7 @@
       "site_count": 0,
       "url": "https://raw.githubusercontent.com/hkuc/tvbox-config/main/url.json",
       "http_status": 200,
-      "elapsed": 0.14190888599999596
+      "elapsed": 0.08467437499999164
     },
     {
       "url": "https://raw.githubusercontent.com/tv51818/TVbox/master/ok.json",
@@ -44050,7 +43718,7 @@
       "ready_count": 0,
       "url": "https://gh-proxy.com/https://raw.githubusercontent.com/wxrjck/-YSC-/refs/heads/main/wx.json",
       "http_status": 200,
-      "elapsed": 0.21295402299999466
+      "elapsed": 0.15602311000000668
     },
     {
       "url": "https://raw.githubusercontent.com/scovis/TVBox/main/tvbox.json",
@@ -44069,274 +43737,141 @@
       "site_count": 0
     },
     {
-      "state": "unknown",
+      "state": "ready",
       "sites": [
         {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "1",
-          "name": "豆瓣",
-          "type": 3
+          "state": "invalid",
+          "reason": "API did not return a movie catalog",
+          "key": "huangguo",
+          "name": "🎬黄果短剧",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_aosikazyco_8blcev",
+          "name": "🔞奥斯卡",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_155apicom_8blcev",
+          "name": "🔞155",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_apiyutucom_8blcev",
+          "name": "🔞玉兔",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_apilsbzy1c_8blcev",
+          "name": "🔞老色逼",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_fhapi9com_y8rqhm",
+          "name": "🔞番号资源",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_jkunzyapic_y8rqhm",
+          "name": "🔞鸡坤资源",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_apiddapicc_8blcev",
+          "name": "🔞滴滴资源",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "XML catalog responds; playback not verified",
+          "key": "cms_api11batco_1j4fk5",
+          "name": "🔞辣椒2",
+          "type": 0
+        },
+        {
+          "state": "ok",
+          "reason": "XML catalog responds; playback not verified",
+          "key": "cms_wwwgdlspco_1yewqo",
+          "name": "🔞香奶儿",
+          "type": 0
+        },
+        {
+          "state": "ok",
+          "reason": "XML catalog responds; playback not verified",
+          "key": "cms_wwwpgxdyco_1yewqo",
+          "name": "🔞黄AV",
+          "type": 0
+        },
+        {
+          "state": "ok",
+          "reason": "XML catalog responds; playback not verified",
+          "key": "cms_wwwmsniico_1yewqo",
+          "name": "🔞美少女",
+          "type": 0
         },
         {
           "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "2",
-          "name": "哔哩",
-          "type": 3
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwxrbspco_1yewqo",
+          "name": "🔞淫水机",
+          "type": 0
         },
         {
           "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_338201675967",
-          "name": "汽水音乐",
-          "type": 3
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwkxgavco_1yewqo",
+          "name": "🔞白嫖",
+          "type": 0
         },
         {
           "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_d882a09af99b",
-          "name": "千千音乐",
-          "type": 3
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_155apicom_1j4fk5",
+          "name": "🔞155-XML",
+          "type": 0
         },
         {
           "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_e1ee5f95a735",
-          "name": "无极影视",
-          "type": 3
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apiddapicc_1j4fk5",
+          "name": "🔞滴滴XML",
+          "type": 0
         },
         {
           "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_d68ac251a6fc",
-          "name": "影视大全",
-          "type": 3
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_lbapi9com_1j4fk5",
+          "name": "🔞lbapi",
+          "type": 0
         },
         {
           "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_b3ca09b39432",
-          "name": "千千影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_6f3ca5f6a65f",
-          "name": "热播",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_fc0568b2bb6b",
-          "name": "AI搜剧",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_8f85174e51cb",
-          "name": "豆花电影网",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_f57b48c23802",
-          "name": "一起看",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_2f7177104166",
-          "name": "猎手",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_075e73129a50",
-          "name": "看看剧",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_f8d1ac53b6b9",
-          "name": "毒舌影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_7b394ac21dbf",
-          "name": "分享猎手",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_e15e0c13bcad",
-          "name": "厂长资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_6fabb7d1442e",
-          "name": "低端影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_4c988fd8bcce",
-          "name": "饭团影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_22a45b5d5116",
-          "name": "饭团",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_32676b0d47ec",
-          "name": "看客TV",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_7f8aa687b404",
-          "name": "看看鸭",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_12bb37d126ba",
-          "name": "飞快TV",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_f83f6c0139a3",
-          "name": "片帝4K",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_1f4d051b258c",
-          "name": "懂片",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_7eb950e5e300",
-          "name": "vidhub",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_4e850e9d91ee",
-          "name": "搜剧AI",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_4cb04cb64ffd",
-          "name": "看剧AIxcz",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_b5503e1a86e1",
-          "name": "ZIP0影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_b91c700aaf47",
-          "name": "奇优影院",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_1c6b0fd055d7",
-          "name": "可可影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_1160fb4e6b2f",
-          "name": "不卡影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_28c2094abf60",
-          "name": "枫叶影院1",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_7af6ff43efff",
-          "name": "爱听音乐",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_e8d279df2881",
-          "name": "世界听书",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_f897755e5f3c",
-          "name": "music_dl",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_0753afca4a6c",
-          "name": "悦听吧",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wzxxcz_28479a5974ed",
-          "name": "酷我音乐",
-          "type": 3
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_slapibfcom_8blcev",
+          "name": "🔞slapibf",
+          "type": 1
         }
       ],
-      "ready_count": 0,
-      "site_count": 37,
+      "ready_count": 11,
+      "site_count": 18,
       "jars": [],
-      "url": "https://raw.githubusercontent.com/dxyc0922/Tvbox4.x_api/main/%E6%8E%A5%E5%8F%A3-remote.json",
+      "url": "https://raw.githubusercontent.com/jiahua151526-maker/tvbox/main/sites.json",
       "http_status": 200,
-      "elapsed": 0.11558970900000531
+      "elapsed": 0.09110977899999284
     },
     {
       "state": "invalid",
@@ -44345,362 +43880,7 @@
       "ready_count": 0,
       "url": "https://raw.githubusercontent.com/ZHOUYU86/tvbox-sources/main/all.json",
       "http_status": 200,
-      "elapsed": 0.14675546200000156
-    },
-    {
-      "state": "unknown",
-      "sites": [
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "点我切源",
-          "name": "豆豆┃片单",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "MDrive",
-          "name": "🗂我的云盘┃配置",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "玩偶",
-          "name": "👽玩偶哥哥┃4K弹幕",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "YGP",
-          "name": "🚀叨观荐影┃预告片",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "MTV1",
-          "name": "🎙️易听音乐┃带歌词",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "seed",
-          "name": "💡聚剧┃四盘",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "光影",
-          "name": "🌞光影┃不卡",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "原创",
-          "name": "👒原创┃不卡",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "厂长",
-          "name": "📔厂长┃不卡",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "立播",
-          "name": "🌟立播┃不卡",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "瓜子",
-          "name": "👀瓜子┃不卡",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "比特",
-          "name": "🍄比特┃不卡",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "糯米",
-          "name": "🍓糯米┃秒播",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "文采",
-          "name": "💮文采┃秒播",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "奶酪",
-          "name": "🧀奶酪┃秒播",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "热播",
-          "name": "📺热播┃多线",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "视界",
-          "name": "🌸茉莉┃多线",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "剧圈",
-          "name": "🐻剧圈┃多线",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "荐片",
-          "name": "🥝荐片┃多线",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "奥特",
-          "name": "🏝奥特┃多线",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "新6V",
-          "name": "🧲新6V┃磁力",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "咕咕",
-          "name": "🦉咕咕┃动漫",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "Dm84",
-          "name": "🚌巴士┃动漫",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "看球",
-          "name": "⚽八八┃看球",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "多多",
-          "name": "🏀多多┃回放",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "吃瓜",
-          "name": "🏐吃瓜┃看球",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "alllive",
-          "name": "🎮一直播┃直播",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "MTV",
-          "name": "🎶明星┃MV",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "有声小说",
-          "name": "🎧有声┃小说",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "Aid",
-          "name": "🚑急救┃教学",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "虎牙js",
-          "name": "🐯虎牙┃直播",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "斗鱼js",
-          "name": "🐟斗鱼┃直播",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "ZPan",
-          "name": "🎈盘搜┃四盘",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "JPan",
-          "name": "🦋易搜┃四盘",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "YpanSo",
-          "name": "🐌盘她┃夸父",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "BpanSo",
-          "name": "🐞盘他┃嘟嘟",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "抠搜",
-          "name": "🍄抠抠┃搜搜",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "UC",
-          "name": "🌈优汐┃搜搜",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "Bili",
-          "name": "🅱哔哔合集┃弹幕",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "Biliych",
-          "name": "🅱哔哔演唱会┃弹幕",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "dr_兔小贝",
-          "name": "📚儿童┃启蒙",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "少儿教育",
-          "name": "📚少儿┃教育",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "小学课堂",
-          "name": "📚小学┃课堂",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "初中课堂",
-          "name": "📚初中┃课堂",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "高中教育",
-          "name": "📚高中┃课堂",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "push_agent",
-          "name": "🛴手机┃推送",
-          "type": 3
-        },
-        {
-          "state": "dead",
-          "reason": "HTTP 404",
-          "key": "cc",
-          "name": "请勿信视频中任何广告",
-          "type": 3
-        }
-      ],
-      "ready_count": 0,
-      "site_count": 47,
-      "jars": [
-        {
-          "state": "dead",
-          "url": "https://raw.githubusercontent.com/jo32/tvbox-silicon/main/Fixtures/jar/fan.txt",
-          "reason": "HTTP 404"
-        }
-      ],
-      "url": "https://raw.githubusercontent.com/jo32/tvbox-silicon/main/Fixtures/fantaiying.json",
-      "http_status": 200,
-      "elapsed": 0.12731491699999253
-    },
-    {
-      "state": "invalid",
-      "reason": "sites must be a list",
-      "sites": [],
-      "ready_count": 0,
-      "url": "https://raw.githubusercontent.com/davisWeee/vod-hub/main/sources.json",
-      "http_status": 200,
-      "elapsed": 0.24926480300000264
+      "elapsed": 0.08576907100000142
     },
     {
       "state": "invalid",
@@ -44709,7 +43889,7 @@
       "ready_count": 0,
       "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/json/wogg.json",
       "http_status": 200,
-      "elapsed": 0.11058246400000371
+      "elapsed": 0.06109265599999958
     },
     {
       "url": "http://xxx.com/tvbox.json",
@@ -44726,11 +43906,555 @@
       "ready_count": 0,
       "url": "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/%E8%87%AA%E7%94%A8%E5%A4%9A%E4%BB%93.json",
       "http_status": 200,
-      "elapsed": 0.12568730799999628
+      "elapsed": 0.09569941599998799
+    },
+    {
+      "url": "https://git.acwing.com/shhentu/lzxw/-/raw/main/Monster.json",
+      "state": "unknown",
+      "http_status": 403,
+      "reason": "HTTP 403",
+      "ready_count": 0,
+      "site_count": 0
+    },
+    {
+      "state": "ready",
+      "sites": [
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_cjlziapico_y8rqhm",
+          "name": "· 🐝量子资源",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_1542191172_1p884m",
+          "name": "· 影视 • 建安",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_caijidyttz_1mv0yp",
+          "name": "· 🍀｜天堂｜采集",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_caijidyttz_y8rqhm",
+          "name": "· 影视 • 电影天堂",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_cjffzyapic_y8rqhm",
+          "name": "· 非凡|点播",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_ffzytv_y8rqhm",
+          "name": "· 影视 • 非凡[直连]",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_360zycom_y8rqhm",
+          "name": "· 360｜采集",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_360zycom_11h4nx",
+          "name": "· ⏱┃三六┃资源",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_aosikazyco_y8rqhm",
+          "name": "· 奥斯卡",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_aosikazyco_8blcev",
+          "name": "🔞奥斯卡",
+          "type": 1
+        },
+        {
+          "state": "invalid",
+          "reason": "API did not return a movie catalog",
+          "key": "cms_jiduo31165_1unv20",
+          "name": "· ⚽┃酷克┃体育",
+          "type": 1
+        },
+        {
+          "state": "ok",
+          "reason": "catalog API responds; playback not verified",
+          "key": "cms_wwwiqiyizy_y8rqhm",
+          "name": "· iQIYI｜采集",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apixinlang_1ce9l5",
+          "name": "· 🐝新浪资源",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwhongniu_y8rqhm",
+          "name": "· 红牛|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_tyyszycom_y8rqhm",
+          "name": "· 影视 • 天涯",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwgdlspco_1yewqo",
+          "name": "🔞香奶儿",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwmsniico_1yewqo",
+          "name": "🔞美少女",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwkxgavco_1yewqo",
+          "name": "🔞白嫖",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwxrbspco_1yewqo",
+          "name": "🔞淫水机",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_sdzyapicom_y8rqhm",
+          "name": "· 闪电|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_api11batco_1j4fk5",
+          "name": "🔞辣椒2",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_caijidyttz_1j4fk5",
+          "name": "· 天堂｜采集",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_zuidazyme_y8rqhm",
+          "name": "· 最大|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_155apicom_1j4fk5",
+          "name": "🔞155-XML",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_fhapi9com_1j4fk5",
+          "name": "🔞番号XML",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_155apicom_8blcev",
+          "name": "🔞155",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_p2100net_y8rqhm",
+          "name": "· 飘零|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_155apicom_y8rqhm",
+          "name": "· 155",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_suoniapico_1j4fk5",
+          "name": "· 影视 • 索尼[直连]",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_suoniapico_ha76",
+          "name": "· 索尼┃资源",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_suoniapico_y8rqhm",
+          "name": "· 🐉┃索尼┃高清",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apiyutucom_y8rqhm",
+          "name": "· 玉兔",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apiddapicc_y8rqhm",
+          "name": "· 滴滴资源",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apiyutucom_8blcev",
+          "name": "🔞玉兔",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apiniuniuz_y8rqhm",
+          "name": "· 牛牛|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_soyinpaixy_1txhab",
+          "name": "· 盘搜|集合",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apiwujinap_y8rqhm",
+          "name": "· 无尽｜采集",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwmdzyapi_y8rqhm",
+          "name": "· 墨斗|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_jszyapicom_y8rqhm",
+          "name": "· 极速|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apiddapicc_8blcev",
+          "name": "🔞滴滴资源",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_lbapi9com_1j4fk5",
+          "name": "🔞lbapi",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_jkunzyapic_y8rqhm",
+          "name": "🔞鸡坤资源",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apiddapicc_1j4fk5",
+          "name": "🔞滴滴XML",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apiapibdzy_y8rqhm",
+          "name": "· 🎏百度┃采集",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_hhzyapicom_y8rqhm",
+          "name": "· 🦊火狐采集",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_caijimodua_y8rqhm",
+          "name": "· 魔都|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_cjyayazyne_y8rqhm",
+          "name": "· 丫丫|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_yayazy2com_y8rqhm",
+          "name": "· 丫丫｜采集",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apiwsyzyne_y8rqhm",
+          "name": "· 🐝┃纯净┃采集",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_caijikuaic_y8rqhm",
+          "name": "· 快车｜采集",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_appbfzyapi_y8rqhm",
+          "name": "· 🌪️暴风影音",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_dadiapicom_hywlkk",
+          "name": "· 大地",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_slapibfcom_y8rqhm",
+          "name": "· 森林",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_xsdsdzyapi_y8rqhm",
+          "name": "· 🐼闪电资源网",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwpgxdyco_1yewqo",
+          "name": "🔞黄AV",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_jyzyapicom_13bwcp",
+          "name": "· 🐝金鹰资源",
+          "type": 0
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_tyyszyapic_y8rqhm",
+          "name": "· 天涯｜采集",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apilsbzy1c_8blcev",
+          "name": "🔞老色逼",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_lbapi9com_8blcev",
+          "name": "🔞lbapi",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apilsbzy1c_y8rqhm",
+          "name": "· 老色逼资源站",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_slapibfcom_8blcev",
+          "name": "🔞slapibf",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_bfzyapicom_y8rqhm",
+          "name": "· 暴风|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_zuidaxyz_y8rqhm",
+          "name": "· 最大｜采集",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_subocaijic_y8rqhm",
+          "name": "· 速博|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwhuyaapi_y8rqhm",
+          "name": "· 虎牙|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwpgxdyco_yg8of7",
+          "name": "· *黄AV资源",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_lbapi9com_y8rqhm",
+          "name": "· 老鸭2",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_apiguangsu_y8rqhm",
+          "name": "· 🐝光速资源",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_jinyingzyc_y8rqhm",
+          "name": "· 金鹰|点播",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_taopianapi_1hmjmu",
+          "name": "· 🕹️淘片┃采集",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_lzizy1com_y8rqhm",
+          "name": "· 🥑┃量子┃资源",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_wwwhuyaapi_1h3qfn",
+          "name": "· 🐯虎牙采集",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_fhapi9com_y8rqhm",
+          "name": "🔞番号资源",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_1270018899_45h",
+          "name": "🎬黄果短剧",
+          "type": 1
+        },
+        {
+          "state": "unknown",
+          "reason": "catalog inspection budget exhausted",
+          "key": "cms_1270018899_122ss0",
+          "name": "🎬黄果短剧·本机",
+          "type": 1
+        }
+      ],
+      "ready_count": 11,
+      "site_count": 75,
+      "jars": [],
+      "url": "https://raw.githubusercontent.com/jiahua151526-maker/tvbox/main/ysc_cms.json",
+      "http_status": 200,
+      "elapsed": 0.08233455899998887
     }
   ],
   "discovery_warnings": [],
-  "added_sources": 1,
+  "added_sources": 2,
   "selected_source": "https://6800.kstore.vip/fish.json",
   "config_changed": false,
   "decision": "refresh source as a complete bundle; exclude unverified sites"

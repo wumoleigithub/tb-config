@@ -107,3 +107,7 @@ https://gh-proxy.com/https://raw.githubusercontent.com/YiMing918/ym-tvbox/main/p
 
 # 自动发现：配置及至少一个站点依赖检查通过；播放需在客户端验证
 https://raw.githubusercontent.com/muninZhang/Tvbox/main/config.json
+
+# 自动发现：配置及至少一个站点依赖检查通过；播放需在客户端验证
+https://raw.githubusercontent.com/jiahua151526-maker/tvbox/main/sites.json
+https://raw.githubusercontent.com/jiahua151526-maker/tvbox/main/ysc_cms.json

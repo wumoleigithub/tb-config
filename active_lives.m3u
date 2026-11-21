@@ -62,7 +62,7 @@ http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cqwshd
 #EXTINF:-1 tvg-name="东南卫视" group-title="卫视频道",东南卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=dnwshd
 #EXTINF:-1 tvg-name="江西卫视" group-title="卫视频道",江西卫视
-http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jxwshd
+http://107.150.60.122/live/jxwshd.m3u8
 #EXTINF:-1 tvg-name="天津卫视" group-title="卫视频道",天津卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=tjwshd
 #EXTINF:-1 tvg-name="四川卫视" group-title="卫视频道",四川卫视
@@ -99,6 +99,12 @@ http://107.150.60.122/live/xzws.m3u8
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=xjws
 #EXTINF:-1 tvg-id="港台电视31" tvg-name="港台电视31" tvg-logo="https://i.imgur.com/kf818kM.png" group-title="港澳中文",港台电视31
 https://rthktv31-live.akamaized.net/hls/live/2036818/RTHKTV31/master.m3u8
+#EXTINF:-1 tvg-id="澳门综艺" tvg-name="澳门综艺" group-title="港澳中文",澳门综艺
+https://tv123.cc.cd/live.php?ch=377&sid=7e80beeccbeb34dff5a93e9e86e72e7f&exp=1795295182&sig=49e34c5a56baa965b075cf6d071efcf7cb0ca540d99eaefbacb0315379ae2a53
+#EXTINF:-1 tvg-id="澳视卫星" tvg-name="澳视卫星" group-title="港澳中文",澳视卫星
+https://tv123.cc.cd/live.php?ch=375&sid=7e80beeccbeb34dff5a93e9e86e72e7f&exp=1795295182&sig=f4d3dcbbbbcc8ccda9e03085768f0e204653214c9694f97f3bd7ee675beb0ae2
+#EXTINF:-1 tvg-id="澳门莲花" tvg-name="澳门莲花" group-title="港澳中文",澳门莲花
+https://tv123.cc.cd/live.php?ch=378&sid=7e80beeccbeb34dff5a93e9e86e72e7f&exp=1795295182&sig=996b7dc74ddb1021d87a077a80057fe6b89a0a3e07d532ccf23fae062a28ddf3
 #EXTINF:-1 tvg-id="凤凰资讯" tvg-name="凤凰资讯" tvg-logo="https://live.fanmingming.cn/tv/凤凰卫视资讯台.png" group-title="港澳中文",凤凰资讯
 http://43.152.224.209/qctv.fengshows.cn/live/0701pin72.flv
 #EXTINF:-1 tvg-id="台视新闻" tvg-name="台视新闻" tvg-logo="https://i.imgur.com/AfkK0gv.png" group-title="台湾中文",台视新闻
@@ -109,6 +115,8 @@ https://h5cul1yar48um3t.wcetv.com/hls/hakkatv.m3u8
 https://streamipcfapp.akamaized.net/live/_definst_/live_720/key_b1500.m3u8
 #EXTINF:-1 tvg-id="人间卫视" tvg-name="人间卫视" tvg-logo="https://i.imgur.com/hkwcBM9.png" group-title="台湾中文",人间卫视
 https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/playlist.m3u8
+#EXTINF:-1 tvg-id="澳门体育" tvg-name="澳门体育" group-title="体育频道",澳门体育
+https://tv123.cc.cd/live.php?ch=376&sid=7e80beeccbeb34dff5a93e9e86e72e7f&exp=1795295182&sig=7e2d7bfaca6757519dea3e9ade163e8715eb44241f83e8a492988e04aaef7f06
 #EXTINF:-1 tvg-id="beIN SPORTS XTRA" tvg-name="beIN SPORTS XTRA" tvg-logo="https://i.ibb.co/HT49GPmB/XTRA-2.png" group-title="免费体育（外语）",beIN SPORTS XTRA
 https://bein-xtra-bein.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="Red Bull TV" tvg-name="Red Bull TV" tvg-logo="https://images.pluto.tv/channels/5e7cb84a172a0f0007da69e4/colorLogoPNG.png" group-title="免费体育（外语）",Red Bull TV
@@ -119,10 +127,10 @@ https://jmp2.uk/plu-660c29b5aec9680008f5b4a4.m3u8
 https://cffda8ff.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/U2Ftc3VuZy1nYl9GSUZBUGx1c3dvbWVuX0hMUw/playlist.m3u8
 #EXTINF:-1 tvg-id="MovieSphere" tvg-name="MovieSphere" tvg-logo="https://i.imgur.com/h1ejU90.png" group-title="免费电影（外语）",MovieSphere
 https://amg00353-lionsgatestudio-moviesphere-xumo-zh5u0.amagi.tv/playlist.m3u8
-#EXTINF:-1 tvg-id="MovieSphere CA" tvg-name="MovieSphere CA" tvg-logo="https://i.imgur.com/h1ejU90.png" group-title="免费电影（外语）",MovieSphere CA
-https://jmp2.uk/plu-64a3d96f060e830008af6745.m3u8
 #EXTINF:-1 tvg-id="MovieSphere UK" tvg-name="MovieSphere UK" tvg-logo="https://i.imgur.com/h1ejU90.png" group-title="免费电影（外语）",MovieSphere UK
 https://moviesphereuk-samsunguk.amagi.tv/playlist.m3u8
+#EXTINF:-1 tvg-id="FILMBOX+ Action" tvg-name="FILMBOX+ Action" tvg-logo="https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Baction.png" group-title="免费电影（外语）",FILMBOX+ Action
+http://92.114.85.87:8008/play/a007/index.m3u8
 #EXTINF:-1 tvg-id="FILMBOX+ Festival" tvg-name="FILMBOX+ Festival" tvg-logo="https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bfestival.png" group-title="免费电影（外语）",FILMBOX+ Festival
 https://dash3.antik.sk/live/test_filmbox_arthouse_atk_1200/playlist.m3u8
 #EXTINF:-1 tvg-id="民視" tvg-name="民視" group-title="台湾中文",民視

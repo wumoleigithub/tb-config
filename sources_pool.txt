@@ -118,3 +118,9 @@ https://raw.githubusercontent.com/yaosongjin/my-tvbox/main/ysc.json
 # 自动发现：配置及至少一个站点依赖检查通过；播放需在客户端验证
 https://raw.githubusercontent.com/laukkw/tvbox/main/tvbox.json
 http://43.163.203.173/tvbox.json
+
+# 自动发现：配置及至少一个站点依赖检查通过；播放需在客户端验证
+https://raw.githubusercontent.com/z4467/tvbox-config/main/oktv.json
+https://raw.githubusercontent.com/NavyL/tv-sub/main/tv.json
+https://raw.githubusercontent.com/JRMargin/tvbox-config/main/config.json
+https://raw.githubusercontent.com/NavyL/tv-sub/main/best.json

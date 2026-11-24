@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-23T09:58:57.269684+00:00",
+  "checked_at": "2026-11-24T11:47:06.800763+00:00",
   "validation_scope": "Configuration, JAR checksum/classes and public catalog APIs only. No Android plugin execution or movie playback verification.",
   "current": {
     "state": "ready",
@@ -805,8 +805,8 @@
     {
       "url": "https://d.kstore.dev/download/7213/吃猫的鱼",
       "state": "unknown",
-      "http_status": 502,
-      "reason": "HTTP 502",
+      "http_status": 0,
+      "reason": "The read operation timed out",
       "ready_count": 0,
       "site_count": 0
     },
@@ -825,7 +825,7 @@
       "site_count": 0,
       "url": "https://tv.xn--yhqu5zs87a.top",
       "http_status": 200,
-      "elapsed": 0.08591642300000046
+      "elapsed": 0.28493948900000277
     },
     {
       "state": "ready",
@@ -1171,7 +1171,7 @@
       ],
       "url": "https://g.3344550.xyz/https://raw.githubusercontent.com/jigedos/1024/master/jsm.json",
       "http_status": 200,
-      "elapsed": 0.10223894299999614
+      "elapsed": 0.1080080030000019
     },
     {
       "state": "ready",
@@ -1420,7 +1420,7 @@
       ],
       "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
       "http_status": 200,
-      "elapsed": 1.6812993520000035
+      "elapsed": 3.591478037999998
     },
     {
       "url": "https://gitee.com/lukei7/lib/raw/Luck/%E8%87%AA%E5%BB%BA.json",
@@ -1461,7 +1461,7 @@
       "site_count": 0,
       "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer",
       "http_status": 200,
-      "elapsed": 0.3803650689999998
+      "elapsed": 0.7038340649999952
     },
     {
       "url": "https://xn--sdds-rp5imh.v.nxog.top/apitv.php?id=3",
@@ -1654,7 +1654,7 @@
       ],
       "url": "http://home.jundie.top:81/top98.json",
       "http_status": 200,
-      "elapsed": 0.8664925809999957
+      "elapsed": 0.9998490830000009
     },
     {
       "url": "https://9xi4o.tk/0725.json",
@@ -1679,7 +1679,7 @@
       "site_count": 0,
       "url": "https://gitlab.com/lzc1021lzc/hjfggzs.hjys/-/raw/main/hjys.free.json",
       "http_status": 200,
-      "elapsed": 0.317263638
+      "elapsed": 0.07077521300000456
     },
     {
       "state": "invalid",
@@ -1688,7 +1688,7 @@
       "site_count": 0,
       "url": "http://影视仓.com/",
       "http_status": 200,
-      "elapsed": 1.0750080060000045
+      "elapsed": 1.438559601999998
     },
     {
       "url": "http://fty.xxooo.cf/tv",
@@ -1705,7 +1705,7 @@
       "site_count": 0,
       "url": "http://fty.888484.xyz/tv",
       "http_status": 200,
-      "elapsed": 0.40671221099999855
+      "elapsed": 0.38427869399999537
     },
     {
       "state": "invalid",
@@ -1714,7 +1714,7 @@
       "site_count": 0,
       "url": "http://xhztv.top/4k.json",
       "http_status": 200,
-      "elapsed": 0.0849951660000059
+      "elapsed": 0.20228265700000492
     },
     {
       "url": "http://tv.nxog.top/m",
@@ -1731,7 +1731,7 @@
       "site_count": 0,
       "url": "https://tv.nxog.top/m/111.php?ou=公众号欧歌app&mz=index&jar=index&123&b=tv",
       "http_status": 200,
-      "elapsed": 0.5443258889999996
+      "elapsed": 0.7598886689999986
     },
     {
       "url": "http://www.mpanso.com/小米/DEMO.json",
@@ -1748,7 +1748,7 @@
       "site_count": 0,
       "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top/",
       "http_status": 200,
-      "elapsed": 0.6203593870000006
+      "elapsed": 0.5443537319999976
     },
     {
       "state": "invalid",
@@ -1757,7 +1757,7 @@
       "site_count": 0,
       "url": "http://tv.999888987.xyz",
       "http_status": 200,
-      "elapsed": 0.5140451729999995
+      "elapsed": 0.5526849640000009
     },
     {
       "state": "invalid",
@@ -1766,7 +1766,7 @@
       "site_count": 0,
       "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
       "http_status": 200,
-      "elapsed": 0.0953491590000013
+      "elapsed": 0.013335567999995135
     },
     {
       "url": "https://gh.aptv.app/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
@@ -1783,7 +1783,7 @@
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
           "key": "点我切源",
-          "name": "豆豆┃片单 <Fix所有>",
+          "name": "豆豆┃片单 <修复扫码Bug>",
           "type": 3
         },
         {
@@ -2137,12 +2137,12 @@
           "state": "ok",
           "url": "https://raw.githubusercontent.com/qist/tvbox/master/jar/fan.txt",
           "reason": "",
-          "md5": "33ff9fba113101e9eba7c3d6f40314b7"
+          "md5": "59a6b4afe46139a3a50d4f19b6137091"
         }
       ],
       "url": "https://raw.githubusercontent.com/qist/tvbox/master/fty.json",
       "http_status": 200,
-      "elapsed": 0.10900277200000374
+      "elapsed": 0.049816386000003376
     },
     {
       "state": "ready",
@@ -2416,15 +2416,15 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "闪电",
-          "name": "闪电 • 4K",
+          "key": "蜡笔",
+          "name": "蜡笔 • 4K",
           "type": 3
         },
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "蜡笔",
-          "name": "蜡笔 • 4K",
+          "key": "闪电",
+          "name": "闪电 • 4K",
           "type": 3
         },
         {
@@ -3289,12 +3289,12 @@
           "state": "ok",
           "url": "https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar",
           "reason": "",
-          "md5": "efdb2c1d9a2e8c26e5a74ba5f53dfc56"
+          "md5": "3443259a2e4be3f96f73175cefb11090"
         }
       ],
       "url": "https://raw.githubusercontent.com/qist/tvbox/master/jsm.json",
       "http_status": 200,
-      "elapsed": 0.09295228300000247
+      "elapsed": 0.0541008150000053
     },
     {
       "state": "ready",
@@ -3512,15 +3512,15 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "闪电",
-          "name": "闪电 • 4K",
+          "key": "蜡笔",
+          "name": "蜡笔 • 4K",
           "type": 3
         },
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "蜡笔",
-          "name": "蜡笔 • 4K",
+          "key": "闪电",
+          "name": "闪电 • 4K",
           "type": 3
         },
         {
@@ -4119,12 +4119,12 @@
           "state": "ok",
           "url": "https://raw.githubusercontent.com/qist/tvbox/master/xiaosa/spider.jar",
           "reason": "",
-          "md5": "efdb2c1d9a2e8c26e5a74ba5f53dfc56"
+          "md5": "3443259a2e4be3f96f73175cefb11090"
         }
       ],
       "url": "https://raw.githubusercontent.com/qist/tvbox/master/xiaosa/api.json",
       "http_status": 200,
-      "elapsed": 0.08893211400000212
+      "elapsed": 0.05792923900000346
     },
     {
       "state": "ready",
@@ -4512,7 +4512,7 @@
       ],
       "url": "https://raw.githubusercontent.com/mrgaoshuiquan/tvbox-config/main/tvbox.json",
       "http_status": 200,
-      "elapsed": 0.15535652399999833
+      "elapsed": 0.04490369699999519
     },
     {
       "state": "ready",
@@ -4900,7 +4900,7 @@
       ],
       "url": "https://raw.githubusercontent.com/mrgaoshuiquan/tvbox-config/main/jhkx-full.json",
       "http_status": 200,
-      "elapsed": 0.1498131789999988
+      "elapsed": 0.08556392300000226
     },
     {
       "state": "ready",
@@ -5134,7 +5134,7 @@
       ],
       "url": "https://raw.githubusercontent.com/cluntop/tvbox/main/aa.json",
       "http_status": 200,
-      "elapsed": 0.12475170599999785
+      "elapsed": 0.048402090999999814
     },
     {
       "state": "ready",
@@ -5250,7 +5250,7 @@
       ],
       "url": "https://raw.githubusercontent.com/cluntop/tvbox/main/wv.json",
       "http_status": 200,
-      "elapsed": 0.12950112600000097
+      "elapsed": 0.07503212900000023
     },
     {
       "state": "ready",
@@ -7347,7 +7347,7 @@
       ],
       "url": "https://raw.githubusercontent.com/hkuc/tvbox-config/main/tv/0/js.json",
       "http_status": 200,
-      "elapsed": 0.36456691400000096
+      "elapsed": 0.09000538600000141
     },
     {
       "state": "ready",
@@ -8142,7 +8142,7 @@
       ],
       "url": "https://6800.kstore.vip/fish.json",
       "http_status": 200,
-      "elapsed": 1.0368849729999994
+      "elapsed": 0.5776388170000004
     },
     {
       "state": "ready",
@@ -8748,7 +8748,7 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/scovis/TVBox/main/R18.json",
       "http_status": 200,
-      "elapsed": 0.11926714200000532
+      "elapsed": 0.06629806499999802
     },
     {
       "state": "ready",
@@ -9417,7 +9417,7 @@
       ],
       "url": "https://raw.githubusercontent.com/cluntop/tvbox/main/box.json",
       "http_status": 200,
-      "elapsed": 0.169552852999999
+      "elapsed": 0.020218974999998807
     },
     {
       "state": "ready",
@@ -21018,7 +21018,7 @@
       ],
       "url": "https://raw.githubusercontent.com/hebijunge/tvbox-config/main/tvbox_recommended.json",
       "http_status": 200,
-      "elapsed": 0.33447805100000494
+      "elapsed": 0.07673246699999936
     },
     {
       "state": "ready",
@@ -21106,7 +21106,7 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/lee-905/Lee-XFYIR-588/main/tvbox.json",
       "http_status": 200,
-      "elapsed": 0.16488080999999966
+      "elapsed": 0.09779506400000315
     },
     {
       "state": "ready",
@@ -21502,7 +21502,7 @@
       ],
       "url": "https://raw.githubusercontent.com/JianghaoPi/my-tvbox-sources/main/output/4k.json",
       "http_status": 200,
-      "elapsed": 0.19787896300000085
+      "elapsed": 0.0844441670000009
     },
     {
       "state": "ready",
@@ -21949,7 +21949,7 @@
       ],
       "url": "https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/4k.json",
       "http_status": 200,
-      "elapsed": 0.27527866200000517
+      "elapsed": 0.07657365500000424
     },
     {
       "state": "ready",
@@ -22099,7 +22099,7 @@
       ],
       "url": "https://raw.githubusercontent.com/larry-biu/tvbox-config/main/tvbox.json",
       "http_status": 200,
-      "elapsed": 0.1577681270000042
+      "elapsed": 0.07939414499999486
     },
     {
       "state": "ready",
@@ -33700,7 +33700,7 @@
       ],
       "url": "https://ghproxy.net/https://raw.githubusercontent.com/hebijunge/tvbox-config/main/tvbox_recommended.json",
       "http_status": 200,
-      "elapsed": 6.948939306
+      "elapsed": 5.918079102000007
     },
     {
       "state": "ready",
@@ -33814,7 +33814,7 @@
       ],
       "url": "https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/ouge.json",
       "http_status": 200,
-      "elapsed": 0.10363494899999637
+      "elapsed": 0.08674968600000454
     },
     {
       "state": "ready",
@@ -33964,7 +33964,7 @@
       ],
       "url": "https://raw.githubusercontent.com/larry-biu/tvbox-config/main/config.json",
       "http_status": 200,
-      "elapsed": 0.13287277999999958
+      "elapsed": 0.05296514899998783
     },
     {
       "state": "ready",
@@ -34040,12 +34040,12 @@
           "state": "ok",
           "url": "https://gh-proxy.com/https://raw.githubusercontent.com/22yune/tvbox-kids/refs/heads/main/spider/kids.jar",
           "reason": "",
-          "md5": "b3270e3de885af9ebbd05e911bcd0212"
+          "md5": "827bcdbcaff244d5041865b13f8ef692"
         }
       ],
       "url": "https://raw.githubusercontent.com/22yune/tvbox-kids/main/kids.json",
       "http_status": 200,
-      "elapsed": 0.2070514350000039
+      "elapsed": 0.10034429299999204
     },
     {
       "state": "ready",
@@ -34418,7 +34418,7 @@
       ],
       "url": "https://raw.githubusercontent.com/ZHOUYU86/tvbox-sources/main/b.json",
       "http_status": 200,
-      "elapsed": 0.36156275899999457
+      "elapsed": 0.09005737199998975
     },
     {
       "state": "ready",
@@ -34434,7 +34434,7 @@
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
           "key": "Doubanaaaa",
-          "name": "🐮【更新日期:20261123】🐮",
+          "name": "🐮【更新日期:20261124】🐮",
           "type": 3
         },
         {
@@ -34636,13 +34636,6 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "AppV7 | 咸鱼",
-          "name": "💥咸鱼┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "AppV7 | 追剧达人",
           "name": "💥追剧┃秒播💥",
           "type": 3
@@ -34657,29 +34650,8 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "AppV7 | 小柠檬",
-          "name": "💥柠檬┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "AppV7 | 蒙太奇",
           "name": "💥太奇┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "AppV7 | 零零七影视",
-          "name": "💥零七┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "AppV7 | 小柿子",
-          "name": "💥柿子┃秒播💥",
           "type": 3
         },
         {
@@ -35117,19 +35089,19 @@
           "type": 3
         }
       ],
-      "ready_count": 99,
-      "site_count": 99,
+      "ready_count": 95,
+      "site_count": 95,
       "jars": [
         {
           "state": "ok",
-          "url": "http://oss4liview.moji.com/thd_file/2026/11/23/98f6124357b913bcb47d81339ca7725a.jpg",
+          "url": "http://oss4liview.moji.com/thd_file/2026/11/24/0684202079fbec343ec03f772b72e928.jpg",
           "reason": "",
-          "md5": "924547ec8b148216d7636beb3213b60e"
+          "md5": "d773eab0709f62b0077f8112765eb6d2"
         }
       ],
       "url": "https://9280.kstore.vip/newwex.json",
       "http_status": 200,
-      "elapsed": 0.4795808549999947
+      "elapsed": 0.5776393299999967
     },
     {
       "state": "ready",
@@ -35490,7 +35462,7 @@
       ],
       "url": "https://raw.githubusercontent.com/Inliang/tvbox/main/feimao.json",
       "http_status": 200,
-      "elapsed": 0.2274396259999989
+      "elapsed": 0.07937891400000296
     },
     {
       "state": "ready",
@@ -35688,7 +35660,7 @@
       ],
       "url": "https://www.yingm.cc/dm/dm.json",
       "http_status": 200,
-      "elapsed": 0.8422384950000037
+      "elapsed": 0.8110336209999929
     },
     {
       "state": "ready",
@@ -36588,7 +36560,7 @@
       ],
       "url": "https://raw.githubusercontent.com/Inliang/tvbox/main/zijian.json",
       "http_status": 200,
-      "elapsed": 0.27259211900000224
+      "elapsed": 0.061470108999998274
     },
     {
       "state": "ready",
@@ -36613,7 +36585,7 @@
       ],
       "url": "https://raw.githubusercontent.com/NASSD124/tvbox5/main/tvbox92.json",
       "http_status": 200,
-      "elapsed": 0.34577296099999444
+      "elapsed": 0.09235833500000012
     },
     {
       "state": "ready",
@@ -36626,8 +36598,8 @@
           "type": 1
         },
         {
-          "state": "invalid",
-          "reason": "API did not return a movie catalog",
+          "state": "unknown",
+          "reason": "<urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1081)>",
           "key": "csp_xml_番茄资源",
           "name": "🐝番茄资源",
           "type": 1
@@ -36764,7 +36736,7 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/xxl6097/TVBoxTV/main/docs/store/sites.json",
       "http_status": 200,
-      "elapsed": 0.24349976299999554
+      "elapsed": 0.12439629600000046
     },
     {
       "state": "ready",
@@ -36929,7 +36901,7 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/zhujiejie/tvbox/main/%E5%BD%B1%E8%A7%86%E4%BB%93%E6%8E%A5%E5%8F%A3_%E8%B1%86%E7%93%A3%E9%A6%96%E9%A1%B5.json",
       "http_status": 200,
-      "elapsed": 0.19233337899999725
+      "elapsed": 0.10371823200000563
     },
     {
       "state": "ready",
@@ -36942,8 +36914,8 @@
           "type": 1
         },
         {
-          "state": "invalid",
-          "reason": "API did not return a movie catalog",
+          "state": "unknown",
+          "reason": "<urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1081)>",
           "key": "csp_xml_番茄资源",
           "name": "🐝番茄资源",
           "type": 1
@@ -37080,7 +37052,7 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/xxl6097/TVBoxTV/main/docs/store/subscribe.json",
       "http_status": 200,
-      "elapsed": 0.1963566330000006
+      "elapsed": 0.08903182099999185
     },
     {
       "state": "ready",
@@ -38287,7 +38259,7 @@
       ],
       "url": "https://raw.githubusercontent.com/niubihu1/tvbox/main/1.json",
       "http_status": 200,
-      "elapsed": 0.1238788960000008
+      "elapsed": 0.0645550649999933
     },
     {
       "state": "ready",
@@ -40384,7 +40356,7 @@
       ],
       "url": "https://raw.githubusercontent.com/ne7359/tvurl/main/js.json",
       "http_status": 200,
-      "elapsed": 0.38194112300000427
+      "elapsed": 0.05190554400000735
     },
     {
       "state": "ready",
@@ -40847,27 +40819,6 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "my_FourK",
-          "name": "🌔┆望舒┆4K",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "my_SanJiaoZhou",
-          "name": "🌥️┆云归┆4K",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "my_Luck",
-          "name": "🍀┆青禾┆4K",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "my_KaiFan",
           "name": "🍚┆开饭┆4K",
           "type": 3
@@ -40945,13 +40896,6 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "my_余温",
-          "name": "🧣┆余温┆4K",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "my_夜猫",
           "name": "🦉┆夜猫┆4K",
           "type": 3
@@ -40996,13 +40940,6 @@
           "reason": "JAR and class verified; requires TVBox playback check",
           "key": "my_云岫",
           "name": "⛰️┆云岫┆4K",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "my_zhiqiu",
-          "name": "☘️┆听风┆知秋",
           "type": 3
         },
         {
@@ -41534,7 +41471,7 @@
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
           "key": "wex_Doubanaaaa",
-          "name": "🐮【更新日期:20261123】🐮",
+          "name": "🐮【更新日期:20261124】🐮",
           "type": 3
         },
         {
@@ -41736,13 +41673,6 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "wex_AppV7 | 咸鱼",
-          "name": "💥咸鱼┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "wex_AppV7 | 追剧达人",
           "name": "💥追剧┃秒播💥",
           "type": 3
@@ -41757,29 +41687,8 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "wex_AppV7 | 小柠檬",
-          "name": "💥柠檬┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "wex_AppV7 | 蒙太奇",
           "name": "💥太奇┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "wex_AppV7 | 零零七影视",
-          "name": "💥零七┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "wex_AppV7 | 小柿子",
-          "name": "💥柿子┃秒播💥",
           "type": 3
         },
         {
@@ -41921,6 +41830,69 @@
           "key": "wex_AnimeCiYuanCheng",
           "name": "🤡次元┃动漫🤡",
           "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_AnimeAiMoDu",
+          "name": "🤡魔都┃动漫🤡",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_BookHongGuo",
+          "name": "🎃‍小红┃听书🎃",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_BookHeMa",
+          "name": "🎃‍小马┃听书🎃",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_BookAiYueTing",
+          "name": "🎃‍悦庭┃听书🎃",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_BookAi23TingShu",
+          "name": "🎃‍爱上┃听书🎃",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_ChildrenAiBaoBao",
+          "name": "👼宝宝┃儿歌👼",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_ChildrenAiBeiWa",
+          "name": "👼贝贝┃儿歌👼",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_ChildrenAiTuTu",
+          "name": "👼兔兔┃儿歌👼",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_MusicAiTangDou",
+          "name": "💃跳舞┃教学💃",
+          "type": 3
         }
       ],
       "ready_count": 217,
@@ -41940,14 +41912,14 @@
         },
         {
           "state": "ok",
-          "url": "http://oss4liview.moji.com/thd_file/2026/11/23/98f6124357b913bcb47d81339ca7725a.jpg",
+          "url": "http://oss4liview.moji.com/thd_file/2026/11/24/0684202079fbec343ec03f772b72e928.jpg",
           "reason": "",
-          "md5": "924547ec8b148216d7636beb3213b60e"
+          "md5": "d773eab0709f62b0077f8112765eb6d2"
         }
       ],
       "url": "https://raw.githubusercontent.com/YiMing918/ym-tvbox/main/peter_tvbox_pro.json",
       "http_status": 200,
-      "elapsed": 0.34056202400000046
+      "elapsed": 0.05341864399998997
     },
     {
       "state": "ready",
@@ -42410,27 +42382,6 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "my_FourK",
-          "name": "🌔┆望舒┆4K",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "my_SanJiaoZhou",
-          "name": "🌥️┆云归┆4K",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "my_Luck",
-          "name": "🍀┆青禾┆4K",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "my_KaiFan",
           "name": "🍚┆开饭┆4K",
           "type": 3
@@ -42508,13 +42459,6 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "my_余温",
-          "name": "🧣┆余温┆4K",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "my_夜猫",
           "name": "🦉┆夜猫┆4K",
           "type": 3
@@ -42559,13 +42503,6 @@
           "reason": "JAR and class verified; requires TVBox playback check",
           "key": "my_云岫",
           "name": "⛰️┆云岫┆4K",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "my_zhiqiu",
-          "name": "☘️┆听风┆知秋",
           "type": 3
         },
         {
@@ -43097,7 +43034,7 @@
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
           "key": "wex_Doubanaaaa",
-          "name": "🐮【更新日期:20261123】🐮",
+          "name": "🐮【更新日期:20261124】🐮",
           "type": 3
         },
         {
@@ -43299,13 +43236,6 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "wex_AppV7 | 咸鱼",
-          "name": "💥咸鱼┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "wex_AppV7 | 追剧达人",
           "name": "💥追剧┃秒播💥",
           "type": 3
@@ -43320,29 +43250,8 @@
         {
           "state": "ok",
           "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "wex_AppV7 | 小柠檬",
-          "name": "💥柠檬┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
           "key": "wex_AppV7 | 蒙太奇",
           "name": "💥太奇┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "wex_AppV7 | 零零七影视",
-          "name": "💥零七┃秒播💥",
-          "type": 3
-        },
-        {
-          "state": "ok",
-          "reason": "JAR and class verified; requires TVBox playback check",
-          "key": "wex_AppV7 | 小柿子",
-          "name": "💥柿子┃秒播💥",
           "type": 3
         },
         {
@@ -43484,6 +43393,69 @@
           "key": "wex_AnimeCiYuanCheng",
           "name": "🤡次元┃动漫🤡",
           "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_AnimeAiMoDu",
+          "name": "🤡魔都┃动漫🤡",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_BookHongGuo",
+          "name": "🎃‍小红┃听书🎃",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_BookHeMa",
+          "name": "🎃‍小马┃听书🎃",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_BookAiYueTing",
+          "name": "🎃‍悦庭┃听书🎃",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_BookAi23TingShu",
+          "name": "🎃‍爱上┃听书🎃",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_ChildrenAiBaoBao",
+          "name": "👼宝宝┃儿歌👼",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_ChildrenAiBeiWa",
+          "name": "👼贝贝┃儿歌👼",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_ChildrenAiTuTu",
+          "name": "👼兔兔┃儿歌👼",
+          "type": 3
+        },
+        {
+          "state": "ok",
+          "reason": "JAR and class verified; requires TVBox playback check",
+          "key": "wex_MusicAiTangDou",
+          "name": "💃跳舞┃教学💃",
+          "type": 3
         }
       ],
       "ready_count": 217,
@@ -43503,14 +43475,14 @@
         },
         {
           "state": "ok",
-          "url": "http://oss4liview.moji.com/thd_file/2026/11/23/98f6124357b913bcb47d81339ca7725a.jpg",
+          "url": "http://oss4liview.moji.com/thd_file/2026/11/24/0684202079fbec343ec03f772b72e928.jpg",
           "reason": "",
-          "md5": "924547ec8b148216d7636beb3213b60e"
+          "md5": "d773eab0709f62b0077f8112765eb6d2"
         }
       ],
       "url": "https://gh-proxy.com/https://raw.githubusercontent.com/YiMing918/ym-tvbox/main/peter_tvbox_pro.json",
       "http_status": 200,
-      "elapsed": 0.2075713579999956
+      "elapsed": 0.1042133380000081
     },
     {
       "state": "ready",
@@ -43535,7 +43507,7 @@
       ],
       "url": "https://raw.githubusercontent.com/muninZhang/Tvbox/main/config.json",
       "http_status": 200,
-      "elapsed": 0.14050332700000467
+      "elapsed": 0.09456064100000106
     },
     {
       "state": "ready",
@@ -43548,8 +43520,8 @@
           "type": 1
         },
         {
-          "state": "ok",
-          "reason": "catalog API responds; playback not verified",
+          "state": "unknown",
+          "reason": "<urlopen error _ssl.c:1063: The handshake operation timed out>",
           "key": "cms_aosikazyco_8blcev",
           "name": "🔞奥斯卡",
           "type": 1
@@ -43611,15 +43583,15 @@
           "type": 0
         },
         {
-          "state": "unknown",
-          "reason": "HTTP 500",
+          "state": "ok",
+          "reason": "XML catalog responds; playback not verified",
           "key": "cms_wwwpgxdyco_1yewqo",
           "name": "🔞黄AV",
           "type": 0
         },
         {
-          "state": "unknown",
-          "reason": "The read operation timed out",
+          "state": "ok",
+          "reason": "XML catalog responds; playback not verified",
           "key": "cms_wwwmsniico_1yewqo",
           "name": "🔞美少女",
           "type": 0
@@ -43667,12 +43639,12 @@
           "type": 1
         }
       ],
-      "ready_count": 9,
+      "ready_count": 10,
       "site_count": 18,
       "jars": [],
       "url": "https://raw.githubusercontent.com/jiahua151526-maker/tvbox/main/sites.json",
       "http_status": 200,
-      "elapsed": 0.20667769800000002
+      "elapsed": 0.08803032299999813
     },
     {
       "state": "ready",
@@ -43734,15 +43706,15 @@
           "type": 1
         },
         {
-          "state": "ok",
-          "reason": "catalog API responds; playback not verified",
+          "state": "unknown",
+          "reason": "<urlopen error _ssl.c:1063: The handshake operation timed out>",
           "key": "cms_aosikazyco_y8rqhm",
           "name": "· 奥斯卡",
           "type": 1
         },
         {
-          "state": "ok",
-          "reason": "catalog API responds; playback not verified",
+          "state": "unknown",
+          "reason": "<urlopen error _ssl.c:1063: The handshake operation timed out>",
           "key": "cms_aosikazyco_8blcev",
           "name": "🔞奥斯卡",
           "type": 1
@@ -44203,12 +44175,12 @@
           "type": 1
         }
       ],
-      "ready_count": 11,
+      "ready_count": 9,
       "site_count": 75,
       "jars": [],
       "url": "https://raw.githubusercontent.com/jiahua151526-maker/tvbox/main/ysc_cms.json",
       "http_status": 200,
-      "elapsed": 0.14958878200000214
+      "elapsed": 0.09150474099999428
     },
     {
       "state": "ready",
@@ -44240,7 +44212,7 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/yaosongjin/my-tvbox/main/ysc.json",
       "http_status": 200,
-      "elapsed": 0.1291032470000033
+      "elapsed": 0.06191934599999627
     },
     {
       "state": "ready",
@@ -44664,7 +44636,7 @@
       ],
       "url": "https://raw.githubusercontent.com/laukkw/tvbox/main/tvbox.json",
       "http_status": 200,
-      "elapsed": 0.20062311100000585
+      "elapsed": 0.08127376199999503
     },
     {
       "state": "ready",
@@ -45088,64 +45060,7 @@
       ],
       "url": "http://43.163.203.173/tvbox.json",
       "http_status": 200,
-      "elapsed": 0.3331769819999977
-    },
-    {
-      "state": "invalid",
-      "reason": "sites must be a list",
-      "sites": [],
-      "ready_count": 0,
-      "url": "https://raw.githubusercontent.com/hkuc/tvbox-config/main/tv/1/urls.json",
-      "http_status": 200,
-      "elapsed": 0.35042277899999874
-    },
-    {
-      "url": "https://raw.githubusercontent.com/tv51818/TVbox/master/config.json",
-      "state": "dead",
-      "http_status": 404,
-      "reason": "HTTP 404",
-      "ready_count": 0,
-      "site_count": 0
-    },
-    {
-      "url": "https://raw.githubusercontent.com/tv51818/My-TV/main/ok.json",
-      "state": "dead",
-      "http_status": 404,
-      "reason": "HTTP 404",
-      "ready_count": 0,
-      "site_count": 0
-    },
-    {
-      "url": "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/config.json",
-      "state": "dead",
-      "http_status": 404,
-      "reason": "HTTP 404",
-      "ready_count": 0,
-      "site_count": 0
-    },
-    {
-      "url": "https://raw.githubusercontent.com/wuxierj/TVBox/main/config.json",
-      "state": "dead",
-      "http_status": 404,
-      "reason": "HTTP 404",
-      "ready_count": 0,
-      "site_count": 0
-    },
-    {
-      "url": "https://raw.githubusercontent.com/scovis/TVBox/main/config.json",
-      "state": "dead",
-      "http_status": 404,
-      "reason": "HTTP 404",
-      "ready_count": 0,
-      "site_count": 0
-    },
-    {
-      "url": "https://raw.githubusercontent.com/Zhou-Li-Bin/Tvbox-QingNing/main/config.json",
-      "state": "dead",
-      "http_status": 404,
-      "reason": "HTTP 404",
-      "ready_count": 0,
-      "site_count": 0
+      "elapsed": 0.4744021110000034
     },
     {
       "state": "ready",
@@ -45639,7 +45554,7 @@
       "jars": [],
       "url": "https://raw.githubusercontent.com/z4467/tvbox-config/main/oktv.json",
       "http_status": 200,
-      "elapsed": 0.19544953300000145
+      "elapsed": 0.08303438400000118
     },
     {
       "state": "ready",
@@ -46007,7 +45922,7 @@
       ],
       "url": "https://raw.githubusercontent.com/NavyL/tv-sub/main/tv.json",
       "http_status": 200,
-      "elapsed": 0.14867300899999236
+      "elapsed": 0.07794916600001045
     },
     {
       "state": "ready",
@@ -46774,290 +46689,7 @@
       ],
       "url": "https://raw.githubusercontent.com/JRMargin/tvbox-config/main/config.json",
       "http_status": 200,
-      "elapsed": 0.2719643219999881
-    },
-    {
-      "state": "invalid",
-      "reason": "sites must be a list",
-      "sites": [],
-      "ready_count": 0,
-      "url": "https://raw.githubusercontent.com/passionsu-su/TVbox/main/appletv/apps.json",
-      "http_status": 200,
-      "elapsed": 0.15720739100000003
-    },
-    {
-      "state": "invalid",
-      "reason": "sites must be a list",
-      "sites": [],
-      "ready_count": 0,
-      "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/json/Bili.json",
-      "http_status": 200,
-      "elapsed": 0.1644502479999943
-    },
-    {
-      "state": "invalid",
-      "reason": "invalid TVBox config",
-      "ready_count": 0,
-      "site_count": 0,
-      "url": "https://raw.githubusercontent.com/hkuc/tvbox-config/main/url.json",
-      "http_status": 200,
-      "elapsed": 0.14749788900000738
-    },
-    {
-      "url": "https://raw.githubusercontent.com/tv51818/TVbox/master/ok.json",
-      "state": "dead",
-      "http_status": 404,
-      "reason": "HTTP 404",
-      "ready_count": 0,
-      "site_count": 0
-    },
-    {
-      "url": "https://raw.githubusercontent.com/tv51818/My-TV/main/config.json",
-      "state": "dead",
-      "http_status": 404,
-      "reason": "HTTP 404",
-      "ready_count": 0,
-      "site_count": 0
-    },
-    {
-      "url": "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/tvbox.json",
-      "state": "dead",
-      "http_status": 404,
-      "reason": "HTTP 404",
-      "ready_count": 0,
-      "site_count": 0
-    },
-    {
-      "state": "invalid",
-      "reason": "sites must be a list",
-      "sites": [],
-      "ready_count": 0,
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/wxrjck/-YSC-/refs/heads/main/wx.json",
-      "http_status": 200,
-      "elapsed": 0.11841005899999857
-    },
-    {
-      "url": "https://raw.githubusercontent.com/scovis/TVBox/main/tvbox.json",
-      "state": "dead",
-      "http_status": 404,
-      "reason": "HTTP 404",
-      "ready_count": 0,
-      "site_count": 0
-    },
-    {
-      "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/maoystv/6/main/000.json",
-      "state": "unknown",
-      "http_status": 0,
-      "reason": "<urlopen error [Errno -2] Name or service not known>",
-      "ready_count": 0,
-      "site_count": 0
-    },
-    {
-      "state": "unknown",
-      "sites": [
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "iqiyizyapi_com",
-          "name": "🎬-爱奇艺-",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "caiji_dbzy5_com",
-          "name": "🎬豆瓣资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "caiji_maotaizy_cc",
-          "name": "🎬茅台资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wolongzyw_com",
-          "name": "🎬卧龙资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "ikunzyapi_com",
-          "name": "🎬iKun资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "caiji_dyttzyapi_com",
-          "name": "🎬电影天堂",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "api_maoyanapi_top",
-          "name": "🎬猫眼资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "cj_lzcaiji_com",
-          "name": "🎬量子资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "360zyzz_com",
-          "name": "🎬360 资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "jszyapi_com",
-          "name": "🎬极速资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "www_mdzyapi_com",
-          "name": "🎬魔都资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "api_ffzyapi_com",
-          "name": "🎬非凡资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "bfzyapi_com",
-          "name": "🎬暴风资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "api_zuidapi_com",
-          "name": "🎬最大资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "api_wujinapi_me",
-          "name": "🎬无尽资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "api_xinlangapi_com",
-          "name": "🎬新浪资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "api_wwzy_tv",
-          "name": "🎬旺旺资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "subocaiji_com",
-          "name": "🎬速播资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "jyzyapi_com",
-          "name": "🎬金鹰点播",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "p2100_net",
-          "name": "🎬飘零资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "api_ukuapi88_com",
-          "name": "🎬U酷影视",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "api_guangsuapi_com",
-          "name": "🎬光速资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "www_hongniuzy2_com",
-          "name": "🎬红牛资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "caiji_moduapi_cc",
-          "name": "🎬魔都动漫",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "cj_rycjapi_com",
-          "name": "🎬如意资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "hhzyapi_com",
-          "name": "🎬豪华资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "pz_v88_qzz_io",
-          "name": "🎬百度云zy",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "pz_v88_qzz_io2",
-          "name": "🎬艾旦影视",
-          "type": 3
-        }
-      ],
-      "ready_count": 0,
-      "site_count": 28,
-      "jars": [],
-      "url": "https://raw.githubusercontent.com/z4467/tvbox-config/main/jin18.json",
-      "http_status": 200,
-      "elapsed": 0.14803302900000403
+      "elapsed": 0.11063425499999369
     },
     {
       "state": "ready",
@@ -47292,9 +46924,9 @@
       "jars": [
         {
           "state": "ok",
-          "url": "http://oss4liview.moji.com/thd_file/2026/11/23/98f6124357b913bcb47d81339ca7725a.jpg",
+          "url": "http://oss4liview.moji.com/thd_file/2026/11/24/0684202079fbec343ec03f772b72e928.jpg",
           "reason": "",
-          "md5": "924547ec8b148216d7636beb3213b60e"
+          "md5": "d773eab0709f62b0077f8112765eb6d2"
         },
         {
           "state": "ok",
@@ -47316,25 +46948,203 @@
       ],
       "url": "https://raw.githubusercontent.com/NavyL/tv-sub/main/best.json",
       "http_status": 200,
-      "elapsed": 0.1255681609999897
+      "elapsed": 0.07106963500000063
     },
     {
       "state": "invalid",
       "reason": "sites must be a list",
       "sites": [],
       "ready_count": 0,
-      "url": "https://raw.githubusercontent.com/JRMargin/tvbox-config/main/miraplay.json",
+      "url": "https://raw.githubusercontent.com/hkuc/tvbox-config/main/tv/1/urls.json",
       "http_status": 200,
-      "elapsed": 0.14592114000001288
+      "elapsed": 0.07726086700000678
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tv51818/TVbox/master/config.json",
+      "state": "dead",
+      "http_status": 404,
+      "reason": "HTTP 404",
+      "ready_count": 0,
+      "site_count": 0
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tv51818/My-TV/main/ok.json",
+      "state": "dead",
+      "http_status": 404,
+      "reason": "HTTP 404",
+      "ready_count": 0,
+      "site_count": 0
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/config.json",
+      "state": "dead",
+      "http_status": 404,
+      "reason": "HTTP 404",
+      "ready_count": 0,
+      "site_count": 0
+    },
+    {
+      "url": "https://raw.githubusercontent.com/wuxierj/TVBox/main/config.json",
+      "state": "dead",
+      "http_status": 404,
+      "reason": "HTTP 404",
+      "ready_count": 0,
+      "site_count": 0
+    },
+    {
+      "url": "https://raw.githubusercontent.com/scovis/TVBox/main/config.json",
+      "state": "dead",
+      "http_status": 404,
+      "reason": "HTTP 404",
+      "ready_count": 0,
+      "site_count": 0
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Zhou-Li-Bin/Tvbox-QingNing/main/config.json",
+      "state": "dead",
+      "http_status": 404,
+      "reason": "HTTP 404",
+      "ready_count": 0,
+      "site_count": 0
     },
     {
       "state": "invalid",
       "reason": "sites must be a list",
       "sites": [],
       "ready_count": 0,
-      "url": "https://raw.githubusercontent.com/passionsu-su/TVbox/main/sources/catalog.json",
+      "url": "https://raw.githubusercontent.com/MacScannerPro/tvboxremote/main/manifest.json",
       "http_status": 200,
-      "elapsed": 0.1761494489999933
+      "elapsed": 0.071594091999998
+    },
+    {
+      "state": "invalid",
+      "reason": "sites must be a list",
+      "sites": [],
+      "ready_count": 0,
+      "url": "https://raw.githubusercontent.com/binchen6/Liuguang-Cinema/main/global.json",
+      "http_status": 200,
+      "elapsed": 0.09703823299999215
+    },
+    {
+      "state": "invalid",
+      "reason": "sites must be a list",
+      "sites": [],
+      "ready_count": 0,
+      "url": "https://raw.githubusercontent.com/Sa1koro/yingzhou/main/docs/design/tokens.json",
+      "http_status": 200,
+      "elapsed": 0.084866581
+    },
+    {
+      "state": "invalid",
+      "reason": "sites must be a list",
+      "sites": [],
+      "ready_count": 0,
+      "url": "https://raw.githubusercontent.com/ouyushan/tvbox-cfg/main/config/live.json",
+      "http_status": 200,
+      "elapsed": 0.07785795799999562
+    },
+    {
+      "state": "invalid",
+      "reason": "sites must be a list",
+      "sites": [],
+      "ready_count": 0,
+      "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/json/Bili.json",
+      "http_status": 200,
+      "elapsed": 0.043226918000002
+    },
+    {
+      "state": "invalid",
+      "reason": "invalid TVBox config",
+      "ready_count": 0,
+      "site_count": 0,
+      "url": "https://raw.githubusercontent.com/hkuc/tvbox-config/main/url.json",
+      "http_status": 200,
+      "elapsed": 0.08471060499999794
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tv51818/TVbox/master/ok.json",
+      "state": "dead",
+      "http_status": 404,
+      "reason": "HTTP 404",
+      "ready_count": 0,
+      "site_count": 0
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tv51818/My-TV/main/config.json",
+      "state": "dead",
+      "http_status": 404,
+      "reason": "HTTP 404",
+      "ready_count": 0,
+      "site_count": 0
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/tvbox.json",
+      "state": "dead",
+      "http_status": 404,
+      "reason": "HTTP 404",
+      "ready_count": 0,
+      "site_count": 0
+    },
+    {
+      "state": "invalid",
+      "reason": "sites must be a list",
+      "sites": [],
+      "ready_count": 0,
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/wxrjck/-YSC-/refs/heads/main/wx.json",
+      "http_status": 200,
+      "elapsed": 0.14839018800000758
+    },
+    {
+      "url": "https://raw.githubusercontent.com/scovis/TVBox/main/tvbox.json",
+      "state": "dead",
+      "http_status": 404,
+      "reason": "HTTP 404",
+      "ready_count": 0,
+      "site_count": 0
+    },
+    {
+      "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/maoystv/6/main/000.json",
+      "state": "unknown",
+      "http_status": 0,
+      "reason": "<urlopen error [Errno -2] Name or service not known>",
+      "ready_count": 0,
+      "site_count": 0
+    },
+    {
+      "state": "invalid",
+      "reason": "sites must be a list",
+      "sites": [],
+      "ready_count": 0,
+      "url": "https://raw.githubusercontent.com/ZHOUYU86/tvbox-sources/main/all.json",
+      "http_status": 200,
+      "elapsed": 0.07302199600000847
+    },
+    {
+      "state": "invalid",
+      "reason": "sites must be a list",
+      "sites": [],
+      "ready_count": 0,
+      "url": "https://raw.githubusercontent.com/binchen6/Liuguang-Cinema/main/src/TV/packages.lock.json",
+      "http_status": 200,
+      "elapsed": 0.07908046199999319
+    },
+    {
+      "state": "invalid",
+      "reason": "sites must be a list",
+      "sites": [],
+      "ready_count": 0,
+      "url": "https://raw.githubusercontent.com/Sa1koro/yingzhou/main/client/web/manifest.json",
+      "http_status": 200,
+      "elapsed": 0.08170381499999735
+    },
+    {
+      "state": "invalid",
+      "reason": "sites must be a list",
+      "sites": [],
+      "ready_count": 0,
+      "url": "https://raw.githubusercontent.com/ouyushan/tvbox-cfg/main/sources/vod.json",
+      "http_status": 200,
+      "elapsed": 0.08676490199999876
     },
     {
       "state": "invalid",
@@ -47343,7 +47153,7 @@
       "ready_count": 0,
       "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/json/wogg.json",
       "http_status": 200,
-      "elapsed": 0.2123042340000012
+      "elapsed": 0.04624237900000594
     },
     {
       "url": "http://xxx.com/tvbox.json",
@@ -47360,74 +47170,11 @@
       "ready_count": 0,
       "url": "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/%E8%87%AA%E7%94%A8%E5%A4%9A%E4%BB%93.json",
       "http_status": 200,
-      "elapsed": 0.1659920120000038
-    },
-    {
-      "url": "https://git.acwing.com/shhentu/lzxw/-/raw/main/Monster.json",
-      "state": "unknown",
-      "http_status": 403,
-      "reason": "HTTP 403",
-      "ready_count": 0,
-      "site_count": 0
-    },
-    {
-      "state": "unknown",
-      "sites": [
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "maotai",
-          "name": "茅台资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "zy360",
-          "name": "360资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "zuidazy",
-          "name": "最大资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "wujin",
-          "name": "无尽资源",
-          "type": 3
-        },
-        {
-          "state": "unknown",
-          "reason": "client-specific JS/Python/plugin interface; not executed",
-          "key": "guangsu",
-          "name": "光速资源",
-          "type": 3
-        }
-      ],
-      "ready_count": 0,
-      "site_count": 5,
-      "jars": [],
-      "url": "https://raw.githubusercontent.com/z4467/tvbox-config/main/test5.json",
-      "http_status": 200,
-      "elapsed": 0.15003163699999789
-    },
-    {
-      "state": "invalid",
-      "reason": "sites must be a list",
-      "sites": [],
-      "ready_count": 0,
-      "url": "https://raw.githubusercontent.com/NavyL/tv-sub/main/lives.json",
-      "http_status": 200,
-      "elapsed": 0.33740819199999805
+      "elapsed": 0.07881993700000578
     }
   ],
   "discovery_warnings": [],
-  "added_sources": 4,
+  "added_sources": 0,
   "selected_source": "https://6800.kstore.vip/fish.json",
   "config_changed": false,
   "decision": "refresh source as a complete bundle; exclude unverified sites"

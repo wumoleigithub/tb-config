@@ -88,7 +88,7 @@
     "state": "invalid"
   },
   "http://www.mpanso.com/小米/DEMO.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "http://tvbox.xn--4kq62z5rby2qupq9ub.top/": {
@@ -132,27 +132,27 @@
     "state": "invalid"
   },
   "https://raw.githubusercontent.com/tv51818/TVbox/master/config.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/tv51818/My-TV/main/ok.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/config.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/wuxierj/TVBox/main/config.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/scovis/TVBox/main/config.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/Zhou-Li-Bin/Tvbox-QingNing/main/config.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/joelee7928/tvbox/main/all.json": {
@@ -192,15 +192,15 @@
     "state": "invalid"
   },
   "https://raw.githubusercontent.com/tv51818/TVbox/master/ok.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/tv51818/My-TV/main/config.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/tvbox.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "https://gh-proxy.com/https://raw.githubusercontent.com/wxrjck/-YSC-/refs/heads/main/wx.json": {
@@ -208,7 +208,7 @@
     "state": "invalid"
   },
   "https://raw.githubusercontent.com/scovis/TVBox/main/tvbox.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "https://github.moeyy.xyz/https://raw.githubusercontent.com/maoystv/6/main/000.json": {
@@ -244,7 +244,7 @@
     "state": "ready"
   },
   "http://xxx.com/tvbox.json": {
-    "missing_count": 13,
+    "missing_count": 14,
     "state": "dead"
   },
   "https://raw.githubusercontent.com/Newtxin/TVBoxSource/main/%E8%87%AA%E7%94%A8%E5%A4%9A%E4%BB%93.json": {
@@ -632,6 +632,18 @@
     "state": "unknown"
   },
   "https://raw.githubusercontent.com/NavyL/tv-sub/main/lives.json": {
+    "missing_count": 0,
+    "state": "invalid"
+  },
+  "https://raw.githubusercontent.com/MacScannerPro/tvboxremote/main/manifest.json": {
+    "missing_count": 0,
+    "state": "invalid"
+  },
+  "https://raw.githubusercontent.com/binchen6/Liuguang-Cinema/main/global.json": {
+    "missing_count": 0,
+    "state": "invalid"
+  },
+  "https://raw.githubusercontent.com/binchen6/Liuguang-Cinema/main/src/TV/packages.lock.json": {
     "missing_count": 0,
     "state": "invalid"
   }

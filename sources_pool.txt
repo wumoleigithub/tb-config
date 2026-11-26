@@ -130,3 +130,11 @@ https://raw.githubusercontent.com/luoliphysics/TVBOX/main/m.json
 https://raw.githubusercontent.com/zheng197600/tvbox/main/0820.json
 https://raw.githubusercontent.com/luoliphysics/TVBOX/main/18a.json
 https://raw.githubusercontent.com/zheng197600/tvbox/main/0821.json
+
+# 自动发现：配置及至少一个站点依赖检查通过；播放需在客户端验证
+https://raw.githubusercontent.com/simonlin661107/tvbox/main/mix.json
+https://raw.githubusercontent.com/58285474/tvbox/main/output/4k.json
+https://raw.githubusercontent.com/jovian-zhibai/tvbox-sync-config/main/output/fish.json
+https://raw.githubusercontent.com/simonlin661107/tvbox/main/base.json
+https://raw.githubusercontent.com/58285474/tvbox/main/output/easy.json
+https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/%E5%8D%95%E4%BB%93%E8%81%9A%E5%90%88.json

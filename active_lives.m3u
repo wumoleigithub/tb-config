@@ -12,7 +12,7 @@ http://107.150.60.122/live/cctv5hd.m3u8
 #EXTINF:-1 tvg-name="CCTV5+体育赛事" group-title="央视频道",CCTV5+体育赛事
 http://38.75.136.137:98/gslb/dsdqbv/cctv5p.m3u8?auth=test20251009
 #EXTINF:-1 tvg-name="CCTV6电影" group-title="央视频道",CCTV6电影
-http://69.30.245.50/live/cctv6.m3u8
+http://74.91.26.218:82/live/cctv6hd.m3u8
 #EXTINF:-1 tvg-name="CCTV7国防军事" group-title="央视频道",CCTV7国防军事
 http://74.91.26.218:82/live/cctv7hd.m3u8
 #EXTINF:-1 tvg-name="CCTV8电视剧" group-title="央视频道",CCTV8电视剧
@@ -76,7 +76,7 @@ http://63.141.230.178:82/gslb/zbdq5.m3u8?id=sxwshd
 #EXTINF:-1 tvg-name="陕西卫视" group-title="卫视频道",陕西卫视
 http://192.151.150.154/live/snwshd.m3u8
 #EXTINF:-1 tvg-name="黑龙江卫视" group-title="卫视频道",黑龙江卫视
-http://107.150.60.122/live/hljwshd.m3u8
+http://38.75.136.137:98/gslb/dsdqpub/hljwshd.m3u8?auth=testpub
 #EXTINF:-1 tvg-name="吉林卫视" group-title="卫视频道",吉林卫视
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jlwshd
 #EXTINF:-1 tvg-name="贵州卫视" group-title="卫视频道",贵州卫视
@@ -105,6 +105,8 @@ https://globallive.tdm.com.mo/ch1/ch1.live/playlist.m3u8
 https://globallive.tdm.com.mo/ch5/info_ch5.live/playlist.m3u8
 #EXTINF:-1 tvg-id="澳门综艺" tvg-name="澳门综艺" group-title="港澳中文",澳门综艺
 https://globallive.tdm.com.mo/ch6/hd_ch6.live/playlist.m3u8
+#EXTINF:-1 tvg-id="澳门莲花" tvg-name="澳门莲花" group-title="港澳中文",澳门莲花
+https://tv123.cc.cd/live.php?ch=414&sid=d1cd8a0ab43dedb2d002d7ba535ad04a&exp=1795732924&sig=81335a47d82fa92da0daa5562b9b93aeae7299aab6ad87efa1cd0dd64a32e61f
 #EXTINF:-1 tvg-id="凤凰资讯" tvg-name="凤凰资讯" tvg-logo="https://live.fanmingming.cn/tv/凤凰卫视资讯台.png" group-title="港澳中文",凤凰资讯
 http://43.152.224.209/qctv.fengshows.cn/live/0701pin72.flv
 #EXTINF:-1 tvg-id="台视新闻" tvg-name="台视新闻" tvg-logo="https://i.imgur.com/AfkK0gv.png" group-title="台湾中文",台视新闻

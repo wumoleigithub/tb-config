@@ -138,3 +138,10 @@ https://raw.githubusercontent.com/jovian-zhibai/tvbox-sync-config/main/output/fi
 https://raw.githubusercontent.com/simonlin661107/tvbox/main/base.json
 https://raw.githubusercontent.com/58285474/tvbox/main/output/easy.json
 https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/%E5%8D%95%E4%BB%93%E8%81%9A%E5%90%88.json
+
+# 自动发现：配置及至少一个站点依赖检查通过；播放需在客户端验证
+https://raw.githubusercontent.com/qingb188/tvbox/main/tvbox-app-premium-v5.json
+https://raw.githubusercontent.com/gaijinxiang/wmz-five-src/main/index.json
+https://raw.githubusercontent.com/qingb188/tvbox/main/tvbox-app-premium-v5.2.json
+https://raw.githubusercontent.com/gaijinxiang/wmz-five-src/main/config.json
+https://raw.githubusercontent.com/qingb188/tvbox/main/tvbox-app-premium-v5.3.json
